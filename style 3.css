@@ -1,5 +1,5 @@
 .wrapper {
-    width: 400px;
+    width: 100%;
     height: 575px;
     text-align: center;
 }
@@ -9,6 +9,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.guess {
+    display: none;
 }
 
 .letterBox {
@@ -21,7 +25,8 @@
 }
 
 .letterBoxClosed {
-    height: 0;
+    /* height: 0; */
+    transform: scale(1, .01);
     width: 3em;
     text-transform: capitalize;
     display: flex;
@@ -33,35 +38,40 @@
     transition: background-color var(--transitionInterval),
                 color var(--transitionInterval),
                 color var(--transitionInterval),
-                height var(--transitionInterval);
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
 }
 
 .letter2 {
     transition: background-color var(--transitionInterval),
                 color var(--transitionInterval),
                 color var(--transitionInterval),
-                height var(--transitionInterval);
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
 }
 
 .letter3 {
     transition: background-color var(--transitionInterval),
                 color var(--transitionInterval),
                 color var(--transitionInterval),
-                height var(--transitionInterval);
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
 }
 
 .letter4 {
     transition: background-color var(--transitionInterval),
                 color var(--transitionInterval),
                 color var(--transitionInterval),
-                height var(--transitionInterval);
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
 }
 
 .letter5 {
     transition: background-color var(--transitionInterval),
                 color var(--transitionInterval),
                 color var(--transitionInterval),
-                height var(--transitionInterval);
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
 }
 
 .wordGrid {
@@ -100,8 +110,8 @@
 .keyboardRow3 {
     justify-self: center;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    column-gap: 4px;
+    grid-template-columns: repeat(11, 1fr);
+    column-gap: 8px;
 }
 
 .keyboardLetter {
@@ -126,10 +136,12 @@
 
 .enter {
     width: 50px;
+    grid-column: span 2;
 }
 
 .delete {
     width: 50px;
+    grid-column: span 2;
 }
 
 .clearText {
@@ -169,7 +181,11 @@
     /* white; */
 }
 
+/* @media screen and (max-width: 880px) {
+
+} */
+
 :root {
-    /* --transitionInterval: 0s; */
-    --transitionInterval: .3s;
+    --transitionInterval: .2s;
+    /* --transitionInterval: .15s; */
 }

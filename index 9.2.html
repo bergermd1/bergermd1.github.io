@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style 3.css">
+</head>
+
+<body>
+    <script src="script 2.js"></script>
+    <div class="wrapper">
+        <div>
+            <button onclick="newGame()" id="newGame">New Game</button>
+        </div>
+        <div>
+            <p id='gameMessage'></p>
+        </div>
+        <!-- <div>
+            <input type="text" id="guess" maxlength="5">
+            <button id='submit' onclick="checkWord()">Submit</button>
+        </div> -->
+        
+        <div class="wordGrid" id="wordGrid">
+        </div>
+        <br>
+        <div class="keyboardBox" id="keyboardBox">
+        </div>
+    </div>
+    
+    <script>
+        let currentGuess = ``;
+        wordGridHTML = ``;
+        for (let row = 1; row <= 6; row++) {
+            for (let column = 1; column <= 5; column++) {
+                wordGridHTML += `<div class="letterBoxWrapper">
+                    <div class="letterBox white letter${column}" id="row${row}Letter${column}"></div>
+                    </div>`;
+                }
+            }
+        const keyboardRow1 = ["Q","W","E","R","T","Y","U","I","O","P"];
+        const keyboardRow2 = ["A","S","D","F","G","H","J","K","L"];
+        const keyboardRow3 = ["Z","X","C","V","B","N","M"];
+        keyboardHTML = `<div class="keyboardRow1">`;
+        for (let i = 0; i < 10; i++) {
+            keyboardHTML += `<button onclick="keyboardInput(keyboardRow1[${i}])" class="keyboardLetter" id="letter${keyboardRow1[i]}">${keyboardRow1[i]}</button>`;
+        }
+        keyboardHTML += `</div><div class="keyboardRow2">`;
+        for (let i = 0; i < 9; i++) {
+            keyboardHTML += `<button onclick="keyboardInput(keyboardRow2[${i}])" class="keyboardLetter" id="letter${keyboardRow2[i]}">${keyboardRow2[i]}</button>`;
+        }
+        keyboardHTML += `</div><div class="keyboardRow3"><button onclick="checkWord()" class="keyboardLetter enter">Enter</button>`;
+        for (let i = 0; i < 7; i++) {
+            keyboardHTML += `<button onclick="keyboardInput(keyboardRow3[${i}])" class="keyboardLetter" id="letter${keyboardRow3[i]}">${keyboardRow3[i]}</button>`;
+        }
+        keyboardHTML += `<button onclick="deleteLetter()" class="keyboardLetter delete">Delete</button></div>`;
+        
+        setHTML('wordGrid', wordGridHTML);
+        setHTML('keyboardBox', keyboardHTML);
+        
+        newGame();
+        
+        const input = document.getElementById(`guess`);
+        
+        window.addEventListener(`keydown`, function(event) {
+            //console.log(event.code);
+            const regex = /Key[A-Z]/
+            console.log(event.code);
+            if (event.code.search(regex) >= 0 && currentGuess.length <= 4 && gameActive) {
+                let row = `row${getCurrentGuessNumber()}`;
+                let letter = currentGuess.length + 1;
+                setHTML(`${row}Letter${letter}`, event.code.slice(3,4));
+                currentGuess += event.code.slice(3,4);
+                console.log(currentGuess);
+            }
+            if (event.code == "Enter") {
+                event.preventDefault();
+                //if (document.activeElement == document.getElementById(`guess`) && gameActive) {/////come back to this? maybe a check that New Game is not in focus here
+                if (gameActive) {
+                    checkWord();
+                }
+                if (document.activeElement == document.getElementById(`newGame`)) {
+                    newGame();
+                }
+            }
+            if (event.code == "Backspace") {
+                if (currentGuess.length > 0) {
+                    let row = `row${getCurrentGuessNumber()}`;
+                    const letter = currentGuess.length;
+                    setHTML(`${row}Letter${letter}`, ``);
+                    currentGuess = currentGuess.slice(0, currentGuess.length - 1);
+                }
+            }
+        });
+                                    
+        function checkWord() {
+        if (gameActive) {
+            gameActive = false;
+            document.getElementById(`newGame`).disabled = true;
+            setHTML("gameMessage", `...`);
+            const guess = currentGuess.toLowerCase();
+            const cssTransitionInterval = getComputedStyle(document.body).getPropertyValue('--transitionInterval');
+            const transitionInterval = Number(cssTransitionInterval.slice(0, cssTransitionInterval.length-1))*1000;
+            if (validateWord(guess)) {
+                let row = `row${getCurrentGuessNumber()}`;
+                const rowArray = checkEnteredWord(guess);
+                for (let i = 1; i <= 5; i++) {
+                    setTimeout(() => {setClassName(`${row}Letter${i}`,
+                    getClassName(`${row}Letter${i}`).replace(`letterBox`, `letterBoxClosed`));},
+                    2*(i-1)*transitionInterval);
+                    const currentKeyboardLetterClass = getClassName(`letter${guess.slice(i-1, i).toUpperCase()}`); 
+                    if (rowArray[i-1] == 2) {
+                        setTimeout(() => {
+                            setClassName(`${row}Letter${i}`,
+                            `letterBox green opaqueText letter${i}`);
+                            setClassName(`letter${guess.slice(i-1, i).toUpperCase()}`,
+                            'keyboardLetter keyboardLetterGreen')
+                        }, (2*(i-1)+1)*transitionInterval);
+                    } else if (rowArray[i-1] == 1) {
+                        setTimeout(() => {
+                            setClassName(`${row}Letter${i}`,
+                            `letterBox yellow opaqueText letter${i}`);
+                            if (currentKeyboardLetterClass.indexOf(`keyboardLetterGreen`) == -1) {
+                                setClassName(`letter${guess.slice(i-1, i).toUpperCase()}`,
+                                'keyboardLetter keyboardLetterYellow');
+                            }   
+                        }, (2*(i-1)+1)*transitionInterval);
+                    } else {
+                        setTimeout(() => {
+                            // setHTML((`${row}Letter${i}`), guess.slice(i-1, i));
+                            setClassName(`${row}Letter${i}`, `letterBox grey opaqueText letter${i}`);
+                            if (currentKeyboardLetterClass.indexOf(`keyboardLetterGreen`) == -1 &&
+                            currentKeyboardLetterClass.indexOf(`keyboardLetterYellow`) == -1) {
+                                setClassName(`letter${guess.slice(i-1, i).toUpperCase()}`,
+                                'keyboardLetter keyboardLetterGrey');
+                            }
+                        }, (2*(i-1)+1)*transitionInterval);
+                    }
+                    setTimeout(() => {
+                        setHTML((`${row}Letter${i}`), guess.slice(i-1, i));
+                    }, (2*(i-1)+1)*transitionInterval + 40);
+                }
+                
+                if (!(rowArray.includes(0) || rowArray.includes(1))) {
+                    setTimeout(() => {
+                        setHTML("gameMessage", `You win, click New Game to play again!`);
+                    }, 10*transitionInterval);
+                } else if (getCurrentGuessNumber() < 7) {
+                    setTimeout(() => {
+                        setHTML("gameMessage", `Guess number ${getCurrentGuessNumber()}`);
+                        gameActive = true;
+                    }, 10*transitionInterval);
+                } else {
+                    setTimeout(() => {
+                        setHTML("gameMessage", `The word was ${getCurrentGameWord().toUpperCase()}, click New Game to play again!`);
+                    }, 10*transitionInterval);
+                }
+                setTimeout(() => {
+                    document.getElementById("newGame").disabled = false;
+                }, 10*transitionInterval);
+            } else {
+                setHTML("gameMessage",'Invalid word');
+                gameActive = true;
+                document.getElementById("newGame").disabled = false;
+                currentGuess = ``;
+                for (let i = 1; i <= 5; i++) {
+                    document.getElementById(`row${getCurrentGuessNumber()}Letter${i}`).innerHTML = ``;
+                }
+            }
+            currentGuess = ``;
+        }
+    }
+    
+    function newGame() {
+        gameActive = true;
+        document.getElementById(`newGame`).blur();
+        currentGuess = '';
+        /////setTimeout(() => {
+        /////    document.getElementById('guess').focus();
+        /////}, 500);///Use a promise here???
+        //Pressing Enter activates the submit button only if the text box is in focus.
+        //This timeout attempts to make sure the "text box is active" check takes place before
+        //the focus is moved back to the text box for a new game
+        resetCurrentGuessNumber();
+        setRandomGameWord();
+        console.log(getCurrentGameWord());
+        // gameActive = true;/////Delete this, there's one above
+        document.getElementById("gameMessage").innerHTML = `Guess number 1`;
+        for (let i = 1; i <= 6; i++) {
+            for (let j = 1; j <= 5; j++) {
+                document.getElementById(`row${i}Letter${j}`).innerHTML = ``;
+                document.getElementById(`row${i}Letter${j}`).className = `letterBox white clearText letter${j}`;
+                //set keyboard letters classes to just keyboardLetter
+            }
+        }
+        for (let i = 65; i <= 90; i++) {//Access each keyboard letter by ID using ASCII values A-Z
+            setClassName(`letter${String.fromCharCode(i)}`, `keyboardLetter`);
+        }
+    }
+
+        function keyboardInput(letter) {
+            if (currentGuess.length <= 4) {
+                currentGuess += letter;
+                document.getElementById(`row${getCurrentGuessNumber()}Letter${currentGuess.length}`).innerHTML = letter;
+            }
+        }
+
+        function deleteLetter() {
+            // const guess = document.getElementById('guess').value;
+            currentGuess = currentGuess.slice(0,currentGuess.length-1);
+            document.getElementById(`row${getCurrentGuessNumber()}Letter${currentGuess.length + 1}`).innerHTML = ``;
+            // document.getElementById('guess').focus();
+        }
+
+        function setClassName(elementID, newClassName) {
+            document.getElementById(elementID).className = newClassName;
+        }
+
+        function getClassName(elementID) {
+            return document.getElementById(elementID).className;
+        }
+
+        function setHTML(elementID, newHTML) {
+            document.getElementById(elementID).innerHTML = newHTML;
+        }
+
+    </script>
+
+</body>
