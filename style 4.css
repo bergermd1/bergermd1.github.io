@@ -1,0 +1,193 @@
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: 575px;
+    text-align: center;
+}
+
+.letterBoxWrapper {
+    /* border: solid thin red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess {
+    display: none;
+}
+
+.letterBox {
+    height: 3em;
+    width: 3em;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letterBoxClosed {
+    /* height: 0; */
+    transform: scale(1, .01);
+    width: 3em;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter1 {
+    transition: background-color var(--transitionInterval),
+                color var(--transitionInterval),
+                color var(--transitionInterval),
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
+}
+
+.letter2 {
+    transition: background-color var(--transitionInterval),
+                color var(--transitionInterval),
+                color var(--transitionInterval),
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
+}
+
+.letter3 {
+    transition: background-color var(--transitionInterval),
+                color var(--transitionInterval),
+                color var(--transitionInterval),
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
+}
+
+.letter4 {
+    transition: background-color var(--transitionInterval),
+                color var(--transitionInterval),
+                color var(--transitionInterval),
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
+}
+
+.letter5 {
+    transition: background-color var(--transitionInterval),
+                color var(--transitionInterval),
+                color var(--transitionInterval),
+                /* height var(--transitionInterval); */
+                transform var(--transitionInterval);
+}
+
+.wordGrid {
+    display: grid;
+    width: 300px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.keyboardBox {
+    width: 355px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.keyboardRow1 {
+    display: grid;
+    justify-self: center;
+    grid-template-columns: repeat(10, 1fr);
+    column-gap: 4px;
+}
+
+.keyboardRow2 {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: 4px;
+}
+
+.keyboardRow3 {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    column-gap: 8px;
+}
+
+.keyboardLetter {
+    border: solid thin black;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 1px;
+    /* padding: 3px; */
+}
+
+.keyboardLetterGreen {
+    background-color: #6aaa64;
+}
+
+.keyboardLetterYellow {
+    background-color: #c9b458;
+}
+
+.keyboardLetterGrey {
+    background-color: #787c7e;
+}
+
+.enter {
+    width: 50px;
+    grid-column: span 2;
+}
+
+.delete {
+    width: 50px;
+    grid-column: span 2;
+}
+
+.clearText {
+    color: rgb(223, 221, 221, 0)
+}
+
+.opaqueText {
+    color: rgb(0, 0, 0, 1)
+}
+
+.white {
+    background-color: white;
+    border: #d3d6da solid;
+    color: black;
+}
+
+.grey {
+    background-color: #787c7e;
+    border: #d3d6da solid;
+    color: white;
+}
+
+.yellow {
+    background-color: #c9b458;
+    border: #d3d6da solid;
+    color: white;
+}
+
+.green {
+    background-color: #6aaa64;
+    border: #d3d6da solid;
+    color: white;
+}
+
+.currentGameWord {
+    color: white;
+    /* white; */
+}
+
+/* @media screen and (max-width: 880px) {
+
+} */
+
+:root {
+    --transitionInterval: .2s;
+    /* --transitionInterval: .15s; */
+}
