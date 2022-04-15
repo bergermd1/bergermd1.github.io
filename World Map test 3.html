@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style 2.css">
+    <!-- <script src="svg-pan-zoom.min.js"></script> -->
+    <script src="/svgmap/dist/svg-pan-zoom.min.js"></script>
+    <script src="/svgMap/dist/svgMap.min 2.js"></script>
+    <link href="/svgmap/dist/svgMap.min 3.css" rel="stylesheet">
+    <!-- <script src="World Map test.js"></script> -->
+</head>
+<body>
+    <div class="title-container">
+        <img src="Images/World Map Spices 2.jpg" class="title-image">
+        <h1 class="title">Around the World in 197 Plates</h1>
+    </div>
+    <nav class="navigation">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="/index 3.html">Home</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a href="/donate.html">Donate</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a href="#">World Recipe Map</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a href="/recipe search.html">Recipe Search</a>
+            </li>
+        </ul>
+    </nav>
+    <p>
+        <div id="svgMap"></div>
+    </p>
+    <script>
+        new svgMap({
+    targetElementID: 'svgMap',
+    data: {
+        data: {
+            dishName: {
+                name: 'Dish',
+                // format: '{0} USD',
+                // thousandSeparator: ',',
+                // thresholdMax: 50000,
+                // thresholdMin: 1000
+            },
+            // description: {
+            //     name: 'Description',
+            //     // format: '{0} %'
+            // },
+            link: {
+                name: 'Link',
+                // format: '{0} USD',
+                // thousandSeparator: ',',
+                // thresholdMax: 50000,
+                // thresholdMin: 1000
+            }
+        },
+        applyData: 'link',/////what is this for?
+        values: {
+            AF: {dishName: "Kabuli Pulao", link: "http://www.rehanadujour.com/2014/06/19/the-dance-of-the-kabuli-pulao/"},
+            AL: {dishName: "Tave Kosi", link: "https://www.myalbanianfood.com/recipe/albanian-tave-kosi/"},
+            AO: {dishName: "Muamba de Galinha", link: "https://www.conjuredcravings.com/post/muamba-de-galinha-angolan-chicken-stew"},
+            AT: {dishName: "Weiner Schnitzel", link: "https://www.strudelandschnitzel.com/wiener-schnitzel/?cn-reloaded=1"},
+            AU: {dishName: "Pavlova", link: "https://www.wandercooks.com/easy-australian-pavlova-recipe/"},
+            AZ: {dishName: "Dolmas", link: "https://azcookbook.com/2017/09/15/stuffed-grape-leaves/"},
+            BE: {dishName: "Moules Frites", link: "https://www.abeautifulplate.com/classic-moules-frites/"},
+            BF: {dishName: "Riz Gras", link: "https://allafricandishesng.blogspot.com/2016/11/burkina-faso-recipes-riz-gras-fat-rice.html"},
+            BG: {dishName: "Banitsa", link: "https://tarasmulticulturaltable.com/banitsa-bulgarian-cheese-pie/"},
+            BH: {dishName: "Machboos", link: "https://www.daringgourmet.com/chicken-machboos-bahraini-chicken-rice/"},
+            BO: {dishName: "Saltenas", link: "https://www.mylatinatable.com/bolivian-saltenas/"},
+            BR: {dishName: "Feijoada", link: "https://www.oliviascuisine.com/feijoada-recipe/"},
+            BS: {dishName: "Crack Conch", link: "https://www.trubahamianfoodtours.com/tru-bahamian-must-eats/cracked-conch/"},
+            BT: {dishName: "Ema Datshi", link: "https://www.internationalcuisine.com/ema-datshi/"},
+            BW: {dishName: "Seswaa", link: "https://afrogistmedia.com/seswaa-recipebotswana-pounded-meat/"},
+            BY: {dishName: "Draniki", link: "https://www.belarus.by/en/about-belarus/cuisine/draniki"},
+            BZ: {dishName: "Boil Up", link: "https://www.theellysian.com/blog/how-to-make-belizean-boil-up/"},
+            CD: {dishName: "Poulet à la Moambé", link: "https://www.epersianfood.com/moambe/"},
+            CF: {dishName: "Fufu", link: "https://www.preciouscore.com/water-fufu-cassava-fufu/"},
+            CG: {dishName: "Chicken Moambe", link: "https://explorers.kitchen/recipes/mains/moambe-chicken/"},
+            CL: {dishName: "Empanadas", link: "https://www.chileanfoodandgarden.com/chilean-beef-empanadas/"},
+            CR: {dishName: "Gallo Pinto", link: "https://www.puravidamoms.com/costa-rican-gallo-pinto-recipe/"},
+            CU: {dishName: "Ropa Vieja", link: "https://www.cocoandash.com/ropa-vieja-cuban-shredded-beef-2/"},
+            CY: {dishName: "Souvla", link: "https://costaskitchen.co.uk/lamb-souvla-cypriot-lamb-cooked-on-the-bbq/"},
+            CZ: {dishName: "Vepro Knedlo Zelo", link: "https://www.cooklikeczechs.com/vepro-knedlo-zelo/"},
+            DJ: {dishName: "Skoudehkaris", link: "https://www.marga.org/food/int/djibouti/lamb.html"},
+            DK: {dishName: "Stegt Flaesk", link: "https://www.copenhagenet.dk/CPH-Map/CPH-Recipes-Stegt-Flaesk.asp"},
+            DO: {dishName: "La Bandera", link: "https://www.dominicancooking.com/17570-la-bandera-dominicana-our-traditional-lunch-meal.html"},
+            DZ: {dishName: "Cous Cous", link: "https://www.confessionsofaconfectionista.com/2011/12/algerian-couscous-with-vegetables.html"},
+            EC: {dishName: "Encebollada", link: "https://www.laylita.com/recipes/encebollado-de-pescado-or-tuna-soup/"},
+            EG: {dishName: "Ful Medames", link: "https://www.themediterraneandish.com/foul-mudammas-recipe/"},
+            ER: {dishName: "Zigni and Injera", link: "http://www.eastafro.com/2013/12/30/zigni-and-injera/"},
+            ES: {dishName: "Tortilla Espanola", link: "https://spanishsabores.com/best-spanish-omelet-recipe/"},
+            FI: {dishName: "Karjalanpaisti", link: "https://www.europeancuisines.com/Finland-Finnish-Karelian-Ragout-Karjalan-Paisti-Beef-Lamb-Pork-Slow-Cook-Stew-Recipe"},
+            FJ: {dishName: "Kokoda", link: "https://www.thisislandlife.com/travel/how-to-make-kokoda-recipe/"},
+            FR: {dishName: "Pot-Au-Feu", link: "https://www.jamesbeard.org/recipes/pot-au-feu"},
+            GB: {dishName: "Fish & Chips", link: "https://www.daringgourmet.com/fish-and-chips/"},
+            GE: {dishName: "Khachapuri", link: "https://www.kingarthurbaking.com/recipes/khachapuri-georgian-feast-bread-recipe"},
+            GH: {dishName: "Fufu", link: "https://cheflolaskitchen.com/plantain-fufu/"},
+            GM: {dishName: "Benachin", link: "http://www.mygambiankitchen.com/benachin-jen/"},
+            GN: {dishName: "Chicken Yassa", link: "https://www.africanbites.com/yassa-chickenpoulet-au-yassa/"},
+            GQ: {dishName: "Succotash", link: "https://naptimeprepcook.wordpress.com/2018/10/02/equatorial-guinea-%F0%9F%87%AC%F0%9F%87%B6-succotash/"},
+            GW: {dishName: "Jollof Rice", link: "https://cooking.nytimes.com/recipes/1018069-jollof-rice"},
+            HN: {dishName: "Baleadas", link: "https://www.onehappyhousewife.com/honduran-baleadas/"},
+            HT: {dishName: "Rice and Beans", link: "http://loveforhaitianfood.com/diri-kole-ak-pwa-wouj-red-beans-and-rice-2/"},
+            HU: {dishName: "Goulash", link: "https://www.spendwithpennies.com/hungarian-goulash/"},
+            ID: {dishName: "Soto", link: "https://glebekitchen.com/soto-ayam-indonesian-chicken-noodle-soup/"},
+            IE: {dishName: "Irish Stew", link: "https://www.simplyrecipes.com/recipes/irish_beef_stew/"},
+            IQ: {dishName: "Masgouf", link: "https://cardamomandtea.com/341/masgouf/"},
+            IR: {dishName: "Abgoosht", link: "https://www.welcometoiran.com/abgousht-qonabid-qonabid-broth/"},
+            IT: {dishName: "Pasta", link: ""},
+            KG: {dishName: "Beshbarmak", link: "https://ingmar.app/blog/recipe-the-national-dish-of-kyrgyzstan-besh-barmak/"},
+            KW: {dishName: "Machboos", link: "https://ingmar.app/blog/recipe-national-dish-of-kuwait-machboos-laham/"},
+            KZ: {dishName: "Beshbarmak", link: "https://foodperestroika.com/2015/11/09/beshbarmak-kazakhstans-national-dish/"},
+            LI: {dishName: "Kasknopfle", link: "https://ethnicfoodsrus.com/around-the-world-recipes/smallest-countries-worldwide-cuisines/liechtensteiner-cuisine/tri-cheese-pasta-with-onion-kasknopfle/"},
+            LK: {dishName: "Rice and Curry", link: "https://www.theflavorbender.com/sri-lankan-chicken-curry/#wprm-recipe-container-22262"},
+            LS: {dishName: "Chakalaka", link: "https://www.africanbites.com/chakalaka/"},
+            LT: {dishName: "Cepelinai", link: "http://lithuanianhomecooking.com/home/time-for-cepelinai"},
+            LV: {dishName: "Potato Panckes", link: "https://latvianmom.com/2017/06/17/savory-potato-pancakes/"},
+            LY: {dishName: "Bazeen", link: "http://libyanfood.blogspot.com/2010/08/bazeen.html"},
+            MA: {dishName: "Cous Cous", link: "https://tasteofmaroc.com/moroccan-couscous-with-seven-vegetables/"},
+            MD: {dishName: "Mamaliga", link: "https://www.bakespace.com/recipes/detail/Moldovan-Polenta-~Mamaliga~/64092/"},
+            ME: {dishName: "Kachamak", link: "https://www.soofoodies.com/recipe/kachamak-polenta/"},
+            MG: {dishName: "Romazava", link: "http://aroundtheblockwithjenni.com/blog/2020/5/15/traditional-malagasy-dish-romazava"},
+            MH: {dishName: "Macadamia Nut Pie", link: "https://goodfoodonbadplates.wordpress.com/2016/03/19/too-good-at-least-marshallese-macadamia-nut-pie/"},
+            MK: {dishName: "Tavce Gravce", link: "https://balkanlunchbox.com/pan-baked-beans-balkan-macedonian-baked-beans-tavce-gravce/"},
+            ML: {dishName: "Tiguadege Na", link: "https://diningforwomen.org/recipes/tiguadege-na-meat-in-peanut-sauce/"},
+            MT: {dishName: "Pastizzi", link: "http://tessavalletta.com/2016/04/maltese-pastizzi-recipe/"},
+            MW: {dishName: "Nisima", link: "https://www.openarmsmalawi.org/news/how-i-will-make-a-malawian-themed-meal"},
+            MX: {dishName: "Tacos", link: "https://www.mexicoinmykitchen.com/tacos-al-pastor/"},
+            MY: {dishName: "Nasi Lemak", link: "https://www.allrecipes.com/recipe/78938/malaysian-nasi-lemak/"},
+            MZ: {dishName: "Frango", link: "https://www.africanbites.com/mozambique-peri-peri-grill-chicken/"},
+            NA: {dishName: "Braai", link: "https://braai.com/namibian-chimichurri-steak/"},
+            NE: {dishName: "Djerma Stew", link: "https://whonomstheworld.com/blog/traditional-niger-style-djerma/"},
+            NG: {dishName: "Egusi & Fufu", link: "https://www.allnigerianrecipes.com/soups/egusi-soup/"},
+            NI: {dishName: "Gallo Pinto", link: "https://www.seriouseats.com/recipes/2012/05/gallopinto-nicaraguan-rice-and-beans-recipe.html"},
+            NL: {dishName: "Stamppot", link: "https://www.all-thats-jas.com/dutch-stamppot-vegetable-mash/"},
+            NO: {dishName: "Farikal", link: "https://northwildkitchen.com/farikal-norwegian-lamb-cabbage-stew/"},
+            NP: {dishName: "Dhal Bhat", link: "https://www.archanaskitchen.com/nepalese-style-dhal-bhat-recipe"},
+            NR: {dishName: "Coconut Fried Fish", link: "https://www.internationalcuisine.com/nauru-coconut-crusted-fish/"},
+            NZ: {dishName: "Bacon and Egg Pie", link: "https://eggs.org.nz/recipes/classic-bacon-egg-pie/"},
+            OM: {dishName: "Shuwa", link: "https://www.thasneen.com/cooking/shuwa-slow-cooked-lamb-served-over-aromatic-basmati-rice-omani-delicacy/"},
+            PA: {dishName: "Sancocho", link: "https://www.centralamerica.com/experiencing/eating/panamanian-sancocho-recipe/"},
+            PE: {dishName: "Ceviche", link: "https://www.laylita.com/recipes/peruvian-fish-cebiche-or-ceviche/"},
+            PG: {dishName: "Mumu", link: "https://www.coffeeandvanilla.com/papuan-new-guinean-mumu/"},
+            PH: {dishName: "Adobo", link: "https://panlasangpinoy.com/filipino-chicken-adobo-recipe/"},
+            PK: {dishName: "Seekh Kebab", link: "http://rookiewithacookie.com/pakistani-seekh-kebab-yogurt-raita/"},
+            PY: {dishName: "Sopa Paraguaya", link: "https://www.all-thats-jas.com/paraguayan-cornbread/"},
+            QA: {dishName: "Machboos", link: "https://dohafamily.com/healthy_living/a-taste-of-qatar-chicken-machboos-recipe/"},
+            RO: {dishName: "Mamaliga", link: "https://www.jocooks.com/recipes/traditional-romanian-polenta-mamaliga-cu-branza-in-paturi/"},
+            RS: {dishName: "Cevapcici", link: "https://belgradeatnight.com/how-to-make-cevapicevapcici-recipe/"},
+            RU: {dishName: "Borscht", link: "https://www.willcookforsmiles.com/russian-borscht-recipe/"},
+            RW: {dishName: "Ugali", link: "http://africanproject.weebly.com/food.html"},
+            SB: {dishName: "Poi", link: "https://nationalfoods.org/recipe/national-dish-of-solomon-islands-poi/"},
+            SD: {dishName: "Ful Medames", link: "https://tasteofsouthsudan.com/ful-medames-sudanese-fava-beans/"},
+            SE: {dishName: "Kottbullar", link: "https://www.all-thats-jas.com/swedish-meatballs-recipe/"},
+            SM: {dishName: "Torta Tre Monti", link: "https://www.rosacooking.com/en/waffle-cakes-from-san-marino/"},
+            SV: {dishName: "Pupusa", link: "https://tasty.co/recipe/salvadoran-pupusas-as-made-by-curly-and-his-abuelita"},
+            SY: {dishName: "Kibbeh", link: "https://www.middleeasteye.net/discover/food-recipe-how-make-kibbeh-croquette-fried-aleppo-syria"},
+            TD: {dishName: "Boule & Daraba", link: "https://www.gourmetvegetarians.com/creamy-peanut-vegetable-stew-daraba-chad/"},
+            TG: {dishName: "Ablo & Togolese Chicken", link: "https://ethnicfoodsrus.com/around-the-world-recipes/african-cuisine/togolese-cuisine/ablo/"},
+            TJ: {dishName: "O'sh", link: "https://www.international-alert.org/news/recipes-peace-plov-tajikistan"},
+            TM: {dishName: "Palaw", link: "https://turkmenkitchen.com/en/2011/12/16/turkmen-pilaf/"},
+            TN: {dishName: "Cous Cous", link: "https://forward.com/food/452234/my-aunts-tunisian-couscous-with-beef-i-tweetyourshabbat/"},
+            TR: {dishName: "Doner", link: "https://agoodcarrot.com/chicken-doner-kebab-recipe/"},
+            TZ: {dishName: "Ugali & Maharage", link: "https://ingmar.app/blog/recipe-the-national-dish-of-tanzania-ugali-na-maharage-ya-nazi/"},
+            UG: {dishName: "Matoke", link: "https://www.food.com/recipe/ugandan-matoke-235945#activity-feed"},
+            UY: {dishName: "Chivito", link: "https://blog.amigofoods.com/index.php/other-latin-foods/chivito/"},
+            UZ: {dishName: "Tuy Palovi", link: "https://ingmar.app/blog/recipe-the-national-dish-of-uzbekistan-tuy-palovi-wedding-plov/"},
+            VA: {dishName: "Fettuccini alla Papalina", link: "https://memoriediangelina.com/2009/07/06/fettuccine-alla-papalina/"},
+            VE: {dishName: "Pabellon Criollo", link: "https://venezuelancooking.wordpress.com/2011/12/14/recipe-pabellon-criollo/"},
+            VU: {dishName: "Lap Lap", link: "https://www.rpcvmadison.org/cpages/vanuatu-2015-recipes-lap-lap"},
+            YE: {dishName: "Kabsa", link: "https://amiraspantry.com/chicken-saudi-kabsa/"},
+            YE: {dishName: "Kabsa", link: "https://www.shibam.com/recipes/yemeni-food-kabsa/"},
+            ZA: {dishName: "Bobotie", link: "https://drizzleanddip.com/2018/09/26/traditional-south-african-bobotie-with-fragrant-yellow-rice/"},
+            ZW: {dishName: "Sadza & Dovi", link: "https://www.zimbokitchen.com/how-to-make-plain-sadza/"},
+
+        }
+        // link: 'https://cssscript.com',
+        // linkTarget: '_blank'
+    }
+  });
+    </script>
+</body>

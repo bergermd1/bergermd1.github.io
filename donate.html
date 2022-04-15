@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style 2.css">
+</head>
+<body>
+    <div class="title-container">
+        <img src="Images/World Map Spices 2.jpg" class="title-image">
+        <h1 class="title">Around the World in 197 Plates</h1>
+    </div>
+    <nav class="navigation">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="/index 3.html">Home</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a href="#">Donate</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a href="/World Map test 3.html">World Recipe Map</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a href="/recipe search.html">Recipe Search</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="donatePage-container">
+        <div class="donatePage-container-left">
+          <img src="/Images/Donate page.jpg" class="donate-page-image">
+            <p class="donate-page-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dicta dolor laborum atque excepturi optio natus expedita nulla tempora similique. Quisquam a vero, esse quos unde delectus neque enim deserunt dicta explicabo consequuntur, itaque eveniet dolorem cupiditate id quae numquam laboriosam. Error fugiat nesciunt quaerat eveniet quisquam doloremque. Dolor, quisquam!
+            </p>
+        </div>
+        <div class="donatePage-container-right">
+          <form>
+            <div class="donate-page-inputs">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email"><br><br>
+              </div>
+          </form>
+            <div id="smart-button-container" class="smart-button-container">
+                <!-- <div style="text-align: center;"> -->
+                  <div id="paypal-button-container" class="paypal-button-container"></div>
+                <!-- </div> -->
+              </div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+            <script>
+              function initPayPalButton() {
+                paypal.Buttons({
+                  style: {
+                    shape: 'pill',
+                    color: 'blue',
+                    layout: 'vertical',
+                    label: 'donate',
+                    
+                  },
+          
+                  createOrder: function(data, actions) {
+                    return actions.order.create({
+                      purchase_units: [{"description":"Access to recipe search with $25 donation.","amount":{"currency_code":"USD","value":25,"breakdown":{"item_total":{"currency_code":"USD","value":25}}},"items":[{"name":"item name","unit_amount":{"currency_code":"USD","value":25},"quantity":"1","category":"DONATION"}]}]
+                    });
+                  },
+          
+                  onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+                      
+                      // Full available details
+                      console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+          
+                      // Show a success message within this page, e.g.
+                      const element = document.getElementById('paypal-button-container');
+                      element.innerHTML = '';
+                      element.innerHTML = '<h3>Thank you for your payment!</h3>';
+          
+                      // Or go to another URL:  actions.redirect('thank_you.html');
+                      
+                    });
+                  },
+          
+                  onError: function(err) {
+                    console.log(err);
+                  }
+                }).render('#paypal-button-container');
+              }
+              initPayPalButton();
+            </script>
+</body>
