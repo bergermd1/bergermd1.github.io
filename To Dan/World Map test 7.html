@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style 8.css">
+    <!-- <script src="svg-pan-zoom.min.js"></script> -->
+    <script src="/svgmap/dist/svg-pan-zoom.min.js"></script>
+    <script src="/svgMap/dist/svgMap 4.js"></script>
+    <link href="/svgmap/dist/svgMap 2.css" rel="stylesheet">
+    <!-- <script src="World Map test.js"></script> -->
+</head>
+<body>
+    <div class="title-container">
+        <img src="Images/World Map Spices 2.jpg" class="title-image">
+        <h1 class="title">Around the World in 197 Plates</h1>
+    </div>
+    <nav class="navigation">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a class="nav-item-link" href="/index 3.html">Home</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a class="nav-item-link" href="/donate 3.html">Donate</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a class="nav-item-link" href="#">World Recipe Map</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a class="nav-item-link" href="/recipe search 7.html">Recipe Search</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="info-world-map-container">
+        <div class="dish-info">
+            <p id="dish-info">
+                Hover over a country to see dish information.
+            </p>
+        </div>
+        <div class="world-map">
+            <div id="svgMap"></div>
+        </div>
+    </div>
+    <script>
+        new svgMap({
+    targetElementID: 'svgMap',
+    data: {
+        data: {
+            dishName: {
+                name: 'Dish:',
+                // format: '{0} USD',
+                // thousandSeparator: ',',
+                // thresholdMax: 50000,
+                // thresholdMin: 1000
+            },
+            // description: {
+            //     name: 'Description',
+            //     // format: '{0} %'
+            // },
+            // link: {
+            //     name: 'Link',
+            // },
+            CAREOrigin: {
+                name: 'CARE Origin:'
+            },
+            prepTime: {
+                name: 'Prep Time (min):'
+            },
+            cookTime: {
+                name: 'Cook Time (min):'
+            }
+        },
+        applyData: 'dishName',/////color of country is determined by range of data
+        values: {
+            AF: {
+                dishName: 'Kabuli Pulao',
+                link: 'http://www.rehanadujour.com/2014/06/19/the-dance-of-the-kabuli-pulao/',
+                CAREOrigin: '1961',
+                prepTime: '300',
+                cookTime: '90'
+            },
+            AL: {
+                dishName: 'Tave Kosi',
+                link: 'https://www.myalbanianfood.com/recipe/albanian-tave-kosi/',
+                CAREOrigin: '1993',
+                prepTime: '15',
+                cookTime: '110'
+            },
+            DZ: {
+                dishName: 'Cous Cous',
+                link: 'https://www.confessionsofaconfectionista.com/2011/12/algerian-couscous-with-vegetables.html',
+                CAREOrigin: ' ',
+                prepTime: '40',
+                cookTime: '140'
+            },
+            AO: {
+                dishName: 'Muamba de Galinha',
+                link: 'https://www.conjuredcravings.com/post/muamba-de-galinha-angolan-chicken-stew',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '40'
+            },
+            AG: {
+                dishName: 'Fungee',
+                link: 'https://my.whisk.com/recipes/1013e0f0b3236f7d808934c529ead749eecafa3d262',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '20'
+            },
+            AM: {
+                dishName: 'Khash',
+                link: 'https://thearmeniankitchen.com/khash-brief-history-and-recipe-to-try/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '520'
+            },
+            AU: {
+                dishName: 'Pavlova',
+                link: 'https://www.wandercooks.com/easy-australian-pavlova-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '90'
+            },
+            AT: {
+                dishName: 'Weiner Schnitzel',
+                link: 'https://www.strudelandschnitzel.com/wiener-schnitzel/?cn-reloaded=1',
+                CAREOrigin: ' ',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            AZ: {
+                dishName: 'Dolmas',
+                link: 'https://azcookbook.com/2017/09/15/stuffed-grape-leaves/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '90'
+            },
+            BS: {
+                dishName: 'Crack Conch',
+                link: 'https://www.trubahamianfoodtours.com/tru-bahamian-must-eats/cracked-conch/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '25'
+            },
+            BH: {
+                dishName: 'Machboos',
+                link: 'https://www.daringgourmet.com/chicken-machboos-bahraini-chicken-rice/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '105'
+            },
+            BD: {
+                dishName: 'Rice & Ilish',
+                link: 'https://www.archanaskitchen.com/ilish-pulao-recipe-bengali-style-hilsa-fish-pilaf',
+                CAREOrigin: '1971',
+                prepTime: '5',
+                cookTime: '45'
+            },
+            BY: {
+                dishName: 'Draniki',
+                link: 'https://www.belarus.by/en/about-belarus/cuisine/draniki',
+                CAREOrigin: ' ',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            BE: {
+                dishName: 'Moules Frites',
+                link: 'https://www.abeautifulplate.com/classic-moules-frites/',
+                CAREOrigin: ' ',
+                prepTime: '25',
+                cookTime: '35'
+            },
+            BZ: {
+                dishName: 'Boil Up',
+                link: 'https://www.theellysian.com/blog/how-to-make-belizean-boil-up/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '30'
+            },
+            BJ: {
+                dishName: 'Kuli Kuli',
+                link: 'https://www.kuli-kuli.com/benin/kuli-kuli/by/angela-n-dah-sekou',
+                CAREOrigin: '1999',
+                prepTime: '0',
+                cookTime: '30'
+            },
+            BT: {
+                dishName: 'Ema Datshi',
+                link: 'https://www.internationalcuisine.com/ema-datshi/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '15'
+            },
+            BO: {
+                dishName: 'Silpancho',
+                link: 'https://boliviancookbook.com/main-dishes/silpancho/',
+                CAREOrigin: '1953',
+                prepTime: '20',
+                cookTime: '40'
+            },
+            BW: {
+                dishName: 'Seswaa',
+                link: 'https://afrogistmedia.com/seswaa-recipebotswana-pounded-meat/',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '240'
+            },
+            BR: {
+                dishName: 'Feijoada',
+                link: 'https://www.oliviascuisine.com/feijoada-recipe/',
+                CAREOrigin: '1953',
+                prepTime: '10',
+                cookTime: '250'
+            },
+            BG: {
+                dishName: 'Banitsa',
+                link: 'https://tarasmulticulturaltable.com/banitsa-bulgarian-cheese-pie/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '45'
+            },
+            BF: {
+                dishName: 'Riz Gras',
+                link: 'https://allafricandishesng.blogspot.com/2016/11/burkina-faso-recipes-riz-gras-fat-rice.html',
+                CAREOrigin: '2017',
+                prepTime: '10',
+                cookTime: '40'
+            },
+            BI: {
+                dishName: 'Boko Boko',
+                link: 'https://afrogistmedia.com/boko-boko-harees-recipe-burundian-cuisine',
+                CAREOrigin: '1993',
+                prepTime: '25',
+                cookTime: '60'
+            },
+            KH: {
+                dishName: 'Amok Trey',
+                link: 'https://grantourismotravels.com/cambodian-fish-amok-recipe/',
+                CAREOrigin: '1973',
+                prepTime: '30',
+                cookTime: '30'
+            },
+            CM: {
+                dishName: 'Ndole',
+                link: 'https://eatwellabi.com/ndole-cameroonian-bitter-leaf-stew/',
+                CAREOrigin: '1978',
+                prepTime: '10',
+                cookTime: '35'
+            },
+            CA: {
+                dishName: 'Poutine',
+                link: 'https://www.seasonsandsuppers.ca/authentic-canadian-poutine-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '30'
+            },
+            CF: {
+                dishName: 'Peanut Soup',
+                link: 'http://www.congocookbook.com/soup-and-stew-recipes/peanut-soup/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '40'
+            },
+            TD: {
+                dishName: 'Boule & Daraba',
+                link: 'https://www.gourmetvegetarians.com/creamy-peanut-vegetable-stew-daraba-chad/',
+                CAREOrigin: '1975',
+                prepTime: '15',
+                cookTime: '50'
+            },
+            CL: {
+                dishName: 'Empanadas',
+                link: 'https://www.chileanfoodandgarden.com/chilean-beef-empanadas/',
+                CAREOrigin: ' ',
+                prepTime: '70',
+                cookTime: '35'
+            },
+            CO: {
+                dishName: 'Ajiaco',
+                link: 'https://www.mycolombianrecipes.com/ajiaco-bogotano-colombian-chicken-and/',
+                CAREOrigin: '1954',
+                prepTime: '20',
+                cookTime: '75'
+            },
+            CR: {
+                dishName: 'Gallo Pinto',
+                link: 'https://www.puravidamoms.com/costa-rican-gallo-pinto-recipe/',
+                CAREOrigin: '1957',
+                prepTime: '10',
+                cookTime: '10'
+            },
+            HR: {
+                dishName: 'Zagorski Strukl',
+                link: 'https://www.chasingthedonkey.com/croatian-cooking-zagorski-strukli-zagorje-cheese/',
+                CAREOrigin: '1992',
+                prepTime: '25',
+                cookTime: '25'
+            },
+            CU: {
+                dishName: 'Ropa Vieja',
+                link: 'https://www.cocoandash.com/ropa-vieja-cuban-shredded-beef-2/',
+                CAREOrigin: '1959',
+                prepTime: '20',
+                cookTime: '500'
+            },
+            CY: {
+                dishName: 'Souvla',
+                link: 'https://costaskitchen.co.uk/lamb-souvla-cypriot-lamb-cooked-on-the-bbq/',
+                CAREOrigin: ' ',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            CZ: {
+                dishName: 'Vepro Knedlo Zelo',
+                link: 'https://www.cooklikeczechs.com/vepro-knedlo-zelo/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '150'
+            },
+            CD: {
+                dishName: 'Poulet à la Moambé',
+                link: 'https://www.epersianfood.com/moambe/',
+                CAREOrigin: '1979',
+                prepTime: '10',
+                cookTime: '50'
+            },
+            DK: {
+                dishName: 'Stegt Flaesk',
+                link: 'https://www.copenhagenet.dk/CPH-Map/CPH-Recipes-Stegt-Flaesk.asp',
+                CAREOrigin: '1987',
+                prepTime: '5',
+                cookTime: '50'
+            },
+            DJ: {
+                dishName: 'Skoudehkaris',
+                link: 'https://www.marga.org/food/int/djibouti/lamb.html',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '75'
+            },
+            DM: {
+                dishName: 'Mountain Chicken',
+                link: 'http://www.tastethecaribbean.eu/recipemountainchicken.html',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '40'
+            },
+            DO: {
+                dishName: 'La Bandera',
+                link: 'https://www.dominicancooking.com/17570-la-bandera-dominicana-our-traditional-lunch-meal.html',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '90'
+            },
+            EC: {
+                dishName: 'Encebollado',
+                link: 'https://www.laylita.com/recipes/encebollado-de-pescado-or-tuna-soup/',
+                CAREOrigin: '1951',
+                prepTime: '30',
+                cookTime: '60'
+            },
+            EG: {
+                dishName: 'Koshari',
+                link: 'https://amiraspantry.com/egyptian-koshari/',
+                CAREOrigin: '1954',
+                prepTime: '30',
+                cookTime: '60'
+            },
+            SV: {
+                dishName: 'Pupusa',
+                link: 'https://tasty.co/recipe/salvadoran-pupusas-as-made-by-curly-and-his-abuelita',
+                CAREOrigin: '1955',
+                prepTime: '30',
+                cookTime: '60'
+            },
+            ER: {
+                dishName: 'Zigni and Injera',
+                link: 'http://www.eastafro.com/2013/12/30/zigni-and-injera/',
+                CAREOrigin: ' ',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            ET: {
+                dishName: 'Kitfo',
+                link: 'https://burmaspice.com/recipes/kitfo-ethiopian-steak-tartare/',
+                CAREOrigin: '1984',
+                prepTime: '15',
+                cookTime: '25'
+            },
+            FJ: {
+                dishName: 'Kokoda',
+                link: 'https://www.thisislandlife.com/travel/how-to-make-kokoda-recipe/',
+                CAREOrigin: '1999',
+                prepTime: '15',
+                cookTime: '150'
+            },
+            FI: {
+                dishName: 'Karjalanpaisti',
+                link: 'https://www.europeancuisines.com/Finland-Finnish-Karelian-Ragout-Karjalan-Paisti-Beef-Lamb-Pork-Slow-Cook-Stew-Recipe',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '300'
+            },
+            FR: {
+                dishName: 'Pot-Au-Feu',
+                link: 'https://www.jamesbeard.org/recipes/pot-au-feu',
+                CAREOrigin: '1946',
+                prepTime: '15',
+                cookTime: '340'
+            },
+            GA: {
+                dishName: 'Poulet Nyembwe',
+                link: 'http://www.congocookbook.com/category-chicken-recipes/poulet-moambe-poulet-nyembwe/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '50'
+            },
+            GE: {
+                dishName: 'Khachapuri',
+                link: 'https://www.kingarthurbaking.com/recipes/khachapuri-georgian-feast-bread-recipe',
+                CAREOrigin: '1992',
+                prepTime: '60',
+                cookTime: '30'
+            },
+            DE: {
+                dishName: 'Sauerbraten',
+                link: 'https://www.quick-german-recipes.com/sauerbraten-recipe.html',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '210'
+            },
+            GH: {
+                dishName: 'Waakye',
+                link: 'https://thecanadianafrican.com/waakyeghanaian-rice-and-beans/',
+                CAREOrigin: '1994',
+                prepTime: '0',
+                cookTime: '50'
+            },
+            GR: {
+                dishName: 'Gyro',
+                link: 'https://www.mygreekdish.com/recipe/homemade-greek-chicken-gyro-recipe/',
+                CAREOrigin: '1946',
+                prepTime: '15',
+                cookTime: '90'
+            },
+            GD: {
+                dishName: 'Oil Down',
+                link: 'https://caribbeanpot.com/an-unconventional-grenadian-oil-down/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '40'
+            },
+            GN: {
+                dishName: 'Chicken Yassa',
+                link: 'https://www.africanbites.com/yassa-chickenpoulet-au-yassa/',
+                CAREOrigin: '1990s',
+                prepTime: '15',
+                cookTime: '50'
+            },
+            GW: {
+                dishName: 'Jollof Rice',
+                link: 'https://cooking.nytimes.com/recipes/1018069-jollof-rice',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '30'
+            },
+            GY: {
+                dishName: 'Pepperpot',
+                link: 'https://www.alicaspepperpot.com/pepperpot-on-christmas-morning/',
+                CAREOrigin: ' ',
+                prepTime: '0',
+                cookTime: '195'
+            },
+            HT: {
+                dishName: 'Rice and Beans',
+                link: 'https://loveforhaitianfood.com/recipe/diri-kole-ak-pwa-wouj-red-beans-and-rice/',
+                CAREOrigin: '1954',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            HN: {
+                dishName: 'Baleadas',
+                link: 'https://www.onehappyhousewife.com/honduran-baleadas/',
+                CAREOrigin: '1954',
+                prepTime: '27',
+                cookTime: '32'
+            },
+            HU: {
+                dishName: 'Goulash',
+                link: 'https://www.spendwithpennies.com/hungarian-goulash/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '90'
+            },
+            IN: {
+                dishName: 'Lamb Roganjosh',
+                link: 'https://www.recipetineats.com/rogan-josh/',
+                CAREOrigin: '1950',
+                prepTime: '20',
+                cookTime: '150'
+            },
+            ID: {
+                dishName: 'Soto',
+                link: 'https://glebekitchen.com/soto-ayam-indonesian-chicken-noodle-soup/',
+                CAREOrigin: '1967',
+                prepTime: '20',
+                cookTime: '60'
+            },
+            IR: {
+                dishName: 'Abgoosht',
+                link: 'https://www.welcometoiran.com/abgousht-qonabid-qonabid-broth/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '270'
+            },
+            IQ: {
+                dishName: 'Masgouf',
+                link: 'https://cardamomandtea.com/341/masgouf/',
+                CAREOrigin: '1963',
+                prepTime: '30',
+                cookTime: '30'
+            },
+            IL: {
+                dishName: 'Meorav Yerushalmi',
+                link: 'https://jamiegeller.com/recipes/jerusalem-mixed-grill/',
+                CAREOrigin: ' ',
+                prepTime: '115',
+                cookTime: '20'
+            },
+            IT: {
+                dishName: 'Pasta',
+                link: 'https://memoriediangelina.com/2009/09/11/how-to-make-fresh-egg-pasta/',
+                CAREOrigin: '1946',
+                prepTime: '45',
+                cookTime: '15'
+            },
+            CI: {
+                dishName: 'Kedjenou',
+                link: 'https://www.africanbites.com/kedjenou-chicken/',
+                CAREOrigin: '2000',
+                prepTime: '10',
+                cookTime: '60'
+            },
+            JM: {
+                dishName: 'Ackee & Saltfish',
+                link: 'https://jamaicanfoodsandrecipes.com/jamaican-ackee-and-salt-fish-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '20'
+            },
+            JO: {
+                dishName: 'Mansaf',
+                link: 'https://theodehlicious.com/jordanian-mansaf-recipe/',
+                CAREOrigin: '1960',
+                prepTime: '20',
+                cookTime: '135'
+            },
+            KZ: {
+                dishName: 'Beshbarmak',
+                link: 'https://foodperestroika.com/2015/11/09/beshbarmak-kazakhstans-national-dish/',
+                CAREOrigin: ' ',
+                prepTime: '50',
+                cookTime: '205'
+            },
+            KE: {
+                dishName: 'Sukuma Wiki',
+                link: 'https://www.africanbites.com/sukuma-wiki/',
+                CAREOrigin: '1968',
+                prepTime: '10',
+                cookTime: '20'
+            },
+            KI: {
+                dishName: 'Coconut Curry Lobster',
+                link: 'http://globaltableadventure.com/recipe/roasted-lobster-tails-with-coconut-curry-dipping-sauce/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '10'
+            },
+            XK: {
+                dishName: 'Flija',
+                link: 'https://bakingaround.wordpress.com/2017/03/03/kosovo-flija/',
+                CAREOrigin: '1993',
+                prepTime: '10',
+                cookTime: '50'
+            },
+            KW: {
+                dishName: 'Murabyan',
+                link: 'https://delintia.com/en/murabyan/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '50'
+            },
+            KG: {
+                dishName: 'Laghman',
+                link: 'https://www.diariesofmagazine.com/recipe-laghman-kyrgyzstan/',
+                CAREOrigin: ' ',
+                prepTime: '60',
+                cookTime: '40'
+            },
+            LV: {
+                dishName: 'Layered Rye Bread',
+                link: 'https://www.missfoodwise.com/2017/12/latvian-rye-trifle-visit-riga.html/',
+                CAREOrigin: ' ',
+                prepTime: '0',
+                cookTime: '20'
+            },
+            LB: {
+                dishName: 'Tabboueleh',
+                link: 'https://zaatarandzaytoun.com/tabbouleh/',
+                CAREOrigin: '2006',
+                prepTime: '30',
+                cookTime: '0'
+            },
+            LS: {
+                dishName: 'Chakalaka',
+                link: 'https://www.africanbites.com/chakalaka/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '20'
+            },
+            LR: {
+                dishName: 'Liberian Chicken Gravy',
+                link: 'https://www.africanbites.com/liberian-chicken-gravy/',
+                CAREOrigin: '1961',
+                prepTime: '20',
+                cookTime: '40'
+            },
+            LY: {
+                dishName: 'Bazeen',
+                link: 'http://libyanfood.blogspot.com/2010/08/bazeen.html',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '120'
+            },
+            LT: {
+                dishName: 'Cepelinai',
+                link: 'http://lithuanianhomecooking.com/home/time-for-cepelinai',
+                CAREOrigin: ' ',
+                prepTime: '75',
+                cookTime: '60'
+            },
+            LU: {
+                dishName: 'Judd Mat Gaardebounen',
+                link: 'https://www.luxtimes.lu/en/dining-and-nightlife/local-food-pork-and-bacon-dishes-602d6f6dde135b9236ba2ff6',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '160'
+            },
+            MG: {
+                dishName: 'Romazava',
+                link: 'http://aroundtheblockwithjenni.com/blog/2020/5/15/traditional-malagasy-dish-romazava',
+                CAREOrigin: '1992',
+                prepTime: '25',
+                cookTime: '85'
+            },
+            MW: {
+                dishName: 'Chambo',
+                link: 'https://www.thefooddictator.com/malawi-fried-and-curried-tilapia-chambo/',
+                CAREOrigin: '1998',
+                prepTime: '25',
+                cookTime: '130'
+            },
+            MY: {
+                dishName: 'Nasi Lemak',
+                link: 'https://www.allrecipes.com/recipe/78938/malaysian-nasi-lemak/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '30'
+            },
+            MV: {
+                dishName: 'Garudhiya',
+                link: 'https://nadiyas-tastesofmaldives.blogspot.com/2011/10/garudiya-fish-soup.html',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '25'
+            },
+            ML: {
+                dishName: 'Tiguadege Na',
+                link: 'https://diningforwomen.org/recipes/tiguadege-na-meat-in-peanut-sauce/',
+                CAREOrigin: '1975',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            MT: {
+                dishName: 'Pastizzi',
+                link: 'http://tessavalletta.com/2016/04/maltese-pastizzi-recipe/',
+                CAREOrigin: ' ',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            MH: {
+                dishName: 'Macadamia Nut Pie',
+                link: 'https://goodfoodonbadplates.wordpress.com/2016/03/19/too-good-at-least-marshallese-macadamia-nut-pie/',
+                CAREOrigin: ' ',
+                prepTime: '25',
+                cookTime: '50'
+            },
+            MU: {
+                dishName: 'Octopus Curry',
+                link: 'https://www.thefoodiesvine.com/blog/mauritian-octopus-curry-cari-ourite',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '75'
+            },
+            MX: {
+                dishName: 'Tacos',
+                link: 'https://www.mexicoinmykitchen.com/tacos-al-pastor/',
+                CAREOrigin: '1952',
+                prepTime: '10',
+                cookTime: '30'
+            },
+            MD: {
+                dishName: 'Sarmale',
+                link: 'https://cristinanesteriuc.home.blog/2019/04/27/moldavian-sarmale-my-family-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '40',
+                cookTime: '220'
+            },
+            MC: {
+                dishName: 'Barbaguain',
+                link: 'https://europeankitchen.org/2020/08/14/barbagiuan/',
+                CAREOrigin: ' ',
+                prepTime: '60',
+                cookTime: '20'
+            },
+            ME: {
+                dishName: 'Kachamak',
+                link: 'https://www.soofoodies.com/recipe/kachamak-polenta/',
+                CAREOrigin: '1953',
+                prepTime: '5',
+                cookTime: '55'
+            },
+            MA: {
+                dishName: 'Tagine',
+                link: 'https://www.onceuponachef.com/recipes/moroccan-chicken-tagine.html',
+                CAREOrigin: '1953',
+                prepTime: '15',
+                cookTime: '45'
+            },
+            MZ: {
+                dishName: 'Frango',
+                link: 'https://www.africanbites.com/mozambique-peri-peri-grill-chicken/',
+                CAREOrigin: '1984',
+                prepTime: '135',
+                cookTime: '25'
+            },
+            MM: {
+                dishName: 'Mohinga',
+                link: 'https://hsaba.com/recipes/mohinga-recipe',
+                CAREOrigin: '1950',
+                prepTime: '25',
+                cookTime: '90'
+            },
+            NA: {
+                dishName: 'Braai',
+                link: 'https://braai.com/namibian-chimichurri-steak/',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '10'
+            },
+            NR: {
+                dishName: 'Coconut Fried Fish',
+                link: 'https://www.internationalcuisine.com/nauru-coconut-crusted-fish/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '10'
+            },
+            NP: {
+                dishName: 'Dhal Bhat',
+                link: 'https://www.archanaskitchen.com/nepalese-style-dhal-bhat-recipe',
+                CAREOrigin: '1978',
+                prepTime: '10',
+                cookTime: '30'
+            },
+            NL: {
+                dishName: 'Stamppot',
+                link: 'https://www.all-thats-jas.com/dutch-stamppot-vegetable-mash/',
+                CAREOrigin: '2001',
+                prepTime: '20',
+                cookTime: '20'
+            },
+            NZ: {
+                dishName: 'Bacon and Egg Pie',
+                link: 'https://eggs.org.nz/recipes/classic-bacon-egg-pie/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '40'
+            },
+            NE: {
+                dishName: 'Djerma Stew',
+                link: 'https://whonomstheworld.com/blog/traditional-niger-style-djerma/',
+                CAREOrigin: '1973',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            NG: {
+                dishName: 'Egusi & Fufu',
+                link: 'https://www.allnigerianrecipes.com/soups/egusi-soup/',
+                CAREOrigin: '2017',
+                prepTime: '10',
+                cookTime: '90'
+            },
+            KP: {
+                dishName: 'Naengmyeon',
+                link: 'https://www.koreanbapsang.com/naengmyeon-cold-noodles/',
+                CAREOrigin: ' ',
+                prepTime: '25',
+                cookTime: '65'
+            },
+            NO: {
+                dishName: 'Farikal',
+                link: 'https://northwildkitchen.com/farikal-norwegian-lamb-cabbage-stew/',
+                CAREOrigin: '1980',
+                prepTime: '10',
+                cookTime: '120'
+            },
+            OM: {
+                dishName: 'Shuwa',
+                link: 'https://www.thasneen.com/cooking/shuwa-slow-cooked-lamb-served-over-aromatic-basmati-rice-omani-delicacy/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '180'
+            },
+            PK: {
+                dishName: 'Seekh Kebab',
+                link: 'http://rookiewithacookie.com/pakistani-seekh-kebab-yogurt-raita/',
+                CAREOrigin: '1949',
+                prepTime: '10',
+                cookTime: '20'
+            },
+            PW: {
+                dishName: 'Chicken Tinola',
+                link: 'https://www.pinoycookingrecipes.com/tinolang-manok-chicken-tinola.html',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '40'
+            },
+            PS: {
+                dishName: 'Maqluba',
+                link: 'https://tasteofpalestine.org/recipes/maqluba-chicken-rice-pot',
+                CAREOrigin: '1994',
+                prepTime: '20',
+                cookTime: '100'
+            },
+            PA: {
+                dishName: 'Sancocho',
+                link: 'https://www.centralamerica.com/experiencing/eating/panamanian-sancocho-recipe/',
+                CAREOrigin: '1953',
+                prepTime: '10',
+                cookTime: '45'
+            },
+            PG: {
+                dishName: 'Mumu',
+                link: 'https://www.coffeeandvanilla.com/papuan-new-guinean-mumu/',
+                CAREOrigin: '1989',
+                prepTime: '20',
+                cookTime: '180'
+            },
+            PY: {
+                dishName: 'Sopa Paraguaya',
+                link: 'https://www.all-thats-jas.com/paraguayan-cornbread/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '35'
+            },
+            PE: {
+                dishName: 'Ceviche',
+                link: 'https://www.laylita.com/recipes/peruvian-fish-cebiche-or-ceviche/',
+                CAREOrigin: '1952',
+                prepTime: '20',
+                cookTime: '10'
+            },
+            PH: {
+                dishName: 'Adobo',
+                link: 'https://panlasangpinoy.com/filipino-chicken-adobo-recipe/',
+                CAREOrigin: '1949',
+                prepTime: '5',
+                cookTime: '35'
+            },
+            PL: {
+                dishName: 'Bigos',
+                link: 'xxx',
+                CAREOrigin: '1947',
+                prepTime: '20',
+                cookTime: '450'
+            },
+            QA: {
+                dishName: 'Madrouba',
+                link: 'https://alkaabiam.medium.com/recipe-of-a-traditional-food-madrouba-ec0a9fa11d7e',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '140'
+            },
+            RO: {
+                dishName: 'Mamaliga',
+                link: 'https://www.jocooks.com/recipes/traditional-romanian-polenta-mamaliga-cu-branza-in-paturi/',
+                CAREOrigin: '1947',
+                prepTime: '15',
+                cookTime: '40'
+            },
+            RU: {
+                dishName: 'Borscht',
+                link: 'https://www.willcookforsmiles.com/russian-borscht-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '300'
+            },
+            RW: {
+                dishName: 'Brochettes',
+                link: 'https://www.subsaharapost.com/post/brochette-rwandan-street-skewer',
+                CAREOrigin: '1984',
+                prepTime: '45',
+                cookTime: '20'
+            },
+            KN: {
+                dishName: 'Saltfish',
+                link: 'http://caribento.com/read/recipe/saint-kitts-and-nevis-national-dish/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '60'
+            },
+            LC: {
+                dishName: 'Gren Fig and Saltfish',
+                link: 'https://www.islanderkeys.com/green-fig-and-saltfish-national-dish-of-st-lucia/',
+                CAREOrigin: ' ',
+                prepTime: '25',
+                cookTime: '85'
+            },
+            WS: {
+                dishName: 'Panipopo',
+                link: 'http://www.samoafood.com/2010/06/panipopo-sweet-coconut-buns.html',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '30'
+            },
+            SM: {
+                dishName: 'Torta Tre Monti',
+                link: 'https://www.rosacooking.com/en/waffle-cakes-from-san-marino/',
+                CAREOrigin: ' ',
+                prepTime: '0',
+                cookTime: '15'
+            },
+            SA: {
+                dishName: 'Kabsa',
+                link: 'https://amiraspantry.com/chicken-saudi-kabsa/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '45'
+            },
+            RS: {
+                dishName: 'Cevapcici',
+                link: 'https://belgradeatnight.com/how-to-make-cevapicevapcici-recipe/',
+                CAREOrigin: '1993',
+                prepTime: '15',
+                cookTime: '30'
+            },
+            SC: {
+                dishName: 'Ladob',
+                link: 'https://www.msingiafrikamagazine.com/2020/09/ladob-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '40'
+            },
+            SL: {
+                dishName: 'Cassava Leaves',
+                link: 'https://afrifoodnetwork.com/recipes/soup-recipes/cassava-leaf-soup/',
+                CAREOrigin: '1961',
+                prepTime: '10',
+                cookTime: '30'
+            },
+            SI: {
+                dishName: 'Ajdovi Zganci',
+                link: 'https://jernejkitchen.com/recipes/slovenian-buckwheat-porridge',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '30'
+            },
+            SB: {
+                dishName: 'Poi',
+                link: 'https://nationalfoods.org/recipe/national-dish-of-solomon-islands-poi/',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '60'
+            },
+            SO: {
+                dishName: 'Goat Stew',
+                link: 'https://www.mysomalifood.com/goat-stew/',
+                CAREOrigin: '1981',
+                prepTime: '10',
+                cookTime: '30'
+            },
+            ZA: {
+                dishName: 'Bobotie',
+                link: 'https://drizzleanddip.com/2018/09/26/traditional-south-african-bobotie-with-fragrant-yellow-rice/',
+                CAREOrigin: '1993',
+                prepTime: '15',
+                cookTime: '40'
+            },
+            ES: {
+                dishName: 'Tortilla Espanola',
+                link: 'https://spanishsabores.com/best-spanish-omelet-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '60',
+                cookTime: '15'
+            },
+            LK: {
+                dishName: 'Rice and Curry',
+                link: 'https://www.theflavorbender.com/sri-lankan-chicken-curry/',
+                CAREOrigin: '1950',
+                prepTime: '15',
+                cookTime: '40'
+            },
+            SD: {
+                dishName: 'Ful Medames',
+                link: 'https://tasteofsouthsudan.com/ful-medames-sudanese-fava-beans/',
+                CAREOrigin: '1979',
+                prepTime: '10',
+                cookTime: '120'
+            },
+            SR: {
+                dishName: 'Pom',
+                link: 'https://jiriecaribbean.com/pom-national-dish-of-suriname/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '75'
+            },
+            SE: {
+                dishName: 'Kottbullar',
+                link: 'https://www.all-thats-jas.com/swedish-meatballs-recipe/',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '30'
+            },
+            CH: {
+                dishName: 'Fondue',
+                link: 'xxx',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '20'
+            },
+            SY: {
+                dishName: 'Kibbeh',
+                link: 'https://www.middleeasteye.net/discover/food-recipe-how-make-kibbeh-croquette-fried-aleppo-syria',
+                CAREOrigin: '1953',
+                prepTime: '55',
+                cookTime: '65'
+            },
+            TW: {
+                dishName: 'Beef Noodle Soup',
+                link: 'https://thewoksoflife.com/taiwanese-beef-noodle-soup-instant-pot/',
+                CAREOrigin: ' ',
+                prepTime: '30',
+                cookTime: '120'
+            },
+            TJ: {
+                dishName: "O'sh",
+                link: 'https://www.international-alert.org/news/recipes-peace-plov-tajikistan',
+                CAREOrigin: ' ',
+                prepTime: ' ',
+                cookTime: ' '
+            },
+            TZ: {
+                dishName: 'Ugali & Maharage',
+                link: 'https://ingmar.app/blog/recipe-the-national-dish-of-tanzania-ugali-na-maharage-ya-nazi/',
+                CAREOrigin: '1950',
+                prepTime: '20',
+                cookTime: '25'
+            },
+            TH: {
+                dishName: 'Pad Thai',
+                link: 'https://hot-thai-kitchen.com/pad-thai/',
+                CAREOrigin: '1950',
+                prepTime: '15',
+                cookTime: '30'
+            },
+            TG: {
+                dishName: 'Ablo & Togolese Chicken',
+                link: 'https://ethnicfoodsrus.com/around-the-world-recipes/african-cuisine/togolese-cuisine/ablo/',
+                CAREOrigin: '1986',
+                prepTime: '5',
+                cookTime: '30'
+            },
+            TO: {
+                dishName: 'Lu Pulu',
+                link: 'https://cookinghawaiianstyle.com/lu-pulu/',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '300'
+            },
+            TT: {
+                dishName: 'Callaloo',
+                link: 'https://cookingwithria.com/2011/10/trinidad-callaloo.html',
+                CAREOrigin: ' ',
+                prepTime: '15',
+                cookTime: '60'
+            },
+            TN: {
+                dishName: 'Brik',
+                link: 'https://www.ourtunisiantable.com/home/2017/6/17/tunisian-brik-with-egg',
+                CAREOrigin: ' ',
+                prepTime: '20',
+                cookTime: '20'
+            },
+            TR: {
+                dishName: 'Doner',
+                link: 'https://agoodcarrot.com/chicken-doner-kebab-recipe/',
+                CAREOrigin: '1959',
+                prepTime: '10',
+                cookTime: '30'
+            },
+            TM: {
+                dishName: 'Palaw',
+                link: 'https://turkmenkitchen.com/en/2011/12/16/turkmen-pilaf/',
+                CAREOrigin: ' ',
+                prepTime: '10',
+                cookTime: '55'
+            },
+            UG: {
+                dishName: 'Matoke',
+                link: 'https://www.food.com/recipe/ugandan-matoke-235945',
+                CAREOrigin: '1969',
+                prepTime: '40',
+                cookTime: '40'
+            },
+            UA: {
+                dishName: 'Varenyky',
+                link: 'http://www.allthingsukrainian.com/Recipe/Varenyky/VarenykyRecipe.html',
+                CAREOrigin: '2022',
+                prepTime: '35',
+                cookTime: '85'
+            },
+            AE: {
+                dishName: 'Harees',
+                link: 'http://worldlocalfood.blogspot.com/2017/12/saudi-hareesa-recipe-saudi-local-food.html',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '190'
+            },
+            GB: {
+                dishName: 'Fish & Chips',
+                link: 'https://www.daringgourmet.com/fish-and-chips/',
+                CAREOrigin: '1945',
+                prepTime: '30',
+                cookTime: '15'
+            },
+            UY: {
+                dishName: 'Chivito',
+                link: 'https://blog.amigofoods.com/index.php/other-latin-foods/chivito/',
+                CAREOrigin: ' ',
+                prepTime: '5',
+                cookTime: '20'
+            },
+            UZ: {
+                dishName: 'Tuy Palovi',
+                link: 'https://ingmar.app/blog/recipe-the-national-dish-of-uzbekistan-tuy-palovi-wedding-plov/',
+                CAREOrigin: ' ',
+                prepTime: '45',
+                cookTime: '45'
+            },
+            VU: {
+                dishName: 'Lap Lap',
+                link: 'https://www.rpcvmadison.org/cpages/vanuatu-2015-recipes-lap-lap',
+                CAREOrigin: '2008',
+                prepTime: '30',
+                cookTime: '60'
+            },
+            VA: {
+                dishName: 'Fettuccini alla Papalina',
+                link: 'https://memoriediangelina.com/2009/07/06/fettuccine-alla-papalina/',
+                CAREOrigin: ' ',
+                prepTime: '45',
+                cookTime: '30'
+            },
+            VE: {
+                dishName: 'Pabellon Criollo',
+                link: 'https://venezuelancooking.wordpress.com/2011/12/14/recipe-pabellon-criollo/',
+                CAREOrigin: '2018',
+                prepTime: '30',
+                cookTime: '250'
+            },
+            VN: {
+                dishName: 'Pho',
+                link: 'https://leitesculinaria.com/36506/recipes-pho-noodle-soup.html',
+                CAREOrigin: '1954',
+                prepTime: '60',
+                cookTime: '190'
+            },
+            YE: {
+                dishName: 'Saltah',
+                link: 'http://www.shebayemenifood.com/content/fahsa-saltah',
+                CAREOrigin: '1993',
+                prepTime: '10',
+                cookTime: '50'
+            },
+            ZM: {
+                dishName: 'Ndiwo & Nshima',
+                link: 'https://wp.bridgewater.edu/mtembo/zambian-foods/nshima-and-ndiwo/',
+                CAREOrigin: '1992',
+                prepTime: '5',
+                cookTime: '50'
+            }
+        }
+// {
+//   AF: {
+//     dishName: 'Kabuli Pulao',
+//     link: 'http://www.rehanadujour.com/2014/06/19/the-dance-of-the-kabuli-pulao/',
+//     description: "Qabeli palaw is a variety of pilaf made in Afghanistan. It consists of steamed rice mixed with raisins, carrots, and beef or lamb. There exist different variations depending on the region. Qabeli palaw is considered a festive and important dish due to the price and quality of the ingredients as well as its tradition of being Afghanistan's national dish. The dish is traditionally placed in the center of the meal with other foods making up the rest of the perimeter."
+//   },
+//   AL: {
+//     dishName: 'Tave Kosi',
+//     link: 'https://www.myalbanianfood.com/recipe/albanian-tave-kosi/',
+//     description: 'Tavë kosi ("soured milk casserole") is a national dish in Albania. It is a dish of lamb (occasionally chicken, then called tavë kosi me mish pule) and rice baked with a mixture of yogurt and eggs (replacing the original soured milk) added to a roux (wheat flour and butter). It is also popular in Greece, North Macedonia and Turkey, where it is known as Elbasan tava (Albanian: Tavë Elbasani or Tava e Elbasanit), named after the Albanian city of Elbasan.'
+//   },
+//   DZ: {
+//     dishName: 'Cous Cous',
+//     link: 'https://www.confessionsofaconfectionista.com/2011/12/algerian-couscous-with-vegetables.html',
+//     description: 'Couscous is a North African dish of small steamed granules of rolled durum wheat semolina that is traditionally served with a stew spooned on top. Pearl millet, sorghum, Bulgur and other cereals can be cooked in a similar way in other regions and the resulting dishes are also sometimes called couscous. Couscous is a staple food throughout the Maghrebi cuisines of Algeria, Tunisia, Mauritania, Morocco, and Libya.  It is also widely consumed in France and in Sicily, where it was introduced by Maghreb immigrants. In 2020 it was inscribed in UNESCO Intangible Cultural Heritage Lists.'
+//   },
+//   AO: {
+//     dishName: 'Muamba de Galinha',
+//     link: 'https://www.conjuredcravings.com/post/muamba-de-galinha-angolan-chicken-stew',
+//     description: 'Chicken moamba is a typical dish of Angolan cuisine . It is one of the most popular dishes in the country. Its confection involves, in addition to chicken , peanuts or palm oil, okra, gindungo, onion, and garlic. The chicken is cut into pieces and seasoned with salt, garlic and gindungo, then cooked with the onion. Later, palm oil (which can be made from fresh palm oil or purchased ready-to-use) is added, the okra. Moamba is served with mush or funge, which consists of boiled corn or manioc flour.'
+//   },
+//   AG: {
+//     dishName: 'Fungee',
+//     link: 'https://my.whisk.com/recipes/1013e0f0b3236f7d808934c529ead749eecafa3d262',
+//     description: "Cou-cou, coo-coo (as it is known in the Windward Islands), or fungie (as it is known in the Leeward Islands and Dominica) makes up part of the national dishes of Antigua and Barbuda, Barbados, British Virgin Islands and the U.S. Virgin Islands. It consists mainly of cornmeal (corn flour) and okra (ochroes). Cornmeal, which comes readily packaged and is available at supermarkets islandwide, and okra, which can be found at supermarkets, vegetable markets and home gardens, are very inexpensive ingredients. Because these main components are inexpensive, the dish became common for many residents in Barbados' early colonial history."
+//   },
+//   AM: {
+//     dishName: 'Khash',
+//     link: 'https://thearmeniankitchen.com/khash-brief-history-and-recipe-to-try/',
+//     description: "Khash is a dish of boiled cow or sheep parts, which might include the head, feet, and stomach (tripe). Khash is a purist meal with great parsimony in ingredients. The feet are depilated, cleaned, kept in cold water in order to get rid of bad smell, and boiled in water all night long, until the water has become a thick broth and the meat has separated from the bones. No salt or spices are added during the boiling process. The dish is served hot. One may add salt, garlic, lemon juice, or vinegar according to one's taste. Dried lavash is often crumbled into the broth to add substance. Khash is generally served with a variety of other foods, such as hot green and yellow peppers, pickles, radishes, cheese, and fresh greens such as cress. The meal is almost always accompanied by vodka (preferably mulberry vodka) and mineral water."
+//   },
+//   AU: {
+//     dishName: 'Pavlova',
+//     link: 'https://www.wandercooks.com/easy-australian-pavlova-recipe/',
+//     description: "Pavlova is a meringue-based dessert named after the Russian ballerina Anna Pavlova. It has a crisp crust and soft, light inside, usually topped with fruit and whipped cream. The dessert is believed to have been created in honour of the dancer either during or after one of her tours to Australia and New Zealand in the 1920s. The nationality of its creator has been a source of argument between the two nations for many years. 'The pav' is a popular dish and an important part of the national cuisine of both Australia and New Zealand, and with its simple recipe, is frequently served during celebratory and holiday meals. It is a dessert most identified with the summer time, and popularly eaten during that period, including at Christmas time; however, it is also eaten all year round in many Australian and New Zealand homes."
+//   },
+//   AT: {
+//     dishName: 'Weiner Schnitzel',
+//     link: 'https://www.strudelandschnitzel.com/wiener-schnitzel/?cn-reloaded=1',
+//     description: 'Wiener schnitzel, sometimes spelled Wienerschnitzel, as in Switzerland, is a type of schnitzel made of a thin, breaded, pan-fried veal cutlet. It is one of the best known specialities of Viennese cuisine, and one of the national dishes of Austria.'
+//   },
+//   AZ: {
+//     dishName: 'Dolmas',
+//     link: 'https://azcookbook.com/2017/09/15/stuffed-grape-leaves/',
+//     description: 'Dolma is a family of stuffed dishes common in Anatolian, Levantine, Caucasian, Mesopotamian, Iranian and Maghrebi cuisines, that can be served warm or at room temperature. Some types of dolma are made with whole vegetables, fruit, offal or seafood, while others are made by wrapping grape, cabbage, or other leaves around the filling. Wrapped dolma are known as sarma.'
+//   },
+//   BS: {
+//     dishName: 'Crack Conch',
+//     link: 'https://www.trubahamianfoodtours.com/tru-bahamian-must-eats/cracked-conch/',
+//     description: 'Cracked conch is one of the most popular Bahamian dishes – conch meat is breaded in a batter made with flour, then deep-fried until golden and crispy. The name of this dish refers to a method of tenderizing the tough, chewy meat with a meat mallet or a frying pan. These golden conch nuggets are typically paired with french fries or peas and rice. When paired with french fries, the dish is usually served on a sweet bread roll with ketchup or hot sauce on the side. It can also be consumed as an appetizer, when it is served with fresh lime juice and goat pepper sauce.'
+//   },
+//   BH: {
+//     dishName: 'Machboos',
+//     link: 'https://www.daringgourmet.com/chicken-machboos-bahraini-chicken-rice/',
+//     description: 'Machboos is a dish made with mutton, chicken, or fish accompanied over fragrant rice that has been cooked in chicken/mutton well-spiced broth'
+//   },
+//   BD: {
+//     dishName: 'Rice & Ilish',
+//     link: 'https://www.archanaskitchen.com/ilish-pulao-recipe-bengali-style-hilsa-fish-pilaf',
+//     description: 'The ilish (Tenualosa ilisha) also known as the ilishi, hilsa, hilsa herring or hilsa shad, is a species of fish related to the herring, in the family Clupeidae. It is a very popular and sought-after food fish in the Indian Subcontinent, and is the national fish of Bangladesh and the state fish of West Bengal. Ilish Polao or Hilsa Pulao is an extremely fragrant and delicious Bengali style Fish Pilaf cooked with Ilish mach or Hilsa. This flavoursome Bangladeshi delicacy is one of the traditional dishes of Bangladesh. This popular Bengali fish pilaf has quite unique combination of earthy flavours of fresh ilish and classic taste of Bengali gota groom moshla (whole garam masala).  The dish is often cooked in Mishti Doi and Coconut milk along with rice and mild spices.'
+//   },
+//   BY: {
+//     dishName: 'Draniki',
+//     link: 'https://www.belarus.by/en/about-belarus/cuisine/draniki',
+//     description: 'Potato pancakes are shallow-fried pancakes of grated or ground potato, matzo meal or flour and a binding ingredient such as egg or applesauce, often flavored with grated garlic or onion and seasoning. They may be topped with a variety of condiments, ranging from the savory (such as sour cream or cottage cheese), to the sweet (such as apple sauce or sugar), or they may be served plain. The dish is sometimes made from mashed potatoes to make pancake-shaped croquettes. Some variations are made with sweet potatoes'
+//   },
+//   BE: {
+//     dishName: 'Moules Frites',
+//     link: 'https://www.abeautifulplate.com/classic-moules-frites/',
+//     description: 'Moules-frites or moules et frites is a main dish of mussels and French fries originating in Belgium. The title of the dish is French, moules meaning mussels and frites fries, with the Dutch name for the dish meaning the same. It is considered the national dish of Belgium.'
+//   },
+//   BZ: {
+//     dishName: 'Boil Up',
+//     link: 'https://www.theellysian.com/blog/how-to-make-belizean-boil-up/',
+//     description: 'The bile up (or boil-up) is considered the cultural dish of the Kriols of Belize. It is a combination of boiled eggs, fish and/or pig tail, with cassava, yams, or sweet potatoes, plantains, and tomato sauce.'
+//   },
+//   BJ: {
+//     dishName: 'Kuli Kuli',
+//     link: 'https://www.kuli-kuli.com/benin/kuli-kuli/by/angela-n-dah-sekou',
+//     description: 'Kuli-kuli refers to a West African snack that is primarily made from peanuts. First made by the Nupe People of West Africa it is a popular snack in Nigeria, Benin, northern Cameroon and Ghana. To make kuli-kuli, peanuts are roasted and then ground into a paste called "Labu". The paste is then mixed with spices, salt, and sometimes ground pepper, and occasionally sugar. The paste is stripped of excess oil with water and made into the desired shape (round balls, cylinders, etc.). Adding potash to the oil increases the boiling point of the oil. This results in oils being extracted from the kuli-kuli so that more liquid oil is created than when the process started. While being heated and fried, the shaped peanut-paste begins to solidify and harden. It is then removed from the oil and allowed to cool down until ready to be eaten.'
+//   },
+//   BT: {
+//     dishName: 'Ema Datshi',
+//     link: 'https://www.internationalcuisine.com/ema-datshi/',
+//     description: `Ema datshi is among the most famous dishes in Bhutanese cuisine, recognized as a national dish of Bhutan. It is made from hot chili peppers and cheese; "ema" means "chili" and "datshi" means "cheese" in the Dzongkha language of Bhutan. Different varieties of chilies may be used: green chili, red chili, or white chili (green chili washed in hot water and sun-dried), which may be dried or fresh. The chilies are called "sha ema" which is a Capsicum annuum cultivar, a form of pepper much like cayenne, poblano, ancho, or Anaheim. The cheese in ema datshi is homemade from the curd of cow or yak's milk.`
+//   },
+//   BO: {
+//     dishName: 'Silpancho',
+//     link: 'https://boliviancookbook.com/main-dishes/silpancho/',
+//     description: 'Silpancho is a popular Bolivian food from the city of Cochabamba. When prepared properly, this tends to be a large and fulfilling meal with a diversity of carbohydrates and fats. It consists of a base layer of rice, usually white, followed by a layer of boiled and sliced potatoes. Next, a thin layer of pounded meat is followed by a layer of chopped tomato. In addition, onion, beet and parsley are mixed together and topped with either one or two fried eggs.'
+//   },
+//   BW: {
+//     dishName: 'Seswaa',
+//     link: 'https://afrogistmedia.com/seswaa-recipebotswana-pounded-meat/',
+//     description: 'Seswaa (as the dish is called in the north of Botswana) or loswao (as the dish is called in the south of the country and western South Africa) is a traditional meat dish of Botswana, made of beef or goat meat. It is prepared using left over cuts or tough cuts such as legs, neck and back. The dish is normally prepared for ceremonies such as funerals, weddings and national events such as independence celebrations. The meat is boiled until tender in a pot, with "just enough salt", and pounded. It is often served with pap (maize meal), setampa(Samp/grounded corn) or mabele (sorghum).'
+//   },
+//   BR: {
+//     dishName: 'Feijoada',
+//     link: 'https://www.oliviascuisine.com/feijoada-recipe/',
+//     description: "Feijoada is a stew of beans with beef and pork. The name feijoada comes from feijão, 'bean' in Portuguese. It is widely prepared in the Portuguese-speaking world, with slight variations. The basic ingredients of feijoada are beans and fresh pork or beef. In Brazil, it is usually made with black beans (feijoada à brasileira). The stew is best prepared over low heat in a thick clay pot.  It is usually served with rice and assorted sausages such as chouriço, morcela (blood sausage), farinheira, and others, which may or may not be cooked in the stew."
+//   },
+//   BG: {
+//     dishName: 'Banitsa',
+//     link: 'https://tarasmulticulturaltable.com/banitsa-bulgarian-cheese-pie/',
+//     description: 'Banitsa is a traditional pastry dish made in Bulgaria, North Macedonia and Serbia, prepared by layering a mixture of whisked eggs, natural yogurt and pieces of white brined cheese between filo pastry and then baking it in an oven.'
+//   },
+//   BF: {
+//     dishName: 'Riz Gras',
+//     link: 'https://allafricandishesng.blogspot.com/2016/11/burkina-faso-recipes-riz-gras-fat-rice.html',
+//     description: 'Riz gras is a meat- and rice-based dish in Burkinabé cuisine, the cuisine of Burkina Faso, Africa. It is also prepared in other African countries, such as Senegal and Guinea. It originated from the dish tiebou djen, a rice dish in Senegalese cuisine that is prepared with significant amounts of fish and meat. Riz gras is often served at parties in urban areas of Burkina Faso. Riz gras is prepared with significant amounts of meat and vegetables, and is usually served atop rice. Additional ingredients used include tomatoes, eggplant, bell peppers, carrots, cabbage, onion, garlic, meat or vegetable stock, oil and salt.'
+//   },
+//   BI: {
+//     dishName: 'Boko Boko',
+//     link: 'https://afrogistmedia.com/boko-boko-harees-recipe-burundian-cuisine',
+//     description: "Boko boko harees is a traditional dish originating from Burundi. It's made with a combination of chicken breasts, bulgur wheat, onions, chicken giblets, ginger, turmeric, cardamom, sugar, ghee, and black pepper. The meat is cooked with the spices and onions, and the chicken is then shredded and combined with cooked bulgur wheat. The dish is typically served with fried onions and turmeric sauce, and it's often garnished with chopped coriander, if desired. "
+//   },
+//   KH: {
+//     dishName: 'Amok Trey',
+//     link: 'https://grantourismotravels.com/cambodian-fish-amok-recipe/',
+//     description: "Fish amok or amok trei is a Khmer steamed fish curry (amok) with a mousse-like consistency, one of Cambodia's national dishes. Usually, goby fish, snakehead fish or catfish is used, however, they are also sometimes substituted with cod, snapper, barramundi, salmon, whiting, or perch. The fish fillets are rubbed with or marinated in a freshly-made yellow or green kroeung mixed with coconut cream or coconut milk and eggs. The curry mixture is placed in a banana leaf container with great morinda leaves at the bottom and steamed for around 20 to 30 minutes until the curry achieves a mousse-like consistency. Great morinda leaves can also be substituted with swiss chard leaves if not available. Fish amok is served hot usually in either banana leaf containers or coconut shells and eaten with steamed rice."
+//   },
+//   CM: {
+//     dishName: 'Ndole',
+//     link: 'https://eatwellabi.com/ndole-cameroonian-bitter-leaf-stew/',
+//     description: 'Ndolé is one of the two national dishes of Cameroon, traditionally made with boiled bitterleaf, peanuts, and melon seeds. Seasoned with spices and hot oil, ndolé can be cooked with either fish or meat. This flavorful stew is usually served with bobolo – fermented cassava shaped into a loaf.'
+//   },
+//   CA: {
+//     dishName: 'Poutine',
+//     link: 'https://www.seasonsandsuppers.ca/authentic-canadian-poutine-recipe/',
+//     description: 'Poutine is a dish of french fries and cheese curds topped with a brown gravy. To maintain the texture of the fries, the cheese curds and gravy are added immediately before serving the dish. The hot gravy is usually poured over room-temperature cheese curds, so they are warmed without melting completely. The thin gravy allows all the fries to be coated. The serving dish typically has some depth to act as a basket for the fries so that they retain their heat.  It is important to control the temperature, timing, and the order in which the ingredients are added to obtain the right food textures—an essential part of the experience of eating poutine.'
+//   },
+//   CF: {
+//     dishName: 'Peanut Soup',
+//     link: 'http://www.congocookbook.com/soup-and-stew-recipes/peanut-soup/',
+//     description: 'Peanut soup or groundnut soup is a soup made from peanuts, often with various other ingredients. It is a staple of African cuisine but is also eaten in East Asia (Taiwan), the United States (mainly in Virginia) and other areas around the world. It is also common in some regions, such as Argentina northwest, Bolivia and Peru, where it can sometimes be served with bone meat and hollow short pasta or fries. In Ghana it is often eaten with fufu or omo tuo and is often very spicy. Groundnut soup is also a native soup of the Benin (Edo) people in Nigeria and it is often eaten with pounded yam. Some of the essential ingredients used in making it are Piper guineense (uziza seed) and Vernonia amygdalina (bitter leaf).'
+//   },
+//   TD: {
+//     dishName: 'Boule & Daraba',
+//     link: 'https://www.gourmetvegetarians.com/creamy-peanut-vegetable-stew-daraba-chad/',
+//     description: 'Daraba is a Chadian stew made with chopped okra, mixed vegetables, tomatoes, stock cubes, and smooth peanut butter, giving the dish a unique flavor. It is usually served with rice, boiled cassava, or boiled plantains on the side. Boule is bread made from millet and sorghum that has been ground into flour'
+//   },
+//   CL: {
+//     dishName: 'Empanadas',
+//     link: 'https://www.chileanfoodandgarden.com/chilean-beef-empanadas/',
+//     description: 'An empanada is a dish of Spanish cuisine, a type of baked or fried turnover consisting of pastry and filling, common in Spanish, other Southern European, Latin American, and the Philippine cultures. The name comes from the Spanish verb "empanar" (coat with bread), and translates as "enbreaded", that is, wrapped or coated in bread. They are made by folding dough over a filling, which may consist of meat, cheese, tomato, corn, or other ingredients, and then cooking the resulting turnover, either by baking or frying.'
+//   },
+//   CO: {
+//     dishName: 'Ajiaco',
+//     link: 'https://www.mycolombianrecipes.com/ajiaco-bogotano-colombian-chicken-and/',
+//     description: 'Ajiaco is a soup common to Colombia, Cuba, and Peru. The dish is especially popular in the Colombian capital, Bogotá, being called Ajiaco santafereño, where it is typically made with chicken, three varieties of potatoes, and the herb Galinsoga parviflora, known locally as guasca or guascas. In Cuba, ajiaco is prepared as a stew, while in Peru the dish is prepared with a number of regionally specific variations.'
+//   },
+//   CR: {
+//     dishName: 'Gallo Pinto',
+//     link: 'https://www.puravidamoms.com/costa-rican-gallo-pinto-recipe/',
+//     description: 'Gallo pinto or gallopinto is a traditional dish from Central America. Consisting of rice and beans as a base, gallo pinto has a long history and is important to Nicaraguan and Costa Rican identity and cultures, just as rice and beans variations are equally important in many Latin American cultures as well. The beans in gallo pinto are quickly cooked until the juice is almost consumed, then combined with prepared rice and other ingredients such as cooked bell peppers, chopped onions, and garlic.'
+//   },
+//   HR: {
+//     dishName: 'Zagorski Strukl',
+//     link: 'https://www.chasingthedonkey.com/croatian-cooking-zagorski-strukli-zagorje-cheese/',
+//     description: 'Zagorski štrukli or štruklji is a popular traditional Croatian dish served in households across Hrvatsko Zagorje and Zagreb regions in the north of the country, composed of dough and various types of filling which can be either boiled or baked. The preparations are the same for both boiled and baked types of štrukli. Pastry is rolled out flat and very thin, to cover the table top. A mixture of cottage cheese with eggs, sour cream and salt is spread thinly over the pastry. Then the pastry is rolled lengthwise from both sides into two joined rolls, and finally cut into 10–20 cm long pieces.'
+//   },
+//   CU: {
+//     dishName: 'Ropa Vieja',
+//     link: 'https://www.cocoandash.com/ropa-vieja-cuban-shredded-beef-2/',
+//     description: 'Ropa vieja is known today as one of the national dishes of Cuba, but originated in Spain and is popular in other parts of Latin America as well as the Philippines. The dish normally includes some form of stewed beef and tomatoes with a sofrito base. Other components of the dish vary by region.'
+//   },
+//   CY: {
+//     dishName: 'Souvla',
+//     link: 'https://costaskitchen.co.uk/lamb-souvla-cypriot-lamb-cooked-on-the-bbq/',
+//     description: 'Souvla is a popular dish from Cyprus. It consists of large pieces of meat cooked on a long skewer over a charcoal barbecue. It differs from the popular Greek dish souvlaki, in that meat cuts are much larger and slow cooked for a much longer period at a greater distance from the hot charcoal. Traditional souvla is made from the neck and shoulder of lamb, pork and chicken. The meat is cut on the bone into chunks about the size of a medium onion.'
+//   },
+//   CZ: {
+//     dishName: 'Vepro Knedlo Zelo',
+//     link: 'https://www.cooklikeczechs.com/vepro-knedlo-zelo/',
+//     description: 'Vepro Knedlo Zelo is a common name for the Czech national dish, pork roast with (bread) dumplings and (stewed) cabbage, which consists of three parts, served on a plate together: roast pork , usually lean, sliced bread (or less often, potato) dumpling , also sliced, stewed white (or less often red) sauerkraut.'
+//   },
+//   CD: {
+//     dishName: 'Poulet à la Moambé',
+//     link: 'https://www.epersianfood.com/moambe/',
+//     description: 'Moambe chicken is a savory chicken dish popular in Central Africa and considered the national dish of Angola. The dish itself is made by combining chicken, spices and palm butter to create a stew-like consistency. A number of local or regional variations exist across the Congo and Central Africa; the dish is also known outside the continent.'
+//   },
+//   DK: {
+//     dishName: 'Stegt Flaesk',
+//     link: 'https://www.copenhagenet.dk/CPH-Map/CPH-Recipes-Stegt-Flaesk.asp',
+//     description: `Stegt flæsk is a dish from Denmark consisting of fried pork belly and generally served with potatoes and parsley sauce (persillesovs). The dish is sometimes translated as 'pork strips' or 'crisp fried pork slices'. The pork belly or "breast" cut of a pig is used for stegt flæsk and the strips are cut about 1/4 inch thick.`
+//   },
+//   DJ: {
+//     dishName: 'Skoudehkaris',
+//     link: 'https://www.marga.org/food/int/djibouti/lamb.html',
+//     description: 'Skoudehkaris is a flavourful rice dish seasoned with cardamom and cooked with lamb, although lamb can sometimes be substituted by chicken, beef, or fish. This thick, spicy stew is additionally enriched with cumin, cloves, cayenne pepper, cinnamon, and tomatoes, evolving into a warm and hearty comfort food dish. The spices and herbs are cooked with onions until soft, lamb is browned, then tomatoes and water are added to the pot.'
+//   },
+//   DM: {
+//     dishName: 'Mountain Chicken',
+//     link: 'http://www.tastethecaribbean.eu/recipemountainchicken.html',
+//     description: "Dominica's national dish was the mountain chicken, which are snares of the legs of a frog called the Crapaud, which is endemic to Dominica and Montserrat. Found at higher elevations, it's a protected species and can only be caught between autumn and February"
+//   },
+//   DO: {
+//     dishName: 'La Bandera',
+//     link: 'https://www.dominicancooking.com/17570-la-bandera-dominicana-our-traditional-lunch-meal.html',
+//     description: 'Dominican cuisine is made up of Spanish, indigenous Taíno, Middle-Eastern and African influences. Many Middle-Eastern dishes have been adopted into Dominican cuisine, such as the "Quipe" that comes from the Lebanese kibbeh. As in Spain, the largest, most important meal of the day is lunch. Its most typical form, nicknamed La Bandera ("The Flag"), consists of white rice, red beans and meat (beef, chicken, pork, or fish), sometimes accompanied by a side of salad.'
+//   },
+//   EC: {
+//     dishName: 'Encebollado',
+//     link: 'https://www.laylita.com/recipes/encebollado-de-pescado-or-tuna-soup/',
+//     description: "Encebollado is a fish stew from Ecuador, where it is regarded as a national dish. Although known throughout Ecuador, the dish is most popular in the country's coastal region. It is served with boiled cassava and pickled red onion rings. A dressing of onion is prepared with fresh tomato and spices such as pepper or coriander leaves. It is commonly prepared with albacore, but tuna, billfish, or bonito may also be used. It may be served with ripe avocado."
+//   },
+//   EG: {
+//     dishName: 'Koshari',
+//     link: 'https://amiraspantry.com/egyptian-koshari/',
+//     description: "Koshary, kushari or koshari is Egypt's national dish and a widely popular street food. A traditional Egyptian staple, mixing pasta, rice and brown lentils, and topped with a zesty tomato sauce, garlic vinegar and garnished with chickpeas and crispy fried onions. It is often served with sprinklings of garlic juice; garlic vinegar and hot sauce are optional."
+//   },
+//   SV: {
+//     dishName: 'Pupusa',
+//     link: 'https://tasty.co/recipe/salvadoran-pupusas-as-made-by-curly-and-his-abuelita',
+//     description: 'A pupusa is a thick griddle cake or flatbread from El Salvador and Honduras, made with cornmeal or rice flour, similar to the Venezuelan and Colombian arepa. In El Salvador, it has been declared the national dish and has a specific day to celebrate it. It is usually stuffed with one or more ingredients, which may include cheese (such as quesillo or cheese with loroco buds), chicharrón, squash, or refried beans. It is typically accompanied by curtido (a spicy fermented cabbage slaw) and tomato salsa, and is traditionally eaten by hand.'
+//   },
+//   ER: {
+//     dishName: 'Zigni and Injera',
+//     link: 'http://www.eastafro.com/2013/12/30/zigni-and-injera/',
+//     description: 'Zigni or kai wat is a popular Eritrean and Ethiopian stew (tsebhi or wat) made from meat, tomatoes, red onions and Berbere spices. The meat can be beef, lamb, goat, or chicken and usually placed on a plate of injera, a type of unleavened bread made from teff flour. It can be eaten for lunch or dinner. The dish requires a relatively long amount of time but not a lot of active effort to make. The traditional recipe can take as long as five to six hours to prepare. As such, it is sometimes reserved for special occasions. The Berbere spices can make the zigni spicy and give it a red color.'
+//   },
+//   ET: {
+//     dishName: 'Kitfo',
+//     link: 'https://burmaspice.com/recipes/kitfo-ethiopian-steak-tartare/',
+//     description: 'Kitfo, is an Ethiopian traditional dish which originated among the Gurage people. It consists of minced raw beef, marinated in mitmita and niter kibbeh (a clarified butter infused with herbs and spices). The word comes from the Ethio-Semitic root k-t-f, meaning "to chop finely; mince." Kitfo cooked lightly rare is known as kitfo leb leb. Kitfo is often served alongside—sometimes mixed with—a mild cheese called ayibe or cooked greens known as gomen. In many parts of Ethiopia, kitfo is served with injera, a flatbread made from teff, although in traditional Gurage cuisine, one would use kocho, a thick flatbread made from the ensete plant. An ensete leaf may be used as a garnish. Though not considered a delicacy, kitfo is generally held in high regard.'
+//   },
+//   FJ: {
+//     dishName: 'Kokoda',
+//     link: 'https://www.thisislandlife.com/travel/how-to-make-kokoda-recipe/',
+//     description: 'Raw fish marinated in freshly squeezed lemon or lime juice with coconut milk added after it is "cooked" together with finely diced tomatoes, chillies and salt.'
+//   },
+//   FI: {
+//     dishName: 'Karjalanpaisti',
+//     link: 'https://www.europeancuisines.com/Finland-Finnish-Karelian-Ragout-Karjalan-Paisti-Beef-Lamb-Pork-Slow-Cook-Stew-Recipe',
+//     description: 'The Karelian hot pot or Karelian stew (Finnish: karjalanpaisti; Russian: рагу по-карельски ragu po-karelski; Swedish: karelsk stek) is a traditional meat stew originating from the region of Karelia. It is commonly prepared using a combination of pork and beef, but elk or lamb can also be used. Along with the Karelian pasties (karjalanpiirakat), it is the most widely recognised Karelian food in Finland. In 2007, it was selected as the national dish of Finland by the readers of the Finnish tabloid Iltalehti. In similar poll organized by the ELO Foundation for the Promotion of Finnish Food Culture in cooperation with the Central Union of Agricultural Producers and Forest Owners MTK and the Finnish Ministry of Agriculture and Forestry in autumn 2016, Karelian hot pot took second place, losing to rye bread.'
+//   },
+//   FR: {
+//     dishName: 'Pot-Au-Feu',
+//     link: 'https://www.jamesbeard.org/recipes/pot-au-feu',
+//     description: 'Pot-au-feu ("pot on the fire") is a French beef stew. According to the chef Raymond Blanc, pot-au-feu is "the quintessence of French family cuisine; it is the most celebrated dish in France and considered a national dish. It honours the tables of the rich and poor alike." It is a typical dish served in winter.'
+//   },
+//   GA: {
+//     dishName: 'Poulet Nyembwe',
+//     link: 'http://www.congocookbook.com/category-chicken-recipes/poulet-moambe-poulet-nyembwe/',
+//     description: 'Poulet Nyembwe is considered the national dish of Gabon, consisting of bite-sized pieces of chicken in nyembwe sauce. The sauce is traditionally made from the ripe red fruit surrounding the seeds of African oil palms. Chicken pieces are flavored with onions, tomatoes, okra, garlic, hot peppers, salt, and either black, cayenne, or red pepper. The meat is then simmered over low heat in nyembwe sauce until all of the ingredients are tender. It is recommended to serve the dish with fufu or rice on the side.'
+//   },
+//   GE: {
+//     dishName: 'Khachapuri',
+//     link: 'https://www.kingarthurbaking.com/recipes/khachapuri-georgian-feast-bread-recipe',
+//     description: 'Khachapuri is a traditional Georgian dish of cheese-filled bread. The bread is leavened and allowed to rise, molded into various shapes, and then filled in the center with a mixture of cheese (fresh or aged, most commonly, specialized Khachapuri cheese), eggs, and other ingredients. The bread crust is traditionally torn off and dipped into the cheese.'
+//   },
+//   DE: {
+//     dishName: 'Sauerbraten',
+//     link: 'https://www.quick-german-recipes.com/sauerbraten-recipe.html',
+//     description: 'Sauerbraten is a traditional German roast of heavily marinated meat. It is regarded as a national dish of Germany, and is frequently served in German-style restaurants internationally. It can be prepared from a variety of meats, most often from beef, but also from venison, lamb and mutton, pork and horse. Before cooking, the raw meat is marinated for three to ten days in a mixture of vinegar or wine, water, herbs, spices, and seasonings. Usually, tougher cuts of meat, such as rump roast or bottom round of beef, are used, and the long marinating tenderizes the meat. A Sauerbraten dinner is almost always accompanied by a hearty gravy resulting from its roasting and is most often served with potato pancakes (Kartoffelpuffer), potato dumplings (Kartoffelklöße), or Spätzle.'
+//   },
+//   GH: {
+//     dishName: 'Waakye',
+//     link: 'https://thecanadianafrican.com/waakyeghanaian-rice-and-beans/',
+//     description: 'Waakye s a Ghanaian dish of cooked rice and beans, commonly eaten for breakfast or lunch. However, others eat it for supper. The rice and beans, usually black eyed peas or cow beans, are cooked together, along with red dried sorghum leaf sheaths or stalks and limestone. The sorghum leaves and limestone give the dish its characteristic flavor and a red appearance and the sorghum is taken out before consumption. The word waakye is from the Hausa language and means beans. It is the contracted form of the full name shinkafa da wake which means rice and beans.'
+//   },
+//   GR: {
+//     dishName: 'Gyro',
+//     link: 'https://www.mygreekdish.com/recipe/homemade-greek-chicken-gyro-recipe/',
+//     description: 'Gyros is a food item of Greek origin made from meat cooked on a vertical rotisserie and served wrapped or stuffed in pita bread, along with ingredients such as tomato, onion, fried potatoes, and tzatziki. In Greece, it is normally made with pork or sometimes with chicken, whilst beef and lamb are also used in other countries. For hand-made gyros, meat is cut into approximately round, thin, flat slices, which are then stacked on a spit and seasoned. Fat trimmings are usually interspersed. Spices may include cumin, oregano, thyme, rosemary, and others. The pieces of meat, in the shape of an inverted cone, are placed on a tall vertical rotisserie, which turns slowly in front of a source of heat or broiler. As the cone cooks, lower parts are basted with the juices running off the upper parts. The outside of the meat is sliced vertically in thin, crisp shavings when done.'
+//   },
+//   GD: {
+//     dishName: 'Oil Down',
+//     link: 'https://caribbeanpot.com/an-unconventional-grenadian-oil-down/',
+//     description: 'Oil down is a salted meat and vegetable stew that is the national dish of Grenada, a stew of breadfruit, salted meat, chicken, dumplings, callaloo, and other vegetables stewed in coconut milk, herbs, and spices. The name refers to the fact that the oil from the coconut milk used in cooking is either absorbed by the ingredients or settles to the bottom of the cooking pot. All of the liquid is cooked down (dried out), hence the name oil down.'
+//   },
+//   GN: {
+//     dishName: 'Chicken Yassa',
+//     link: 'https://www.africanbites.com/yassa-chickenpoulet-au-yassa/',
+//     description: 'Yassa is a spicy dish prepared with onions and either marinated poultry or marinated fish. Originally from Senegal, yassa has become popular throughout West Africa. Chicken yassa (known as yassa au poulet), prepared with onions, lemon or mustard, is a specialty from the Casamance region in the south of Senegal. Other meats used for yassa are lamb and fish.'
+//   },
+//   GW: {
+//     dishName: 'Jollof Rice',
+//     link: 'https://cooking.nytimes.com/recipes/1018069-jollof-rice',
+//     description: 'Jollof, or jollof rice, is a rice dish from West Africa. The dish is typically made with long-grain rice, tomatoes, onions, spices, vegetables and meat in a single pot, although its ingredients and preparation methods vary across different regions.'
+//   },
+//   GY: {
+//     dishName: 'Pepperpot',
+//     link: 'https://www.alicaspepperpot.com/pepperpot-on-christmas-morning/',
+//     description: "Pepperpot is an Amerindian-derived dish popular in Guyana. It is traditionally served at Christmas and other special events. Along with chicken curry, and cook-up rice, pepperpot is one of Guyana's national dishes. Pepperpot is a stewed meat dish, strongly flavoured with cinnamon, cassareep (a special sauce made from the cassava root) and other basic ingredients, including Caribbean hot peppers. Beef, pork, and mutton are the most popular meats used, though some have been known to use chicken. Pepperpot is popularly served with a dense Guyanese-style homemade or home-style bread, rice, or roti. It can also be served with boiled vegetables such as cassava, eddoes, sweet potatoes, and green or ripe plantains."
+//   },
+//   HT: {
+//     dishName: 'Rice and Beans',
+//     link: 'https://loveforhaitianfood.com/recipe/diri-kole-ak-pwa-wouj-red-beans-and-rice/',
+//     description: 'Red beans and rice is an emblematic dish of Louisiana Creole cuisine (not originally of Cajun cuisine) traditionally made on Mondays with red beans, vegetables (bell pepper, onion, and celery), spices (thyme, cayenne pepper, and bay leaf) and pork bones as left over from Sunday dinner, cooked together slowly in a pot and served over rice. Meats such as ham, sausage (most commonly andouille), and tasso ham are also frequently used in the dish. The dish is customary – ham was traditionally a Sunday meal and Monday was washday. A pot of beans could sit on the stove and simmer while the women were busy scrubbing clothes. The dish is now fairly common throughout the Southeast.'
+//   },
+//   HN: {
+//     dishName: 'Baleadas',
+//     link: 'https://www.onehappyhousewife.com/honduran-baleadas/',
+//     description: 'A baleada is a traditional Central American dish, believed to have originated on the northern coast of Honduras. It is composed of a flour tortilla, filled with a smear of mashed "refried" red beans (a variety of bean native to Central and South America), crema (mantequilla blanca), and crumbled queso duro (salty hard cheese). '
+//   },
+//   HU: {
+//     dishName: 'Goulash',
+//     link: 'https://www.spendwithpennies.com/hungarian-goulash/',
+//     description: 'Goulash is a soup or stew of meat and vegetables seasoned with paprika and other spices. Originating in Hungary, goulash is a common meal predominantly eaten in Central Europe but also in other parts of Europe. It is one of the national dishes of Hungary and a symbol of the country.'
+//   },
+//   IN: {
+//     dishName: 'Lamb Roganjosh',
+//     link: 'https://www.recipetineats.com/rogan-josh/',
+//     description: 'Rogan josh, also spelled roghan josh or roghan ghosht, is an aromatic curried meat dish of Kashmiri origin. It is made with red meat—traditionally lamb, mutton, or goat—and coloured and flavoured primarily by alkanet flower (or root) and Kashmiri chilies. It is one of the signature recipes of Kashmiri cuisine. Rogan josh consists of pieces of lamb or mutton braised with a gravy flavoured with garlic, ginger and aromatic spices (clove, bay leaves, cardamom, and cinnamon), and in some versions incorporating onions or yogurt. After initial braising, the dish may be finished using the dampokhtak slow cooking technique.'
+//   },
+//   ID: {
+//     dishName: 'Soto',
+//     link: 'https://glebekitchen.com/soto-ayam-indonesian-chicken-noodle-soup/',
+//     description: "Soto (also known as sroto, tauto, saoto, or coto) is a traditional Indonesian soup mainly composed of broth, meat, and vegetables. Many traditional soups are called soto, whereas foreign and Western influenced soups are called sop. Soto is sometimes considered Indonesia's national dish, as it is served from Sumatra to Papua, in a wide range of variations. Soto is omnipresent in Indonesia, available in many warungs and open-air eateries on many street corners, to fine dining restaurants and luxurious hotels. Soto, especially soto ayam (chicken soto), is an Indonesian equivalent of chicken soup. Because it is always served warm with a tender texture, it is considered an Indonesian comfort food."
+//   },
+//   IR: {
+//     dishName: 'Abgoosht',
+//     link: 'https://www.welcometoiran.com/abgousht-qonabid-qonabid-broth/',
+//     description: 'Abgoosht is an Iranian stew. It is also called dizi, which refers to the traditional stoneware crocks it is served in. Some describe it as a "hearty mutton Persian soup thickened with chickpeas". Ābgoosht is usually made with lamb, chickpeas, white beans, onion, potatoes, tomatoes, turmeric, and dried lime. Other variations exist in the beans used, such as kidney beans and black-eyed peas. The ingredients are combined and cooked until done, at which point the dish is strained. The solids are mashed as gusht kubideh and served with the broth, but in a separate dish, along with flatbread. It is a form of Piti, which encompasses many similar dishes in the region.'
+//   },
+//   IQ: {
+//     dishName: 'Masgouf',
+//     link: 'https://cardamomandtea.com/341/masgouf/',
+//     description: 'Masgouf is a Mesopotamian dish consisting of seasoned, grilled carp; it is often considered the national dish of Iraq .It is a fish roasted for hours after being marinated with olive oil, salt, curcuma and tamarind while keeping the skin on. Traditional garnishes for the masgouf include lemon, chopped onions and tomatoes, as well as the clay-oven flatbreads common to Iraq and much of the Middle East.'
+//   },
+//   IL: {
+//     dishName: 'Meorav Yerushalmi',
+//     link: 'https://jamiegeller.com/recipes/jerusalem-mixed-grill/',
+//     description: "Jerusalem mixed grill (me'orav Yerushalmi) is a grilled meat dish considered a specialty of Jerusalem. It consists of chicken hearts, spleens and liver mixed with bits of lamb cooked on a flat grill, seasoned with onion, garlic, black pepper, cumin, turmeric, olive oil and coriander. The dish is said to have been invented at the Mahane Yehuda Market, with various restaurants claiming to be the originators."
+//   },
+//   IT: {
+//     dishName: 'Pasta',
+//     link: 'https://memoriediangelina.com/2009/09/11/how-to-make-fresh-egg-pasta/',
+//     description: 'Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs, and formed into sheets or other shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.'
+//   },
+//   CI: {
+//     dishName: 'Kedjenou',
+//     link: 'https://www.africanbites.com/kedjenou-chicken/',
+//     description: "Kedjenou (also known as Kedjenou poulet and Kedjenou de Poulet) is a spicy stew that is slow-cooked in a sealed canari (terra-cotta pot) over fire or coals and prepared with chicken or guinea hen and vegetables. It is a traditional and popular dish of the cuisine of Côte d'Ivoire. Preparation methods for the stew vary. Sometimes little or no added liquid is used in its preparation, allowing the meat to cook in its own juices, which tenderizes the meat and concentrates the flavors of the ingredients. Sometimes the dish is cooked in a wrapped and sealed banana leaf that is placed under hot coals.[4] In Côte d'Ivoire the dish is traditionally served with Attiéké, a side dish made with grated cassava."
+//   },
+//   JM: {
+//     dishName: 'Ackee & Saltfish',
+//     link: 'https://jamaicanfoodsandrecipes.com/jamaican-ackee-and-salt-fish-recipe/',
+//     description: 'Ackee and saltfish is the Jamaican national dish prepared with ackee and salted codfish. To prepare the dish, salt cod is sautéed with boiled ackee, onions, Scotch bonnet peppers, tomatoes, then seasoned with spices like pepper and paprika. It can be garnished with bacon and tomatoes, and is usually served as breakfast alongside breadfruit, hard dough bread, dumplings, or boiled green bananas. Ackee and saltfish can also be eaten with rice and peas or plain white rice. When seasonings (onion, escallion, thyme, garlic) and saltfish are combined with plain rice it is often called "seasoned rice", which can be a one-pot meal including ackee.'
+//   },
+//   JO: {
+//     dishName: 'Mansaf',
+//     link: 'https://theodehlicious.com/jordanian-mansaf-recipe/',
+//     description: 'Mansaf is a traditional Arab dish made of lamb cooked in a sauce of fermented dried yogurt and served with rice or bulgur. It is a popular dish eaten throughout the Levant. It is considered the national dish of Jordan, and can also be found in Israel, Kuwait, Saudi Arabia and Syria. The name of the dish comes from the term "large tray" or "large dish".'
+//   },
+//   KZ: {
+//     dishName: 'Beshbarmak',
+//     link: 'https://foodperestroika.com/2015/11/09/beshbarmak-kazakhstans-national-dish/',
+//     description: 'Beshbarmak is a dish from Central Asian cuisine. It is also known as naryn in Xinjiang, Uzbekistan, Kyrgyzstan and Kazakhstan, as turama or dograma in Karakalpakstan, North Caucasus and Turkmenistan, as kullama in Bashkortostan and Tatarstan. It is a national dish of Kyrgyzstan and Kazakhstan. The term beshbarmak means "five fingers" because nomads traditionally eat this dish with their hands. Beshbarmak is usually made from finely chopped boiled meat, mixed with dough (typically egg noodles) and chyk, an onion sauce. It is typically served on large communal platters, shared between several people, after shorpo, which is a first course of mutton broth served in bowls called kese. It is also followed by a broth called ak-serke (shorpo mixed with kymyz or ayran), which is thought to help with settling the stomach. Festive beshbarmak can be cooked together with kazy and chuchuk.'
+//   },
+//   KE: {
+//     dishName: 'Sukuma Wiki',
+//     link: 'https://www.africanbites.com/sukuma-wiki/',
+//     description: 'Sukuma wiki is an East African dish made with collard greens, known as sukuma, cooked with onions and spices. It is often served and eaten with ugali (made from maize flour).  Sukuma wiki is a very rustic African dish, enjoyed in many parts of East African countries like Kenya, Tanzania.'
+//   },
+//   KI: {
+//     dishName: 'Coconut Curry Lobster',
+//     link: 'http://globaltableadventure.com/recipe/roasted-lobster-tails-with-coconut-curry-dipping-sauce/',
+//     description: 'The name of this Kiribati specialty is self-explanatory: lobster tails are roasted in the oven and accompanied by a coconut curry dipping sauce on the side. Lobster tails are usually just drizzled with oil and baked, while the creamy sauce is a combination of coconut milk, curry powder, turmeric, ginger, and salt. The dish is typically consumed as an appetizer and is often served with rice.'
+//   },
+//   XK: {
+//     dishName: 'Flija',
+//     link: 'https://bakingaround.wordpress.com/2017/03/03/kosovo-flija/',
+//     description: 'Flia, also known as fli or flija, is a dish in Kosovan cuisine and Albanian cuisine. It consists of multiple crêpe-like layers brushed with cream and served with sour cream and butter. The name translates to "sacrifice". March 17 is recognized as "Flia Day" in which families invite their relatives for preparing and eating flia. Flija requires very simple ingredients: flour, water, butter, yogurt, eggs, oil, nuts and salt. The main ingredients (flour, water and salt) are mixed together until they become like pancake batter. Layers of batter are baked using a saq which is a spherical metal lid used for baking.'
+//   },
+//   KW: {
+//     dishName: 'Murabyan',
+//     link: 'https://delintia.com/en/murabyan/',
+//     description: 'Murabyan is loaded with shrimp in the rice and has more in the topping. Shrimp is popular in Kuwait as they are found in the Gulf. The dish is flavored with sauteed onions, turmeric, coriander and dried loomi (a dried black lime). '
+//   },
+//   KG: {
+//     dishName: 'Laghman',
+//     link: 'https://www.diariesofmagazine.com/recipe-laghman-kyrgyzstan/',
+//     description: 'Laghman is a dish of meat, vegetables and pulled noodles from Chinese cuisine and Central Asian cuisine. It is especially popular in Kazakhstan and Kyrgyzstan, where it is considered a national dish of the local Uyghur and Dungan (Hui) ethnic minorities. It is also popular in Russia, Uzbekistan, Tajikistan, Turkmenistan and Northeastern Afghanistan, where chickpeas are added to it and parts of Northern Pakistan.'
+//   },
+//   LV: {
+//     dishName: 'Layered Rye Bread',
+//     link: 'https://www.missfoodwise.com/2017/12/latvian-rye-trifle-visit-riga.html/',
+//     description: 'Layered rye bread is a traditional Latvian dessert made from rye breadcrumbs, blackcurrant or lingonberry jam, and whipped cream. It is topped off with grated dark chocolate and/or cinnamon and often served with fresh berries and cottage cheese ice cream. Layered rye bread similar in appearance and construction to the trifle of the British Isles, and is sometimes called rye bread trifle or Latvian ambrosia. Layered rye bread is an iconic Latvian food, and is considered one of the national dishes. It was the sweet chosen to represent Latvia in the Café Europe initiative of the Austrian presidency of the European Union, on Europe Day 2006.'
+//   },
+//   LB: {
+//     dishName: 'Tabboueleh',
+//     link: 'https://zaatarandzaytoun.com/tabbouleh/',
+//     description: 'Tabbouleh is a Levantine salad made mostly of finely chopped parsley, with tomatoes, mint, onion, bulgur (soaked, not cooked), and seasoned with olive oil, lemon juice, salt and sweet pepper. Some variations add lettuce, or use semolina instead of bulgur. Tabbouleh is traditionally served as part of a mezze in the Eastern Mediterranean and the Arab world.'
+//   },
+//   LS: {
+//     dishName: 'Chakalaka',
+//     link: 'https://www.africanbites.com/chakalaka/',
+//     description: 'Chakalaka is a South African vegetable relish, usually spicy, that is traditionally served with bread, pap, samp, stews, or curries. Chakalaka may have originated in the townships of Johannesburg or on the gold mines surrounding Johannesburg, when Mozambican mineworkers coming off shift cooked tinned produce (tomatoes, beans) with chili to produce a spicy relish with a Portuguese style to accompany pap. Many variations of chakalaka exist, depending on region and family tradition. Some versions include beans, cabbage and butternut. For example, canned baked beans, canned tomatoes, onion, garlic, and curry paste can be used to make the dish.'
+//   },
+//   LR: {
+//     dishName: 'Liberian Chicken Gravy',
+//     link: 'https://www.africanbites.com/liberian-chicken-gravy/',
+//     description: 'Liberian chicken gravy is a flavorful, scrumptious stew that is traditionally prepared only for special occasions because meat is quite expensive for the average Liberian household. The stew typically consists of chicken pieces, shrimp, green beans, bell peppers, tomatoes, onions, and chicken stock. While the dish is simmering, it is often flavored with garlic, ginger, hot peppers, and parsley. When the chicken gravy is ready to be served, it is usually paired with white rice on the side.'
+//   },
+//   LY: {
+//     dishName: 'Bazeen',
+//     link: 'http://libyanfood.blogspot.com/2010/08/bazeen.html',
+//     description: 'Bazin, is an unleavened bread in the cuisine of Libya prepared with barley, water and salt. Bazin is prepared by boiling barley flour in water and then beating it to create a dough using a magraf, which is a unique stick designed for this purpose. The dough may then be placed in a pan and allowed time to harden, after which it is baked or steamed. The salt contributes to the hardness of the bazin. Bazin may have a paste-like and hardened texture. It may also be prepared using whole wheat flour, olive oil and pepper as ingredients. Bazin is typically served with a tomato sauce, eggs, potatoes and mutton. This preparation method involves shaping the dough into the shape of a pyramid or dome, after which it may be served with a tomato-based soup or meat-and-potato stew poured atop or around it and garnished with hard-boiled eggs. A raw egg may also be placed in the hot soup. Aseeda is a dish prepared using bazin, honey, date syrup and butter or oil.[3] Bazin may also be accompanied with a cooked pumpkin and tomato sauce mixture'
+//   },
+//   LT: {
+//     dishName: 'Cepelinai',
+//     link: 'http://lithuanianhomecooking.com/home/time-for-cepelinai',
+//     description: 'Cepelinai or didžkukuliai are potato dumplings made from grated and riced potatoes and stuffed with ground meat, dry curd cheese or mushrooms. It has been described as a national dish of Lithuania, and is typically served as a main dish.'
+//   },
+//   LU: {
+//     dishName: 'Judd Mat Gaardebounen',
+//     link: 'https://www.luxtimes.lu/en/dining-and-nightlife/local-food-pork-and-bacon-dishes-602d6f6dde135b9236ba2ff6',
+//     description: 'Judd mat Gaardebounen is a savory dish of smoked pork collar and broad beans which is one of the most widely recognized national dishes of Luxembourg. It is associated with the village of Gostingen in the south-east of the country where the inhabitants have earned the nickname of Bounepatscherten as a result of their well-known broad beans.'
+//   },
+//   MG: {
+//     dishName: 'Romazava',
+//     link: 'http://aroundtheblockwithjenni.com/blog/2020/5/15/traditional-malagasy-dish-romazava',
+//     description: 'Romazava is the national dish of Madagascar, consisting of greens, zebu meat, tomatoes, and onions, typically accompanied by a portion of rice. An integral component of the stew is brèdes mafana, called anamalaho in Malagasy: The plant holds an acid amide called Spilanthol in its buds that elicits a tingly, pungent, citrusy and mouth-numbing effect, inducing excessive saliva production.'
+//   },
+//   MW: {
+//     dishName: 'Chambo',
+//     link: 'https://www.thefooddictator.com/malawi-fried-and-curried-tilapia-chambo/',
+//     description: 'Chambo is a species of the tilapia famil,y and is found in the lakeshore areas such as Mangochi, Salima, Nkhotakota, Nkhatabay, Rumphi and Likoma Island. Chambo is sometimes dried in the sun, or it can be roasted, cooked or fried and served with a side of soup. Chambo is served with fruit chutney.'
+//   },
+//   MY: {
+//     dishName: 'Nasi Lemak',
+//     link: 'https://www.allrecipes.com/recipe/78938/malaysian-nasi-lemak/',
+//     description: 'Nasi lemak is a Malay cuisine dish originating from Malaysia that consists of fragrant rice cooked in coconut milk and pandan leaf. It is commonly found in Malaysia, where it is considered the national dish. It is also the native dish in neighbouring areas with significant Malay populations such as Singapore, Brunei, and Southern Thailand.'
+//   },
+//   MV: {
+//     dishName: 'Garudhiya',
+//     link: 'https://nadiyas-tastesofmaldives.blogspot.com/2011/10/garudiya-fish-soup.html',
+//     description: "Garudiya or Garudhiyais a clear fish broth. It is one of the basic and traditional food items of Maldivian cuisine. The broth is based on tuna species found in the nation's ocean waters such as skipjack, yellowfin tuna, little tunny, or frigate tuna. In order to cook garudiya, tuna fish are cut up following a traditional pattern. After having had the gills and some of the innards thrown away, the fish pieces, the heads and the bones are carefully washed. The fish is then boiled in water with salt, until it is well cooked. Garudiya is usually eaten with steamed rice, but it can also be eaten with roshi, the Maldivian chapati. When eaten with steamed taro, or with steamed breadfruit, grated coconut is added."
+//   },
+//   ML: {
+//     dishName: 'Tiguadege Na',
+//     link: 'https://diningforwomen.org/recipes/tiguadege-na-meat-in-peanut-sauce/',
+//     description: "Peanut stew or groundnut stew, also called as maafe, sauce d'arachide (French), tigadèguèna or domoda, is a stew that is a staple food in Western Africa. It originates from the Mandinka and Bambara people of Mali. Variants of the dish appear in the cuisine of nations throughout West Africa and Central Africa. It is very similar to groundnut soup. It may have a thicker consistency. Made from lamb, beef, chicken, or without meat, maafe is cooked with a sauce based on groundnuts, especially peanut butter/paste, and tomatoes. Peanut paste is sometimes used as an ingredient. In Ghana, groundnut stew is often accompanied with fufu."
+//   },
+//   MT: {
+//     dishName: 'Pastizzi',
+//     link: 'http://tessavalletta.com/2016/04/maltese-pastizzi-recipe/',
+//     description: 'A pastizz is a traditional savoury pastry from Malta. Pastizzi usually have a filling either of ricotta or curried peas. Pastizzi are a popular and well-known traditional Maltese food. Pastizzi are usually diamond-shaped or round-shaped and made with a pastry very much like the Greek filo pastry (although there is also a puff pastry version). The pastry is folded in different ways according to the filling, as a means of identification. Traditionally, cheese cakes (stuffed with ricotta) are folded down the middle, whereas pea cakes are folded down the side. They are typically baked on metal trays in electric or gas ovens in a pastizzerija, usually a small or family concern. They are also sold in bars, cafes and by street vendors. They are a popular breakfast in outer villages.'
+//   },
+//   MH: {
+//     dishName: 'Macadamia Nut Pie',
+//     link: 'https://goodfoodonbadplates.wordpress.com/2016/03/19/too-good-at-least-marshallese-macadamia-nut-pie/',
+//     description: 'Macadamia nut pie is a traditional recipe from the Marshall Islands and a delicious twist on pecan pie, typically served with coconut whipped cream.'
+//   },
+//   MU: {
+//     dishName: 'Octopus Curry',
+//     link: 'https://www.thefoodiesvine.com/blog/mauritian-octopus-curry-cari-ourite',
+//     description: 'In Mauritius and Rodrigues, octopus, known by its Mauritian Creole name "Ourite" is commonly eaten especially in coastal regions as it is found abundantly in Mauritian waters. Popular octopus dishes include the masala octopus curry or boiled octopus in spicy tomato sauce, known as the "Daube".'
+//   },
+//   MX: {
+//     dishName: 'Tacos',
+//     link: 'https://www.mexicoinmykitchen.com/tacos-al-pastor/',
+//     description: 'Al pastor (from Spanish, "shepherd style"), also known as tacos al pastor, is a taco made with spit-grilled pork. Cooking method is based on the lamb shawarma brought by Lebanese immigrants to Mexico, al pastor features a flavor palate that uses traditional Mexican marinade adobada. It is a popular street food that has spread to the United States. In some places of northern Mexico and coastal Mexico, such as in Baja California, Mexico, it is known as taco de trompo or taco de adobada. A similar dish from Puebla that uses a combination of middle eastern spices and indigenous central Mexican ingredients is called tacos árabes.'
+//   },
+//   MD: {
+//     dishName: 'Sarmale',
+//     link: 'https://cristinanesteriuc.home.blog/2019/04/27/moldavian-sarmale-my-family-recipe/',
+//     description: 'Sarma, commonly marketed as stuffed grape leaves or stuffed cabbage leaves, is a stuffed dish in Southeastern European and Middle Eastern cuisine that comprises fermented leaves—such as cabbage, patencia dock, collard, grapevine, kale or chard leaves—rolled around a filling of grains (such as rice), minced meat, or both. Sarma is part of the broader category of stuffed dishes known as dolma.'
+//   },
+//   MC: {
+//     dishName: 'Barbaguain',
+//     link: 'https://europeankitchen.org/2020/08/14/barbagiuan/',
+//     description: 'Barbajuan (also spelled barbagiuan) is an appetizer mainly found in the eastern part of French Riviera, Northern Italy and Monaco. A kind of fritter stuffed with Swiss chard and ricotta, among other ingredients, it originates from Monaco, where it is especially eaten on the national day, 19 November.'
+//   },
+//   ME: {
+//     dishName: 'Kachamak',
+//     link: 'https://www.soofoodies.com/recipe/kachamak-polenta/',
+//     description: 'Kačamak is a kind of maize porridge made in parts of Western Asia and Southeastern Europe. Its name is derived from the Turkish word kaçamak, meaning escapade. It is also known as bakrdan in North Macedonia.  The dish is made of cornmeal. Potatoes, milk, white cheese or kaymak are sometimes added.'
+//   },
+//   MA: {
+//     dishName: 'Tagine',
+//     link: 'https://www.onceuponachef.com/recipes/moroccan-chicken-tagine.html',
+//     description: 'A tajine or tagine is a North African dish, named after the earthenware pot in which it is cooked. Algerian and Moroccan tajine dishes are slow-cooked savory stews, typically made with sliced meat, poultry or fish together with vegetables or fruit. Spices, nuts, and dried fruits are also used. Common spices include ginger, cumin, turmeric, cinnamon, and saffron. Paprika and chili are used in vegetable tajines. The sweet and sour combination is common in tajine dishes like lamb with prunes and spices. Tajines are generally served with bread. Because the domed or cone-shaped lid of the tajine pot traps steam and returns the condensed liquid to the pot, a minimal amount of water is needed to cook meats and vegetables. '
+//   },
+//   MZ: {
+//     dishName: 'Frango',
+//     link: 'https://www.africanbites.com/mozambique-peri-peri-grill-chicken/',
+//     description: 'Frango (piri-piri), native to Angola and Mozambique, also a former Portuguese colony; a grilled chicken in a very hot marinade of piri piri hot pepper and sometime also minced chili peppers, salt, and lemon or lime juice.'
+//   },
+//   MM: {
+//     dishName: 'Mohinga',
+//     link: 'https://hsaba.com/recipes/mohinga-recipe',
+//     description: 'Mohinga is a rice noodle and fish soup from Myanmar and an essential part of Burmese cuisine, considered by many to be the national dish of Myanmar. Mohinga is readily available in most parts of the country, sold by street hawkers and roadside stalls in larger cities. Mohinga is traditionally eaten for breakfast, but today is eaten at any time of day.'
+//   },
+//   NA: {
+//     dishName: 'Braai',
+//     link: 'https://braai.com/namibian-chimichurri-steak/',
+//     description: 'In South Africa, a braai is a barbecue or grill and is a social custom in much of Southern Africa. The term originated with the Afrikaners, but has since been adopted by South Africans of many ethnic backgrounds. Braai is regarded by some as another word for barbecue, and the traditions around a braai can be considerably different from a barbecue, even if the method of food preparation is very similar. Due to the traditional activities that occur around a braai, many South Africans would argue that having a braai is much better than having a barbecue. While wood was formerly the most widely used braai fuel, in modern times the use of charcoal, briquettes and gas (gas braai) has increased due to their convenience, as with barbecues elsewhere in the world.'
+//   },
+//   NR: {
+//     dishName: 'Coconut Fried Fish',
+//     link: 'https://www.internationalcuisine.com/nauru-coconut-crusted-fish/',
+//     description: 'Coconut fish is the national dish of Nauru, the third smallest country in the world. Coconut crusted fish is a widely popular dish, typically consisting of white fish fillets marinated in lime juice, salt, and pepper. In order to prepare it, the fillets are rolled in flour, eggs, and grated coconut before being fried until the coconut becomes crusted.'
+//   },
+//   NP: {
+//     dishName: 'Dhal Bhat',
+//     link: 'https://www.archanaskitchen.com/nepalese-style-dhal-bhat-recipe',
+//     description: 'Dal bhat is a traditional meal from the Indian subcontinent, popular in many areas of India, Pakistan, Bangladesh and Nepal. It consists of steamed rice and a cooked lentil or other pulses stew called dal. It is a staple food in these countries. Bhat or Chawal means "boiled rice" in a number of Indo-Aryan languages. At higher elevations in Nepal, above 6,500 feet (2,000 m), where rice does not grow well, other grain such as maize, buckwheat, barley or millet may be substituted in a cooked preparation called dhindo or atho in Nepal. Bhat may be supplemented with roti in Nepal (rounds of unleavened bread). Dal may be cooked with onion, garlic, ginger, chili, tomatoes, or tamarind, in addition to lentils or beans. It always contains herbs and spices such as coriander, garam masala, cumin, and turmeric. Recipes vary by season, locality, ethnic group and family.'
+//   },
+//   NL: {
+//     dishName: 'Stamppot',
+//     link: 'https://www.all-thats-jas.com/dutch-stamppot-vegetable-mash/',
+//     description: 'Stamppot is a traditional Dutch dish made from a combination of potatoes mashed with one or several vegetables.'
+//   },
+//   NZ: {
+//     dishName: 'Bacon and Egg Pie',
+//     link: 'https://eggs.org.nz/recipes/classic-bacon-egg-pie/',
+//     description: 'The bacon and egg pie is a savoury pie consisting of a crust containing bacon, egg and sometimes onion, mushrooms, bell peppers, peas, tomato, fresh herbs and cheese. Bacon and egg pie may be served with ketchup, which can be combined with Worcestershire sauce and drizzled over the filling before the pie is baked and some versions have a rising agent such as baking powder mixed into the egg to make a fluffier filling.'
+//   },
+//   NE: {
+//     dishName: 'Djerma Stew',
+//     link: 'https://whonomstheworld.com/blog/traditional-niger-style-djerma/',
+//     description: 'Djerma is a traditional stew originating from Niger. It is made with a combination of chicken, onions, garlic, tomatoes, thyme, curry powder, peanut butter, and bouillon cubes. In order to prepare it, chicken, onions, and garlic should first be sautéed in oil, then combined with tomatoes, thyme, curry powder, and bouillon cubes, with a small amount of water. Once done, the dish is traditionally served for lunch, accompanied by rice.'
+//   },
+//   NG: {
+//     dishName: 'Egusi & Fufu',
+//     link: 'https://www.allnigerianrecipes.com/soups/egusi-soup/',
+//     description: 'Egusi soup is a kind of soup thickened with the ground seeds and popular in West Africa, with considerable local variation. Besides the seeds, water, and oil, egusi soup typically contains leaf vegetables, palm oil, other vegetables, seasonings, and meat. Leaf vegetables typically used for egusi soup include bitterleaf, pumpkin leaf, celosia and spinach. Typical other vegetables include tomatoes and okra. Typical seasonings include chili peppers, onions, and locust beans. Also commonly used are beef, goat, fish, shrimp, or crayfish. In Nigeria, egusi is common among the people of the southwestern Yoruba people, Efik, Ibibio and Annang people of south-south Nigeria, and the southeastern part of Nigeria by the Igbo people of southern Nigeria.'
+//   },
+//   KP: {
+//     dishName: 'Naengmyeon',
+//     link: 'https://www.koreanbapsang.com/naengmyeon-cold-noodles/',
+//     description: 'Naengmyeon or raengmyŏn is a noodle dish of North Korean origin which consists of long and thin handmade noodles made from the flour and starch of various ingredients, including buckwheat, potatoes, sweet potatoes, arrowroot starch (darker color and chewier than buckwheat noodles), and kudzu. Buckwheat predominates (despite the name, it is not a wheat but rather is more closely related to sorrel). Other varieties of naengmyeon are made from ingredients such as seaweed and green tea.'
+//   },
+//   NO: {
+//     dishName: 'Farikal',
+//     link: 'https://northwildkitchen.com/farikal-norwegian-lamb-cabbage-stew/',
+//     description: "Fårikål is a traditional Norwegian dish, considered by many to be the country's national dish. Consisting of pieces of mutton with bone, cabbage, whole black pepper and occasionally a little wheat flour, cooked for several hours in a casserole, traditionally served with potatoes boiled in their skins. The dish is typically prepared in early autumn. Fårikål Feast Day is celebrated on the last Thursday in September each year."
+//   },
+//   OM: {
+//     dishName: 'Shuwa',
+//     link: 'https://www.thasneen.com/cooking/shuwa-slow-cooked-lamb-served-over-aromatic-basmati-rice-omani-delicacy/',
+//     description: "Quzi also spelled as qoozi or ghoozi, is a rice-based dish popular and is considered as one of Iraq's national dishes. It is served with very slowly cooked lamb, roasted nuts, and raisins served over rice. The dish was introduced into Turkey by Syrian immigrants. The dish can also be found in some Arab states of the Persian Gulf. In Oman and UAE it is called shuwaa and is traditionally eaten on festive occasions, prepared by wrapping the marinated meat in date palm leaves and placing the wrapped meat in a submerged oven."
+//   },
+//   PK: {
+//     dishName: 'Seekh Kebab',
+//     link: 'http://rookiewithacookie.com/pakistani-seekh-kebab-yogurt-raita/',
+//     description: 'The seekh kebab is a type of kebab, popular in South Asia, originating in India and Pakistan. It is made with spiced, minced or ground meat, usually lamb, beef, or chicken, formed into cylinders on skewers and grilled. It is typically cooked on a mangal or barbecue, or in a tandoor.'
+//   },
+//   PW: {
+//     dishName: 'Chicken Tinola',
+//     link: 'https://www.pinoycookingrecipes.com/tinolang-manok-chicken-tinola.html',
+//     description: 'Chicken Tinola is a Filipino chicken soup dish cooked in a ginger broth. It is a popular cold weather dish, enjoyed with fish sauce as dipping sauce, and a cup of warm white rice. Tinola is traditionally cooked with wedges of unripe papaya and malunggay leaves'
+//   },
+//   PS: {
+//     dishName: 'Maqluba',
+//     link: 'https://tasteofpalestine.org/recipes/maqluba-chicken-rice-pot',
+//     description: 'Maqluba or Maqlooba is a traditional Iraqi, Lebanese, Palestinian, Jordanian, and Syrian dish served throughout the Levant. It consists of meat, rice, and fried vegetables placed in a pot which is flipped upside down when served, hence the name maqluba. Maqluba can include a variety of vegetables, such as fried tomatoes, potatoes, cauliflower, and eggplant, accompanied by either chicken or lamb. The most common are cauliflower and eggplant. All the ingredients are carefully placed in the pot in layers, so that when the pot is inverted for serving, the dish looks like a layer cake. Maqluba is typically garnished with pine nuts and chopped fresh parsley. It sometimes served with salad and fresh yogurt, and is often prepared for feasts and large gatherings.'
+//   },
+//   PA: {
+//     dishName: 'Sancocho',
+//     link: 'https://www.centralamerica.com/experiencing/eating/panamanian-sancocho-recipe/',
+//     description: 'Sancocho (from the Spanish verb sancochar, "to parboil") is a traditional broth (often considered a soup) in several Latin American cuisines. Variations represent popular national dishes in Puerto Rico, Honduras, Ecuador, Colombia, Cuba, Panama, Dominican Republic, Trinidad and Tobago, and Venezuela. It usually consists of large pieces of meat, tubers and vegetables served in a broth. The basic ingredients are chicken, ñame (adding flavor and acting as a thickener, giving it its characteristic texture and brightness), and culantro (giving it most of its characteristic flavor and greenish tone); often yuca, mazorca (corn on the cob) and otoe are added. Other optional ingredients include ñampí (as the Eddoe variety of Taro is known), chopped onions, garlic and oregano. It is frequently served with white rice on the side, meant to be either mixed in or eaten with each spoonful. Hot sauce is frequently added, depending on regional and individual preferences.'
+//   },
+//   PG: {
+//     dishName: 'Mumu',
+//     link: 'https://www.coffeeandvanilla.com/papuan-new-guinean-mumu/',
+//     description: 'Mumu is regarded as the national dish of Papua New Guinea. It is composed of pork, sweet potato, rice, and vegetables. Mumu is an example of a balanced dish composed of the two bases, crops (including starch) and meat. The dish is named after the earth oven used traditionally. Mumu is a traditional method of cooking large quantities of food throughout Papua New Guinea, as well as other islands in the Pacific. It consists of an earth oven that is filled with hot coal or stones, that may be placed in different orientations, and subsequently cooked for a lengthy period of time.'
+//   },
+//   PY: {
+//     dishName: 'Sopa Paraguaya',
+//     link: 'https://www.all-thats-jas.com/paraguayan-cornbread/',
+//     description: 'Sopa paraguaya or Paraguayan soup is a traditional food of Paraguay, North-East of Argentina and the area of Brazil near to the Paraguayan border. (As the zones near to the border of Paraná, Santa Catarina, some parts of Rio Grande do Sul and Mato Grosso do Sul). Literally meaning "Paraguayan soup" (sopa paraguaya), it is similar to corn bread. Corn flour, cheese and milk or whey are common ingredients. It is a spongy cake rich in caloric and protein content.'
+//   },
+//   PE: {
+//     dishName: 'Ceviche',
+//     link: 'https://www.laylita.com/recipes/peruvian-fish-cebiche-or-ceviche/',
+//     description: 'Ceviche, also cebiche, seviche, or sebiche is a South American seafood dish originally from the modern day country of Peru, typically made from fresh raw fish cured in fresh citrus juices, most commonly lemon or lime. It is also spiced with ají, chili peppers or other seasonings and chopped onions, salt, and coriander are also added. The name originates from the Quechuan word siwichi, which means fresh or tender fish.'
+//   },
+//   PH: {
+//     dishName: 'Adobo',
+//     link: 'https://panlasangpinoy.com/filipino-chicken-adobo-recipe/',
+//     description: 'In Filipino cuisine, adobo refers to a common cooking process indigenous to the Philippines. When the Spanish first explored the Philippines in the late 16th century, they encountered a cooking process that involved stewing with vinegar. The Spanish referred to it as adobo due to its superficial similarity to the Spanish adobo. The Filipino adobo is an entirely separate method of preparing food and is distinct from the Spanish marinade. Unlike the Spanish and Latin American adobo, the main ingredients of Philippine adobo are ingredients native to Southeast Asia, namely vinegar, soy sauce or patis (fish sauce), black peppercorns, and bay leaves. It does not traditionally use chilis, paprika, oregano, or tomatoes. There are other noted versions of Philippine adobo, namely Adobong Puti (White Adobo, prepared with salt instead of soy sauce) and Adobong Tuyo (Dry Adobo). The dish is normally cooked with pork or chicken and sometimes with only vegetables like kangkong (water spinach) or sitaw (green beans).'
+//   },
+//   PL: {
+//     dishName: 'Bigos',
+//     link: 'xxx',
+//     description: "Bigos, often translated into English as hunter's stew, is a Polish dish of chopped meat of various kinds stewed with sauerkraut and shredded fresh cabbage. It is served hot and can be enriched with vegetables, spices or wine. The principal ingredients of bigos are assorted kinds of meat chopped into bite-sized chunks and a mixture of sauerkraut (pickled cabbage) and shredded fresh white cabbage. The meats may include pork (ham, shoulder, bacon, ribs, loin, etc.), beef and veal, poultry (chicken, duck, goose, turkey) and game, as well as charcuterie, especially various kinds of kiełbasa, or Polish smoked sausage. The variety of meats is considered essential for good bigos; its preparation may be a good occasion to clean out one's freezer and use up leftovers from other meat dishes. Some of the meats may be roasted before being diced together with other cuts of meat and braised in lard or vegetable oil. Other ingredients often added to bigos include onions, diced and browned in lard together with the meat, and dried forest mushrooms that are precooked separately in boiling water. The stew is usually seasoned with salt, black peppercorns, allspice, juniper berries and bay leaves. Some recipes also call for caraway, cloves, garlic, marjoram, mustard seeds, nutmeg, paprika and thyme."
+//   },
+//   QA: {
+//     dishName: 'Madrouba',
+//     link: 'https://alkaabiam.medium.com/recipe-of-a-traditional-food-madrouba-ec0a9fa11d7e',
+//     description: 'Madrouba is a spicy and comforting Qatari porridge made with chicken, overcooked rice, and a plethora of flavorings such as turmeric, cumin, cardamom, ginger, cloves, cinnamon, garlic, and black pepper. It is recommended to serve madrouba while it is still piping hot, preferably garnished with fresh lime zest.'
+//   },
+//   RO: {
+//     dishName: 'Mamaliga',
+//     link: 'https://www.jocooks.com/recipes/traditional-romanian-polenta-mamaliga-cu-branza-in-paturi/',
+//     description: 'Mămăligă is a porridge made out of yellow maize flour, traditional in Romania, Moldova and West Ukraine. Preparing the traditional dish is also continued by Poles from Lviv area. Traditionally, mămăligă is cooked by boiling water, salt and cornmeal in a special-shaped cast iron pot called ceaun or tuci. When cooked peasant-style and used as a bread substitute, mămăligă is supposed to be much thicker than the regular Italian polenta to the point that it can be cut in slices, like bread. When cooked for other purposes, mămăligă can be much softer, sometimes almost to the consistency of porridge. Because mămăligă sticks to metal surfaces, a piece of sewing thread is used to cut it into slices instead of a knife; it can then be eaten by holding it with the hand, just like bread.'
+//   },
+//   RU: {
+//     dishName: 'Borscht',
+//     link: 'https://www.willcookforsmiles.com/russian-borscht-recipe/',
+//     description: `Borscht is a sour soup common in Eastern Europe and Northern Asia. In English, the word "borscht" is most often associated with the soup's variant of Ukrainian origin, made with red beetroots as one of the main ingredients, which give the dish its distinctive red color. The same name, however, is also used for a wide selection of sour-tasting soups without beetroots, such as sorrel-based green borscht, rye-based white borscht, and cabbage borscht.`
+//   },
+//   RW: {
+//     dishName: 'Brochettes',
+//     link: 'https://www.subsaharapost.com/post/brochette-rwandan-street-skewer',
+//     description: 'In Rwanda, brochettes are the most popular food when eating out in the evening, usually made from goat but sometimes tripe, beef, or fish. In rural areas, many bars have a brochette seller responsible for tending and slaughtering the goats, skewering and barbecuing the meat, and serving it with grilled bananas.'
+//   },
+//   KN: {
+//     dishName: 'Saltfish',
+//     link: 'http://caribento.com/read/recipe/saint-kitts-and-nevis-national-dish/',
+//     description: 'Dried and salted cod, sometimes referred to as salt cod or saltfish or salt dolly, is cod which has been preserved by drying after salting. Cod which has been dried without the addition of salt is stockfish. Salt cod was long a major export of the North Atlantic region, and has become an ingredient of many cuisines around the Atlantic and in the Mediterranean.'
+//   },
+//   LC: {
+//     dishName: 'Gren Fig and Saltfish',
+//     link: 'https://www.islanderkeys.com/green-fig-and-saltfish-national-dish-of-st-lucia/',
+//     description: 'St Lucia is known for its national dish consisting of green bananas and salt fish locally known as green figs and saltfish; breadfruit and salt fish is also an alternative favourite among the locals.'
+//   },
+//   WS: {
+//     dishName: 'Panipopo',
+//     link: 'http://www.samoafood.com/2010/06/panipopo-sweet-coconut-buns.html',
+//     description: 'Panipopo is the national dish of Samoa, a unique dessert consisting of buns baked in a sweet and sticky coconut cream sauce. The buns are typically served in shallow bowls spooned over with more sauce, accompanied by a hot beverage on the side, preferably Samoan cocoa.'
+//   },
+//   SM: {
+//     dishName: 'Torta Tre Monti',
+//     link: 'https://www.rosacooking.com/en/waffle-cakes-from-san-marino/',
+//     description: 'Torta Tre Monti is a traditional Sammarinese cake made of layers of thin waffled wafers cemented together by chocolate or hazelnut crème. The final product is covered in chocolate fondant. It is similar to other layered desserts common to San Marino, this one being representative of the Three Towers of San Marino.'
+//   },
+//   SA: {
+//     dishName: 'Kabsa',
+//     link: 'https://amiraspantry.com/chicken-saudi-kabsa/',
+//     description: 'Kabsa is an Arab mixed rice dish, served on a communal platter, that originates from Yemen but is commonly regarded as a national dish in all the countries of the Arabian Peninsula (Saudi Arabia, Kuwait, Bahrain, Qatar, the United Arab Emirates, Oman, and Yemen). It can also be found served in countries such as South of Iran, the Negev desert in Israel, and the Malabar Coast of India.'
+//   },
+//   RS: {
+//     dishName: 'Cevapcici',
+//     link: 'https://belgradeatnight.com/how-to-make-cevapicevapcici-recipe/',
+//     description: 'Ćevapi is a grilled dish of minced meat found traditionally in the countries of southeast Europe (the Balkans). It is considered a national dish of Bosnia and Herzegovina and Serbia, and is also common in Croatia, Montenegro, Kosovo, North Macedonia and Slovenia. Ćevapi has its origins in the Balkans from before the Ottoman period, and represents a regional speciality similar to the köfte kebab. They are usually served in groups of five to ten pieces on a plate or in a flatbread (lepina or somun), often with chopped onions, sour cream, kajmak (milk cream), ajvar (relish), and salt.'
+//   },
+//   SC: {
+//     dishName: 'Ladob',
+//     link: 'https://www.msingiafrikamagazine.com/2020/09/ladob-recipe/',
+//     description: 'Ladob is a dish eaten in the Seychelles which is eaten either as a savory dish or as a dessert. It was originally a dish eaten in large amounts by the early arrivals to the island due to the ingredients being in plentiful supply. It is now a staple part of the diet, many eating the dish several times a week. The dessert version usually consists of ripe plantain and sweet potatoes (but may also include cassava, breadfruit or even corossol) boiled with coconut milk, sugar, nutmeg and vanilla in the form of a pod until the fruit is soft and the sauce is creamy. The savory version usually includes salted fish, cooked in a similar fashion to the dessert version, with plantain, cassava and breadfruit, but with salt used in place of sugar (and omitting vanilla).'
+//   },
+//   SL: {
+//     dishName: 'Cassava Leaves',
+//     link: 'https://afrifoodnetwork.com/recipes/soup-recipes/cassava-leaf-soup/',
+//     description: 'Cassava leaves stew is widely consumed in West and central Africa. In Liberia, Sierra Leone and Guinea this stew is part of meals almost every day. In preparation, the tenderest cassava leaves are washed, then either pounded very finely or bruised with a pestle and mortar, and then finely shredded before cooking. The leaves are added to palaver sauce, which is made using red palm oil mixed with other ingredients, such as onions, pepper, fish, meat, and vegetables to create a stew.'
+//   },
+//   SI: {
+//     dishName: 'Ajdovi Zganci',
+//     link: 'https://jernejkitchen.com/recipes/slovenian-buckwheat-porridge',
+//     description: 'Ajdovi žganci is the national dish of Slovenia, consisting of buckwheat flour and water. The word žganci is derived from žgati, meaning to burn. Originally, the dish was a basic meal for most people, a breakfast used to provide the daily nutrients and energy to farmers for their hard work during the day. Žganci was consumed as a substitute for bread, while the leftovers used to be toasted with lard the following day, so that no food went to waste. Today, the dish can be found throughout the country, but it is prepared differently in each region of Slovenia. It is commonly served with sauerkraut and grilled sausages on the side. Ajdovi žganci are considered the ultimate comfort food on cold winter days.'
+//   },
+//   SB: {
+//     dishName: 'Poi',
+//     link: 'https://nationalfoods.org/recipe/national-dish-of-solomon-islands-poi/',
+//     description: 'Poi or Popoi is a traditional staple food in the Polynesian diet, made from starchy vegetables, usually breadfruit, taro or plantain. Traditional poi is produced by mashing cooked starch on a wooden pounding board, with a carved pestle made from basalt, calcite, coral or wood. Modern methods use an industrial food processor to produce large quantities for retail distribution. Water is added to the starch during mashing, and again just before eating, to achieve the desired consistency, which can range from highly viscous to liquid. In Hawaii, this is classified as either "one-finger", "two-finger", or "three-finger", alluding to how many fingers are required to scoop it up (the thicker the poi, the fewer fingers required to scoop a sufficient mouthful).'
+//   },
+//   SO: {
+//     dishName: 'Goat Stew',
+//     link: 'https://www.mysomalifood.com/goat-stew/',
+//     description: 'Goat meat is a staple in somali cooking and most widely preferred.  Goat stew makes an excellent dish to be served alongside other dishes including rice, sabaayad, lahooh or any type of bread, especially french bread.'
+//   },
+//   ZA: {
+//     dishName: 'Bobotie',
+//     link: 'https://drizzleanddip.com/2018/09/26/traditional-south-african-bobotie-with-fragrant-yellow-rice/',
+//     description: 'Bobotie  is a well-known South African dish consisting of spiced minced meat baked with an egg-based topping.  Bobotie is commonly made with beef or lamb, although pork can also be used. Early recipes incorporated ginger, marjoram and lemon rind; the introduction of curry powder has simplified the recipe but the basic concept remains the same. Some recipes also call for chopped onions and almonds to be added to the mixture. Traditionally, bobotie incorporates dried fruit like raisins or sultanas. It is often garnished with bay leaves, walnuts, chutney and bananas.'
+//   },
+//   ES: {
+//     dishName: 'Tortilla Espanola',
+//     link: 'https://spanishsabores.com/best-spanish-omelet-recipe/',
+//     description: 'Spanish omelette or Spanish tortilla is a traditional dish from Spain. Celebrated as a national dish by Spaniards, it is an essential part of the Spanish cuisine. It is an omelette made with eggs and potatoes, optionally including onion. It is often served at room temperature as a tapa. It is commonly known in Spanish-speaking countries as tortilla de patatas, tortilla de papas, tortilla española.'
+//   },
+//   LK: {
+//     dishName: 'Rice and Curry',
+//     link: 'https://www.theflavorbender.com/sri-lankan-chicken-curry/',
+//     description: 'The central feature of Sri Lankan cuisine is boiled or steamed rice, served with a curry of fish or meat, along with other curries made with vegetables, lentils, or fruits. Dishes are accompanied by pickled fruits or vegetables, chutneys, and sambols. Coconut sambol is especially common, a paste of ground coconut mixed with chili peppers, dried Maldive fish, and lime juice.'
+//   },
+//   SD: {
+//     dishName: 'Ful Medames',
+//     link: 'https://tasteofsouthsudan.com/ful-medames-sudanese-fava-beans/',
+//     description: 'Ful medames, or simply fūl, is a stew of cooked fava beans served with olive oil, cumin, and optionally with chopped parsley, garlic, onion, lemon juice, chili pepper, and other vegetable, herb, and spice ingredients. Ful medames is traditionally made in and served out of a large metal jug. It is notably a staple food in Egypt and is considered a national dish, especially in the northern cities of Cairo and Gizah. Ful medames is also a common part of the cuisines of many Arab, Middle Eastern, and North African cuisines.'
+//   },
+//   SR: {
+//     dishName: 'Pom',
+//     link: 'https://jiriecaribbean.com/pom-national-dish-of-suriname/',
+//     description: 'Within the Surinamese community, in both Suriname and The Netherlands, pom is the most popular and best known festive dish. The basic preparation method is sautéed chicken pieces between two layers of raw, grated pomtajer, mixed with citrus juice and a sauce made from oil or margarine, onions, tomatoes, salt, pepper and nutmeg, baked in an oven until the pom becomes golden brown.'
+//   },
+//   SE: {
+//     dishName: 'Kottbullar',
+//     link: 'https://www.all-thats-jas.com/swedish-meatballs-recipe/',
+//     description: 'In Sweden, meatballs are called köttbullar (literally "meat buns"). They come in a few different types, all typically small, and the international influence is great, perhaps the greatest from Sweden and Spain. They are usually eaten with potatoes. Some common additions are vegetables, ketchup, spices, etc. They are made with ground beef or a mix of ground beef, pork and sometimes veal or venison, finely chopped (fried) onions, some broth, often with cream and sometimes with breadcrumbs soaked in milk. They are seasoned with white pepper and salt and sometimes allspice and herbs. Swedish meatballs are traditionally served with gravy, boiled or mashed potatoes, lingonberry jam, and sometimes pickled cucumber. Traditionally, they are small, around 2–4 centimetres (0.79–1.57 in) in diameter, though larger meatballs are often served at restaurants.'
+//   },
+//   CH: {
+//     dishName: 'Fondue',
+//     link: 'xxx',
+//     description: 'Fondue is a Swiss melted cheese dish served in a communal pot (caquelon or fondue pot) over a portable stove heated with a candle or spirit lamp, and eaten by dipping bread into the cheese using long-stemmed forks. It was promoted as a Swiss national dish by the Swiss Cheese Union (Schweizerische Käseunion) in the 1930s, and was popularized in North America in the 1960s'
+//   },
+//   SY: {
+//     dishName: 'Kibbeh',
+//     link: 'https://www.middleeasteye.net/discover/food-recipe-how-make-kibbeh-croquette-fried-aleppo-syria',
+//     description: 'Kibbeh is a family of dishes based on spiced ground meat, onions, and grain, popular in Middle Eastern cuisine. In Levantine cuisine, kibbeh is usually made by pounding bulgur wheat together with meat into a fine paste and forming it into balls with toasted pine nuts and spices. It may also be layered and cooked on a tray, deep-fried, grilled, or served raw. In Mesopotamian cuisine, versions with rice or farina are found. Some recipes add semolina. Kibbeh is considered to be a national dish of Syria, Lebanon and especially in Aleppo, and is a popular dish in the Middle East for example in Lebanon, Palestine, Jordan, etc.'
+//   },
+//   TW: {
+//     dishName: 'Beef Noodle Soup',
+//     link: 'https://thewoksoflife.com/taiwanese-beef-noodle-soup-instant-pot/',
+//     description: 'Taiwanese beef noodle soup is a noodle soup dish originating from Taiwan. The beef is often stewed with the broth and simmered, sometimes for hours. Chefs also let the stock simmer for long periods with bone marrow; some vendors can cook the beef stock for over 24 hours. In Taiwan, beef noodle vendors may also have optional, often cold side dishes, such as braised dried tofu, seaweed or pork intestine. Beef noodles are often served with suan cai (Chinese sauerkraut) on top, green onion and sometimes other vegetables in the soup as well.'
+//   },
+//   TJ: {
+//     dishName: "O'sh",
+//     link: 'https://www.international-alert.org/news/recipes-peace-plov-tajikistan',
+//     description: 'Central Asian osh differs from other preparations in that rice is not steamed, but instead simmered in a rich stew of meat and vegetables called zirvak, until all the liquid is absorbed into the rice. A limited degree of steaming is commonly achieved by covering the pot. It is usually cooked in a kazon (or deghi) over an open fire. The cooking tradition includes many regional and occasional variations. Commonly, it is prepared with lamb, browned in lamb fat or oil, and then stewed with fried onions, garlic and carrots. Chicken palov is rare but found in traditional recipes originating in Bukhara. Palov is usually spiced with whole black cumin, coriander, barberries, red pepper, marigold, and pepper. Heads of garlic and chickpeas are buried into the rice during cooking. Sweet variations with dried apricots, cranberries and raisins are prepared on special occasions.'
+//   },
+//   TZ: {
+//     dishName: 'Ugali & Maharage',
+//     link: 'https://ingmar.app/blog/recipe-the-national-dish-of-tanzania-ugali-na-maharage-ya-nazi/',
+//     description: 'Ugali, or sima, is a type of stiff maize flour porridge made in Africa. It is also known as vuswa, bogobe, fufu, gauli, gima, isitshwala, kimnyet, kuon, mieliepap, ngima, nshima, obokima, ovuchima, (o)busuma, oshifima, oruhere, pap, phutu, posho, sadza, ubugali, and umutsima, among other names. Sima is sometimes made from other flours, such as millet or sorghum flour, and is sometimes mixed with cassava flour. It is cooked in boiling water or milk until it reaches a stiff or firm dough-like consistency. Maharage ya nazi/ kidney beans in coconut milk is a popular Swahili dish which is made from kidney beans,  simple spices, tomatoes and coconut milk.  In the Kiswahili language maharage/maharagwe is kidney beans and nazi is coconut.'
+//   },
+//   TH: {
+//     dishName: 'Pad Thai',
+//     link: 'https://hot-thai-kitchen.com/pad-thai/',
+//     description: "Pad thai, phat thai, or phad thai, is a stir-fried rice noodle dish commonly served as a street food in Thailand as part of the country's cuisine. It is typically made with rice noodles, shrimp, peanuts, a scrambled egg, and bean sprouts, among other vegetables. The ingredients are fried in a wok."
+//   },
+//   TG: {
+//     dishName: 'Ablo & Togolese Chicken',
+//     link: 'https://ethnicfoodsrus.com/around-the-world-recipes/african-cuisine/togolese-cuisine/ablo/',
+//     description: 'Chicken recipes are plentiful in Togo; Grilled Togo Chicken is marinated with ginger, garlic, and onion. The dish often includes a dash of cayenne and red palm oil. Ablo are steamed West African rice cake made with rice flour, cornmeal, or both. They are traditionally served with grilled or fried chicken with tomato and onion sauce.'
+//   },
+//   TO: {
+//     dishName: 'Lu Pulu',
+//     link: 'https://cookinghawaiianstyle.com/lu-pulu/',
+//     description: 'Lu pulu is a traditional Tongan dish utilizing taro leaves, coconut milk, onions, tomatoes, and canned corned beef, which is usually imported from New Zealand. The ingredients are wrapped in taro leaves, and the whole concoction is then wrapped in aluminum foil or banana leaves and baked in an oven for about 2 hours. The dish should be served hot and paired with anything from rice to yams.'
+//   },
+//   TT: {
+//     dishName: 'Callaloo',
+//     link: 'https://cookingwithria.com/2011/10/trinidad-callaloo.html',
+//     description: 'Callaloo (sometimes kallaloo, calaloo, calalloo, or callalloo) is a popular Caribbean vegetable dish. There are many variants across the Caribbean, depending on the availability of local vegetables. The main ingredient is an indigenous leaf vegetable, traditionally either amaranth (known by many local names including callaloo), taro leaves (known by many local names, including dasheen bush, callaloo bush, callaloo, or bush) or Xanthosoma leaves (known by many names, including cocoyam & tannia). Trinbagonians, Grenadians and Dominicans primarily use taro/dasheen bush for callaloo, although Dominicans also use water spinach.'
+//   },
+//   TN: {
+//     dishName: 'Brik',
+//     link: 'https://www.ourtunisiantable.com/home/2017/6/17/tunisian-brik-with-egg',
+//     description: 'Brik is the north African version of borek, a stuffed filo pastry which is commonly deep fried. The best-known version is the egg brik, a whole egg in a triangular pastry pocket with chopped onion, tuna, harissa and parsley. With a slightly different shape, but with identical ingredients and method of preparation, the brik is known in Algeria and Libya as bourek (بوراك). Brik is also very popular in Israel, due to the large Tunisian Jewish population there. It is often filled with a raw egg and herbs or tuna, harissa and olives and is sometimes served in a pita. This is also known as a boreeka.'
+//   },
+//   TR: {
+//     dishName: 'Doner',
+//     link: 'https://agoodcarrot.com/chicken-doner-kebab-recipe/',
+//     description: 'Doner kebab is a type of kebab, made of meat cooked on a vertical rotisserie. Seasoned meat stacked in the shape of an inverted cone is turned slowly on the rotisserie, next to a vertical cooking element. The operator uses a knife to slice thin shavings from the outer layer of the meat as it cooks.  The sliced meat of a doner kebab may be served on a plate with various accompaniments, stuffed into a pita or other type of bread as a sandwich, or wrapped in a thin flatbread such as lavash or yufka, known as a dürüm (literally meaning roll or wrap in Turkish). Kadir Nurman in the early 1970s introduced the sandwich or wrap form, which has become popular around the world as a fast food dish sold by kebab shops, and is often called simply a "kebab". The sandwich generally contains salad or vegetables, which may include tomato, lettuce, cabbage, onion with sumac, fresh or pickled cucumber, or chili, and various types of sauces.'
+//   },
+//   TM: {
+//     dishName: 'Palaw',
+//     link: 'https://turkmenkitchen.com/en/2011/12/16/turkmen-pilaf/',
+//     description: 'Pilaf is a rice dish, or in some regions, a wheat dish, whose recipe usually involves cooking in stock or broth, adding spices, and other ingredients such as vegetables or meat, and employing some technique for achieving cooked grains that do not adhere'
+//   },
+//   UG: {
+//     dishName: 'Matoke',
+//     link: 'https://www.food.com/recipe/ugandan-matoke-235945',
+//     description: 'Matoke is a starchy triploid banana cultivar originating from the African Great Lakes. The fruit is harvested green, carefully peeled, and then cooked and often mashed or pounded into a meal. In Uganda and Rwanda, the fruit is steam-cooked, and the mashed meal is considered a national dish in both countries.'
+//   },
+//   UA: {
+//     dishName: 'Varenyky',
+//     link: 'http://www.allthingsukrainian.com/Recipe/Varenyky/VarenykyRecipe.html',
+//     description: 'Pierogi are filled dumplings made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water. They are often pan-fried before serving. Pierogi are associated with the cuisines of Central, Eastern and Southeastern Europe, though they most likely originated in China and came to Europe in the Middle Ages. Pierogi are also popular in modern-day American and Canadian cuisine, where they are sometimes known under different local names. Typical fillings include potato, cheese, quark, sauerkraut, ground meat, edible mushrooms, and/or fruits. Savoury pierogi are often served with a topping of sour cream, fried onions, or both. Among Ukrainians and the Ukrainian diaspora, they are known as varenyky.'
+//   },
+//   AE: {
+//     dishName: 'Harees',
+//     link: 'http://worldlocalfood.blogspot.com/2017/12/saudi-hareesa-recipe-saudi-local-food.html',
+//     description: 'Harees, Jareesh, boko boko, or harisa is a dish of boiled, cracked, or coarsely-ground wheat, mixed with meat and seasoned. It is often served during Ramadan, festivals such as Eid ul-Fitr, and at weddings.[6] In Lebanon, it is often cooked on religious occasions in a communal pot, such as in Ashura. Harise is also a common dish in Syrian cuisine and Iraqi cuisine.'
+//   },
+//   GB: {
+//     dishName: 'Fish & Chips',
+//     link: 'https://www.daringgourmet.com/fish-and-chips/',
+//     description: "Fish and chips is a popular hot dish consisting of fried fish in crispy batter, served with chips. The dish originated in England, where these two components had been introduced from separate immigrant cultures; it is not known who created the culinary fusion that became the emblematic British meal. Often considered Britain's national dish, fish and chips is a common take-away food in the United Kingdom and numerous other countries, particularly in English-speaking and Commonwealth nations."
+//   },
+//   UY: {
+//     dishName: 'Chivito',
+//     link: 'https://blog.amigofoods.com/index.php/other-latin-foods/chivito/',
+//     description: 'Chivito is the national dish of Uruguay. It is a thin slice of tender cooked beef steak (churrasco), with mozzarella, tomatoes, mayonnaise, black or green olives, and commonly also bacon, fried or hard-boiled eggs and ham, served as a sandwich in a bun, often accompanied by French fried potatoes. Other ingredients, such as red beets, peas, grilled or pan-fried red peppers, and slices of cucumber, may be added.'
+//   },
+//   UZ: {
+//     dishName: 'Tuy Palovi',
+//     link: 'https://ingmar.app/blog/recipe-the-national-dish-of-uzbekistan-tuy-palovi-wedding-plov/',
+//     description: `Uzbekistan's signature dish is palov (plov or osh or palov, "pilaf"), a main course typically made with rice, pieces of meat, grated carrots and onions. It is usually cooked in a kazan (or deghi) over an open fire; chickpeas, raisins, barberries, or fruit may be added for variation. Although often prepared at home for family and guests by the head of household or the housewife, palov is made on special occasions by the oshpaz, or the osh master chef, who cooks the national dish over an open flame, sometimes serving up to 1,000 people from a single cauldron on holidays or occasions such as weddings. Nahor oshi, or "morning plov", is served in the early morning (between 6 and 9 am) to large gatherings of guests, typically as part of an ongoing wedding celebration.`
+//   },
+//   VU: {
+//     dishName: 'Lap Lap',
+//     link: 'https://www.rpcvmadison.org/cpages/vanuatu-2015-recipes-lap-lap',
+//     description: 'Laplap is the national dish of Vanuatu. Laplap is prepared by grating breadfruit, bananas, taro or yam roots into a vegetable paste. The paste is then wrapped in banana leaves and cooked in an underground stone oven, with fresh coconut cream. Meats like pork, beef, chicken or flying fox can be added.'
+//   },
+//   VA: {
+//     dishName: 'Fettuccini alla Papalina',
+//     link: 'https://memoriediangelina.com/2009/07/06/fettuccine-alla-papalina/',
+//     description: 'Fettuccine alla papalina, or “Fettuccine for the Pope”, is an upscale reinterpretation of the earthy spaghetti alla carbonara. The story goes that the dish was prepared for a certain Cardinal Pacelli, soon to become Pope Pius XII, who had asked the owner of a restaurant in the Borgo (the area of Rome that lies between the Vatican and the Tiber River) to make him a more delicate version of the classic Roman dish. So the restauranteur came up with this more refined dish, substituting fettuccine for the usual spaghetti, prosciutto for the guanciale, Parmesan for the pecorino, and adding a splash of cream.'
+//   },
+//   VE: {
+//     dishName: 'Pabellon Criollo',
+//     link: 'https://venezuelancooking.wordpress.com/2011/12/14/recipe-pabellon-criollo/',
+//     description: 'Pabellón criollo is a traditional Venezuelan dish, the local version of the rice and beans combination found throughout the Caribbean. It is a plate of rice, shredded beef in stew and stewed black beans.'
+//   },
+//   VN: {
+//     dishName: 'Pho',
+//     link: 'https://leitesculinaria.com/36506/recipes-pho-noodle-soup.html',
+//     description: "Phở or pho is a Vietnamese soup dish consisting of broth, rice noodles (bánh phở), herbs, and meat (usually beef (phở bò), sometimes chicken (phở gà)). Pho is a popular food in Vietnam where it is served in households, street stalls and restaurants countrywide. Pho is considered Vietnam's national dish."
+//   },
+//   YE: {
+//     dishName: 'Saltah',
+//     link: 'http://www.shebayemenifood.com/content/fahsa-saltah',
+//     description: 'Saltah is a traditional Yemeni dish. In the Ottoman Empire saltah was used as a charitable food, and was made with left over food that was donated by the wealthy or the mosques. It is widely eaten in northern parts of the country. It is mainly served for lunch. The base is a brown meat stew called maraq, a dollop of fenugreek froth, and sahawiq (a mixture of chillies, tomatoes, garlic, and herbs ground into a salsa). Rice, potatoes, scrambled eggs, and vegetables are common additions to saltah. It is eaten traditionally with khubz mulawah, which is a Yemeni flat bread, and it is used as a utensil to scoop up the dish. Saltah is an old Yemeni dish that some say is thousands of years old.'
+//   },
+//   ZM: {
+//     dishName: 'Ndiwo & Nshima',
+//     link: 'https://wp.bridgewater.edu/mtembo/zambian-foods/nshima-and-ndiwo/',
+//     description: 'Nshima is the staple food eaten by not only Zambians but Malawians and many other African neighbors. It is a food cooked from plain maize or corn meal or maize flour known as mealie-meal among Zambians. One of the most significant aspects of the Zambian staple meal by which the nshima is ultimately identified with what in English might be called the “relish”. The relish is an English and somewhat poor equivalent or translation, which obviously, does not precisely reflect or capture what Zambians often realize is the very fundamental and transcending essence of the dish. The relish is a second dish that is always and without exception served with the nshima.  The ndiwo second dish which is always served with nshima is often cooked from domestic and wild meats that include beef, goat, mutton, deer, buffalo, elephant, warthog, wild pig, mice, rabbits or hare, antelope, turtle, alligator or crocodile, monkey, chicken eggs. Green vegetables include domestic or garden grown like collard greens, cabbage, pumpkin and squash leaves, pea leaves, cassava leaves, bean leaves, kabata, nyazongwe, or bilozongwe leaves. T'
+//   }
+// }
+        
+        // values: {
+        //     AF: {dishName: "Kabuli Pulao", link: "http://www.rehanadujour.com/2014/06/19/the-dance-of-the-kabuli-pulao/"},
+        //     AL: {dishName: "Tave Kosi", link: "https://www.myalbanianfood.com/recipe/albanian-tave-kosi/"},
+        //     AO: {dishName: "Muamba de Galinha", link: "https://www.conjuredcravings.com/post/muamba-de-galinha-angolan-chicken-stew"},
+        //     AT: {dishName: "Weiner Schnitzel", link: "https://www.strudelandschnitzel.com/wiener-schnitzel/?cn-reloaded=1"},
+        //     AU: {dishName: "Pavlova", link: "https://www.wandercooks.com/easy-australian-pavlova-recipe/"},
+        //     AZ: {dishName: "Dolmas", link: "https://azcookbook.com/2017/09/15/stuffed-grape-leaves/"},
+        //     BE: {dishName: "Moules Frites", link: "https://www.abeautifulplate.com/classic-moules-frites/"},
+        //     BF: {dishName: "Riz Gras", link: "https://allafricandishesng.blogspot.com/2016/11/burkina-faso-recipes-riz-gras-fat-rice.html"},
+        //     BG: {dishName: "Banitsa", link: "https://tarasmulticulturaltable.com/banitsa-bulgarian-cheese-pie/"},
+        //     BH: {dishName: "Machboos", link: "https://www.daringgourmet.com/chicken-machboos-bahraini-chicken-rice/"},
+        //     BO: {dishName: "Saltenas", link: "https://www.mylatinatable.com/bolivian-saltenas/"},
+        //     BR: {dishName: "Feijoada", link: "https://www.oliviascuisine.com/feijoada-recipe/"},
+        //     BS: {dishName: "Crack Conch", link: "https://www.trubahamianfoodtours.com/tru-bahamian-must-eats/cracked-conch/"},
+        //     BT: {dishName: "Ema Datshi", link: "https://www.internationalcuisine.com/ema-datshi/"},
+        //     BW: {dishName: "Seswaa", link: "https://afrogistmedia.com/seswaa-recipebotswana-pounded-meat/"},
+        //     BY: {dishName: "Draniki", link: "https://www.belarus.by/en/about-belarus/cuisine/draniki"},
+        //     BZ: {dishName: "Boil Up", link: "https://www.theellysian.com/blog/how-to-make-belizean-boil-up/"},
+        //     CD: {dishName: "Poulet à la Moambé", link: "https://www.epersianfood.com/moambe/"},
+        //     CF: {dishName: "Fufu", link: "https://www.preciouscore.com/water-fufu-cassava-fufu/"},
+        //     CG: {dishName: "Chicken Moambe", link: "https://explorers.kitchen/recipes/mains/moambe-chicken/"},
+        //     CL: {dishName: "Empanadas", link: "https://www.chileanfoodandgarden.com/chilean-beef-empanadas/"},
+        //     CR: {dishName: "Gallo Pinto", link: "https://www.puravidamoms.com/costa-rican-gallo-pinto-recipe/"},
+        //     CU: {dishName: "Ropa Vieja", link: "https://www.cocoandash.com/ropa-vieja-cuban-shredded-beef-2/"},
+        //     CY: {dishName: "Souvla", link: "https://costaskitchen.co.uk/lamb-souvla-cypriot-lamb-cooked-on-the-bbq/"},
+        //     CZ: {dishName: "Vepro Knedlo Zelo", link: "https://www.cooklikeczechs.com/vepro-knedlo-zelo/"},
+        //     DJ: {dishName: "Skoudehkaris", link: "https://www.marga.org/food/int/djibouti/lamb.html"},
+        //     DK: {dishName: "Stegt Flaesk", link: "https://www.copenhagenet.dk/CPH-Map/CPH-Recipes-Stegt-Flaesk.asp"},
+        //     DO: {dishName: "La Bandera", link: "https://www.dominicancooking.com/17570-la-bandera-dominicana-our-traditional-lunch-meal.html"},
+        //     DZ: {dishName: "Cous Cous", link: "https://www.confessionsofaconfectionista.com/2011/12/algerian-couscous-with-vegetables.html"},
+        //     EC: {dishName: "Encebollada", link: "https://www.laylita.com/recipes/encebollado-de-pescado-or-tuna-soup/"},
+        //     EG: {dishName: "Ful Medames", link: "https://www.themediterraneandish.com/foul-mudammas-recipe/"},
+        //     ER: {dishName: "Zigni and Injera", link: "http://www.eastafro.com/2013/12/30/zigni-and-injera/"},
+        //     ES: {dishName: "Tortilla Espanola", link: "https://spanishsabores.com/best-spanish-omelet-recipe/"},
+        //     FI: {dishName: "Karjalanpaisti", link: "https://www.europeancuisines.com/Finland-Finnish-Karelian-Ragout-Karjalan-Paisti-Beef-Lamb-Pork-Slow-Cook-Stew-Recipe"},
+        //     FJ: {dishName: "Kokoda", link: "https://www.thisislandlife.com/travel/how-to-make-kokoda-recipe/"},
+        //     FR: {dishName: "Pot-Au-Feu", link: "https://www.jamesbeard.org/recipes/pot-au-feu"},
+        //     GB: {dishName: "Fish & Chips", link: "https://www.daringgourmet.com/fish-and-chips/"},
+        //     GE: {dishName: "Khachapuri", link: "https://www.kingarthurbaking.com/recipes/khachapuri-georgian-feast-bread-recipe"},
+        //     GH: {dishName: "Fufu", link: "https://cheflolaskitchen.com/plantain-fufu/"},
+        //     GM: {dishName: "Benachin", link: "http://www.mygambiankitchen.com/benachin-jen/"},
+        //     GN: {dishName: "Chicken Yassa", link: "https://www.africanbites.com/yassa-chickenpoulet-au-yassa/"},
+        //     GQ: {dishName: "Succotash", link: "https://naptimeprepcook.wordpress.com/2018/10/02/equatorial-guinea-%F0%9F%87%AC%F0%9F%87%B6-succotash/"},
+        //     GW: {dishName: "Jollof Rice", link: "https://cooking.nytimes.com/recipes/1018069-jollof-rice"},
+        //     HN: {dishName: "Baleadas", link: "https://www.onehappyhousewife.com/honduran-baleadas/"},
+        //     HT: {dishName: "Rice and Beans", link: "http://loveforhaitianfood.com/diri-kole-ak-pwa-wouj-red-beans-and-rice-2/"},
+        //     HU: {dishName: "Goulash", link: "https://www.spendwithpennies.com/hungarian-goulash/"},
+        //     ID: {dishName: "Soto", link: "https://glebekitchen.com/soto-ayam-indonesian-chicken-noodle-soup/"},
+        //     IE: {dishName: "Irish Stew", link: "https://www.simplyrecipes.com/recipes/irish_beef_stew/"},
+        //     IQ: {dishName: "Masgouf", link: "https://cardamomandtea.com/341/masgouf/"},
+        //     IR: {dishName: "Abgoosht", link: "https://www.welcometoiran.com/abgousht-qonabid-qonabid-broth/"},
+        //     IT: {dishName: "Pasta", link: ""},
+        //     KG: {dishName: "Beshbarmak", link: "https://ingmar.app/blog/recipe-the-national-dish-of-kyrgyzstan-besh-barmak/"},
+        //     KW: {dishName: "Machboos", link: "https://ingmar.app/blog/recipe-national-dish-of-kuwait-machboos-laham/"},
+        //     KZ: {dishName: "Beshbarmak", link: "https://foodperestroika.com/2015/11/09/beshbarmak-kazakhstans-national-dish/"},
+        //     LI: {dishName: "Kasknopfle", link: "https://ethnicfoodsrus.com/around-the-world-recipes/smallest-countries-worldwide-cuisines/liechtensteiner-cuisine/tri-cheese-pasta-with-onion-kasknopfle/"},
+        //     LK: {dishName: "Rice and Curry", link: "https://www.theflavorbender.com/sri-lankan-chicken-curry/#wprm-recipe-container-22262"},
+        //     LS: {dishName: "Chakalaka", link: "https://www.africanbites.com/chakalaka/"},
+        //     LT: {dishName: "Cepelinai", link: "http://lithuanianhomecooking.com/home/time-for-cepelinai"},
+        //     LV: {dishName: "Potato Panckes", link: "https://latvianmom.com/2017/06/17/savory-potato-pancakes/"},
+        //     LY: {dishName: "Bazeen", link: "http://libyanfood.blogspot.com/2010/08/bazeen.html"},
+        //     MA: {dishName: "Cous Cous", link: "https://tasteofmaroc.com/moroccan-couscous-with-seven-vegetables/"},
+        //     MD: {dishName: "Mamaliga", link: "https://www.bakespace.com/recipes/detail/Moldovan-Polenta-~Mamaliga~/64092/"},
+        //     ME: {dishName: "Kachamak", link: "https://www.soofoodies.com/recipe/kachamak-polenta/"},
+        //     MG: {dishName: "Romazava", link: "http://aroundtheblockwithjenni.com/blog/2020/5/15/traditional-malagasy-dish-romazava"},
+        //     MH: {dishName: "Macadamia Nut Pie", link: "https://goodfoodonbadplates.wordpress.com/2016/03/19/too-good-at-least-marshallese-macadamia-nut-pie/"},
+        //     MK: {dishName: "Tavce Gravce", link: "https://balkanlunchbox.com/pan-baked-beans-balkan-macedonian-baked-beans-tavce-gravce/"},
+        //     ML: {dishName: "Tiguadege Na", link: "https://diningforwomen.org/recipes/tiguadege-na-meat-in-peanut-sauce/"},
+        //     MT: {dishName: "Pastizzi", link: "http://tessavalletta.com/2016/04/maltese-pastizzi-recipe/"},
+        //     MW: {dishName: "Nisima", link: "https://www.openarmsmalawi.org/news/how-i-will-make-a-malawian-themed-meal"},
+        //     MX: {dishName: "Tacos", link: "https://www.mexicoinmykitchen.com/tacos-al-pastor/"},
+        //     MY: {dishName: "Nasi Lemak", link: "https://www.allrecipes.com/recipe/78938/malaysian-nasi-lemak/"},
+        //     MZ: {dishName: "Frango", link: "https://www.africanbites.com/mozambique-peri-peri-grill-chicken/"},
+        //     NA: {dishName: "Braai", link: "https://braai.com/namibian-chimichurri-steak/"},
+        //     NE: {dishName: "Djerma Stew", link: "https://whonomstheworld.com/blog/traditional-niger-style-djerma/"},
+        //     NG: {dishName: "Egusi & Fufu", link: "https://www.allnigerianrecipes.com/soups/egusi-soup/"},
+        //     NI: {dishName: "Gallo Pinto", link: "https://www.seriouseats.com/recipes/2012/05/gallopinto-nicaraguan-rice-and-beans-recipe.html"},
+        //     NL: {dishName: "Stamppot", link: "https://www.all-thats-jas.com/dutch-stamppot-vegetable-mash/"},
+        //     NO: {dishName: "Farikal", link: "https://northwildkitchen.com/farikal-norwegian-lamb-cabbage-stew/"},
+        //     NP: {dishName: "Dhal Bhat", link: "https://www.archanaskitchen.com/nepalese-style-dhal-bhat-recipe"},
+        //     NR: {dishName: "Coconut Fried Fish", link: "https://www.internationalcuisine.com/nauru-coconut-crusted-fish/"},
+        //     NZ: {dishName: "Bacon and Egg Pie", link: "https://eggs.org.nz/recipes/classic-bacon-egg-pie/"},
+        //     OM: {dishName: "Shuwa", link: "https://www.thasneen.com/cooking/shuwa-slow-cooked-lamb-served-over-aromatic-basmati-rice-omani-delicacy/"},
+        //     PA: {dishName: "Sancocho", link: "https://www.centralamerica.com/experiencing/eating/panamanian-sancocho-recipe/"},
+        //     PE: {dishName: "Ceviche", link: "https://www.laylita.com/recipes/peruvian-fish-cebiche-or-ceviche/"},
+        //     PG: {dishName: "Mumu", link: "https://www.coffeeandvanilla.com/papuan-new-guinean-mumu/"},
+        //     PH: {dishName: "Adobo", link: "https://panlasangpinoy.com/filipino-chicken-adobo-recipe/"},
+        //     PK: {dishName: "Seekh Kebab", link: "http://rookiewithacookie.com/pakistani-seekh-kebab-yogurt-raita/"},
+        //     PY: {dishName: "Sopa Paraguaya", link: "https://www.all-thats-jas.com/paraguayan-cornbread/"},
+        //     QA: {dishName: "Machboos", link: "https://dohafamily.com/healthy_living/a-taste-of-qatar-chicken-machboos-recipe/"},
+        //     RO: {dishName: "Mamaliga", link: "https://www.jocooks.com/recipes/traditional-romanian-polenta-mamaliga-cu-branza-in-paturi/"},
+        //     RS: {dishName: "Cevapcici", link: "https://belgradeatnight.com/how-to-make-cevapicevapcici-recipe/"},
+        //     RU: {dishName: "Borscht", link: "https://www.willcookforsmiles.com/russian-borscht-recipe/"},
+        //     RW: {dishName: "Ugali", link: "http://africanproject.weebly.com/food.html"},
+        //     SB: {dishName: "Poi", link: "https://nationalfoods.org/recipe/national-dish-of-solomon-islands-poi/"},
+        //     SD: {dishName: "Ful Medames", link: "https://tasteofsouthsudan.com/ful-medames-sudanese-fava-beans/"},
+        //     SE: {dishName: "Kottbullar", link: "https://www.all-thats-jas.com/swedish-meatballs-recipe/"},
+        //     SM: {dishName: "Torta Tre Monti", link: "https://www.rosacooking.com/en/waffle-cakes-from-san-marino/"},
+        //     SV: {dishName: "Pupusa", link: "https://tasty.co/recipe/salvadoran-pupusas-as-made-by-curly-and-his-abuelita"},
+        //     SY: {dishName: "Kibbeh", link: "https://www.middleeasteye.net/discover/food-recipe-how-make-kibbeh-croquette-fried-aleppo-syria"},
+        //     TD: {dishName: "Boule & Daraba", link: "https://www.gourmetvegetarians.com/creamy-peanut-vegetable-stew-daraba-chad/"},
+        //     TG: {dishName: "Ablo & Togolese Chicken", link: "https://ethnicfoodsrus.com/around-the-world-recipes/african-cuisine/togolese-cuisine/ablo/"},
+        //     TJ: {dishName: "O'sh", link: "https://www.international-alert.org/news/recipes-peace-plov-tajikistan"},
+        //     TM: {dishName: "Palaw", link: "https://turkmenkitchen.com/en/2011/12/16/turkmen-pilaf/"},
+        //     TN: {dishName: "Cous Cous", link: "https://forward.com/food/452234/my-aunts-tunisian-couscous-with-beef-i-tweetyourshabbat/"},
+        //     TR: {dishName: "Doner", link: "https://agoodcarrot.com/chicken-doner-kebab-recipe/"},
+        //     TZ: {dishName: "Ugali & Maharage", link: "https://ingmar.app/blog/recipe-the-national-dish-of-tanzania-ugali-na-maharage-ya-nazi/"},
+        //     UG: {dishName: "Matoke", link: "https://www.food.com/recipe/ugandan-matoke-235945#activity-feed"},
+        //     UY: {dishName: "Chivito", link: "https://blog.amigofoods.com/index.php/other-latin-foods/chivito/"},
+        //     UZ: {dishName: "Tuy Palovi", link: "https://ingmar.app/blog/recipe-the-national-dish-of-uzbekistan-tuy-palovi-wedding-plov/"},
+        //     VA: {dishName: "Fettuccini alla Papalina", link: "https://memoriediangelina.com/2009/07/06/fettuccine-alla-papalina/"},
+        //     VE: {dishName: "Pabellon Criollo", link: "https://venezuelancooking.wordpress.com/2011/12/14/recipe-pabellon-criollo/"},
+        //     VU: {dishName: "Lap Lap", link: "https://www.rpcvmadison.org/cpages/vanuatu-2015-recipes-lap-lap"},
+        //     YE: {dishName: "Kabsa", link: "https://amiraspantry.com/chicken-saudi-kabsa/"},
+        //     YE: {dishName: "Kabsa", link: "https://www.shibam.com/recipes/yemeni-food-kabsa/"},
+        //     ZA: {dishName: "Bobotie", link: "https://drizzleanddip.com/2018/09/26/traditional-south-african-bobotie-with-fragrant-yellow-rice/"},
+        //     ZW: {dishName: "Sadza & Dovi", link: "https://www.zimbokitchen.com/how-to-make-plain-sadza/"},
+
+        // }
+        // link: 'https://cssscript.com',
+        // linkTarget: '_blank'
+    }
+  });
+    </script>
+</body>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style 8.css">
+</head>
+<body>
+    <script src="donate.js"></script>
+
+    <div class="title-container">
+        <img src="Images/World Map Spices 2.jpg" class="title-image">
+        <h1 class="title">Around the World in 197 Plates</h1>
+    </div>
+    <nav class="navigation">
+      <ul class="nav-list">
+          <li class="nav-item">
+              <a class="nav-item-link" href="/index 3.html">Home</a>
+          </li>
+          <li class="nav-item">|</li>
+          <li class="nav-item">
+              <a class="nav-item-link" href="#">Donate</a>
+          </li>
+          <li class="nav-item">|</li>
+          <li class="nav-item">
+              <a class="nav-item-link" href="/World Map test 7.html">World Recipe Map</a>
+          </li>
+          <li class="nav-item">|</li>
+          <li class="nav-item">
+              <a class="nav-item-link" href="/recipe search 7.html">Recipe Search</a>
+          </li>
+      </ul>
+  </nav>
+
+    <div class="donatePage-container">
+        <div class="donatePage-container-left">
+          <img src="/Images/Donate page.jpg" class="donate-page-image">
+            <p class="donate-page-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dicta dolor laborum atque excepturi optio natus expedita nulla tempora similique. Quisquam a vero, esse quos unde delectus neque enim deserunt dicta explicabo consequuntur, itaque eveniet dolorem cupiditate id quae numquam laboriosam. Error fugiat nesciunt quaerat eveniet quisquam doloremque. Dolor, quisquam!
+            </p>
+        </div>
+        <div class="donatePage-container-right">
+            <div class="donate-page-inputs">
+                <form action="http://localhost/donate.php" id="form" method="post">
+                    <!-- <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"><br><br> -->
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email"><br><br>
+                    <label for="confirm-email">Confirm Email:</label>
+                    <input type="email" id="confirm-email" name="confirm-email"><br><br>
+                    <p id="email-check">Please enter valid matching emails</p>
+                    <input type="hidden" id="date" name="date">
+                    <!-- <input type="submit" value="Submit"> -->
+                </form>
+            </div>
+            <div id="smart-button-container" class="smart-button-container">
+                <!-- <div style="text-align: center;"> -->
+                  <div id="paypal-button-container" class="paypal-button-container"></div>
+                <!-- </div> -->
+              </div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVqIpbD_e1mtD5wX_7ViMa0MYHrEbr9ihxWXZbV8WD6qsz1I5vjANhh-o5jrCFBNxoU56S-NocyhU0UG&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+        let today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
+        today = yyyy + `-` + mm + `-` + dd;
+        document.getElementById("date").value = today;
+
+        // console.log(today);
+        // console.log(Date.getf);
+        const email = document.getElementById("email");
+        const confirmEmail = document.getElementById("confirm-email");
+
+        // email.addEventListener("input", () => {
+        //     if (validateEmails(document.getElementById("email").value, document.getElementById("confirm-email").value)) {
+        //         document.getElementById("email-check").innerHTML = "";
+        //     }
+        //     else {
+        //         document.getElementById("email-check").innerHTML = "Please enter valid matching emails";
+        //     }
+        // });
+        // confirmEmail.addEventListener("input", () => {
+        //     if (validateEmails(document.getElementById("email").value, document.getElementById("confirm-email").value)) {
+        //         document.getElementById("email-check").innerHTML = "";
+        //     }
+        //     else {
+        //         document.getElementById("email-check").innerHTML = "Please enter valid matching emails";
+        //     }
+        // });
+
+        function initPayPalButton() {
+        paypal.Buttons({
+            style: {
+            shape: 'pill',
+            color: 'blue',
+            layout: 'vertical',
+            label: 'donate',
+            
+            },
+            
+            onInit: function(data, actions) {
+                actions.disable();
+                email.addEventListener("input", () => {
+                    if (validateEmails(document.getElementById("email").value, document.getElementById("confirm-email").value)) {
+                        document.getElementById("email-check").innerHTML = "";
+                        actions.enable();
+                    }
+                    else {
+                        document.getElementById("email-check").innerHTML = "Please enter valid matching emails";
+                        actions.disable();
+                    }
+                });
+                confirmEmail.addEventListener("input", () => {
+                    if (validateEmails(document.getElementById("email").value, document.getElementById("confirm-email").value)) {
+                        document.getElementById("email-check").innerHTML = "";
+                        actions.enable();
+                    }
+                    else {
+                        document.getElementById("email-check").innerHTML = "Please enter valid matching emails";
+                        actions.disable();
+                    }
+                });
+            },
+
+            createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{"description":"Access to recipe search with $25 donation.","amount":{"currency_code":"USD","value":25,"breakdown":{"item_total":{"currency_code":"USD","value":25}}},"items":[{"name":"item name","unit_amount":{"currency_code":"USD","value":25},"quantity":"1","category":"DONATION"}]}]
+            });
+            },
+    
+            onApprove: function(data, actions) {
+                document.getElementById("form").submit();
+
+                return actions.order.capture().then(function(orderData) {
+                
+                // Full available details
+                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+    
+                // Show a success message within this page, e.g.
+                const element = document.getElementById('paypal-button-container');
+                element.innerHTML = '';
+                element.innerHTML = '<h3>Thank you for your donation!</h3>';
+    
+                // Or go to another URL:  actions.redirect('thank_you.html');
+                
+            });
+            },
+    
+            onError: function(err) {
+            console.log(err);
+            }
+        }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+</body>
