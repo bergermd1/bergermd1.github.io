@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<?php
+    $con = new mysqli("localhost", "test", "test", "emails");
+    if (!$con) {
+        echo "failed to connect";
+        die($con);
+    } else {
+        echo "connection successful";
+    }
+?>
+
+<head>
+    <link rel="stylesheet" href="style 9.css">
+</head>
+<body>
+    <script src="./recipe search 6.5.js"></script>
+    <!-- <script src="./recipe search/ingredient search.js"></script> -->
+
+    <div class="title-container">
+        <img src="Images/World Map Spices 2.jpg" class="title-image">
+        <h1 class="title">Around the World in 197 Plates</h1>
+    </div>
+    <nav class="navigation">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a class="nav-item-link" href="/index 3.html">Home</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a class="nav-item-link" href="/donate 3.html">Donate</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a class="nav-item-link" href="/World Map test 7.html">World Recipe Map</a>
+            </li>
+            <li class="nav-item">|</li>
+            <li class="nav-item">
+                <a class="nav-item-link" href="#">Recipe Search</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- <input type="text" id="searchbox"> -->
+    <!-- <button onclick="search()">Search</button> -->
+    <div class="search-box-selected-ingredient-container">
+        <div class="check-box-searchbox-wrapper">
+            <div class="dietary-check-box-container">
+                <div class="dietary-check-box">
+                    <input type="checkbox" id="GF-check-box" name="GF-check-box">
+                    <label for="GF-check-box">Gluten-free</label>
+                </div>
+                <div class="dietary-check-box">
+                    <input type="checkbox" id="vegetarian-check-box" name="vegetarian-check-box">
+                    <label for="vegetarian-check-box">Vegetarian</label>
+                </div>
+                <div class="dietary-check-box">
+                    <input type="checkbox" id="vegan-check-box" name="vegan-check-box">
+                    <label for="vegan-check-box">Vegan</label>
+                </div>
+            </div>
+            <div class="search-box-container">
+                <input id="searchbox" class="search-box" placeholder="Enter an ingredient...">
+                <div class="search-left-panel" id="search-left-panel">
+                    <p id="ingredient-results"></p>
+                </div>
+            </div>
+        </div>
+        <div class="selected-ingredients-container-wrapper">
+            <div class="selected-ingredients-container" id="selected-ingredients">
+            </div>
+        </div>
+    </div>
+    <div class="search-container">
+        <div class="search-right-panel">
+            <div class="log-in-dialog">
+                <input id="password" placeholder="Password...">
+                <button id="password-submit">Submit</button>
+                <span>&nbsp&nbsp&nbsp&nbsp</span>
+                <span class="search-result-text" id="search-result-text"></span>
+            </div>
+            <div class="country-results-container" id="country-results-container"></div>
+        </div>
+    </div>
+    <!-- <br><br><br> -->
+
+    <script>
+        let checkedIngredients = [];
+        let checkedDietaryBoxes = [0,0,0];
+
+        //initialize  all ingredient checkbox results and set display to none
+        document.getElementById('ingredient-results').innerHTML = getIngredientListHTML();
+        document.getElementById('GF-check-box').checked = false;
+        document.getElementById('GF-check-box').addEventListener('change', () => {
+                checkedDietaryBoxes[0] = (document.getElementById('GF-check-box').checked ? 1 : 0);
+                repaintCountryResults();
+        })
+        document.getElementById('vegetarian-check-box').checked = false;
+        document.getElementById('vegetarian-check-box').addEventListener('change', () => {
+                checkedDietaryBoxes[1] = (document.getElementById('vegetarian-check-box').checked ? 1 : 0);
+                repaintCountryResults();
+        })
+        document.getElementById('vegan-check-box').checked = false;
+        document.getElementById('vegan-check-box').addEventListener('change', () => {
+                checkedDietaryBoxes[2] = (document.getElementById('vegan-check-box').checked ? 1 : 0);
+                repaintCountryResults();
+        })
+        // blankIngredientSearchResults();
+        document.getElementById(`searchbox`).focus();
+        const searchbox = document.getElementById('searchbox');
+        const passwordSubmit = document.getElementById('password-submit');
+        // const result = document.getElementById('result');
+
+        //to update search results every time the input changes
+        searchbox.addEventListener('input', () => {
+            searchIngredients();
+            if (!searchbox.value) {
+                blankIngredientSearchResults();
+            }
+            if (getIngredientSearchResults(document.getElementById('searchbox').value).length == 0 || !searchbox.value) {
+                document.getElementById(`search-left-panel`).style.display = "none";
+            }
+            else {
+                document.getElementById(`search-left-panel`).style.display = "block";
+            }
+        });
+        passwordSubmit.addEventListener('click', tryLogIn);
+
+        function tryLogIn() {//check password and repaint search results
+            checkPassword(document.getElementById('password').value);
+            repaintCountryResults();
+        }
+
+        // const results = getIngredientSearchResults(document.getElementById('searchbox').value);
+        //     results.forEach(element => {
+        //         document.getElementById(`ingredient-list-${element}`).style.display = "inline-block"; 
+        //     });
+        
+        function repaintCountryResults() {
+            // console.log(checkedDietaryBoxes);
+            const countCountryPairs = getCountriesFromIngredients(checkedIngredients, checkedDietaryBoxes);
+            document.getElementById('country-results-container').innerHTML = getSearchResultHTML(countCountryPairs);
+            let countries = getCountryResults(countCountryPairs);
+            countries.forEach(country => {
+                // console.log(country);
+                document.getElementById(`${country}-result-card`).addEventListener("mouseover", () => makeIngredientsBold(arrayIntersect(getCheckedIngredients(), getIngredientsFromCountry(country))));
+                document.getElementById(`${country}-result-card`).addEventListener("mouseleave", () => makeIngredientsNotBold());
+            })
+            // document.getElementById('search-result-text').innerHTML = `Number of search results: ${countryList.length}`;
+        }
+
+        function makeIngredientsBold(ingredients) {
+            ingredients.forEach((ingredient) => {
+                document.getElementById(`${ingredient}SearchResult`).style.backgroundColor = "rgb(220, 193, 72)";
+            })
+        }
+
+        function makeIngredientsNotBold() {
+            getCheckedIngredients().forEach((ingredient) => {
+                document.getElementById(`${ingredient}SearchResult`).style.backgroundColor = "rgb(248, 248, 209)";
+            })
+        }
+
+        function deselectIngredient(ingredient) {
+            //document.getElementById(`ingredient-list-${ingredient}`).style.display = "inline-block";
+            checkedIngredients = checkedIngredients.filter(value => value != ingredient);
+            document.getElementById('selected-ingredients').innerHTML = getSelectedIngredientsHTML(checkedIngredients);
+            checkedIngredients.forEach(ingredient => {
+                    document.getElementById(`${ingredient}CloseBox`).addEventListener("click", () => {
+                        deselectIngredient(ingredient);
+                    });
+                });
+            repaintCountryResults();
+        }
+
+        getIngredientListArray().forEach(ingredient => {
+            document.getElementById(`ingredient-list-${ingredient}`).addEventListener('click', () => {
+                // document.getElementById(`ingredient-list-${ingredient}`).style.display = "none";
+                checkedIngredients.push(ingredient);
+                repaintCountryResults();
+                document.getElementById('selected-ingredients').innerHTML = getSelectedIngredientsHTML(checkedIngredients);
+                checkedIngredients.forEach(ingredient => {
+                    document.getElementById(`${ingredient}CloseBox`).addEventListener("click", () => {
+                        deselectIngredient(ingredient);
+                    });/////move this to getSelectedIngredientsHTML function via window.document...
+                });
+                document.getElementById(`searchbox`).value = "";
+                document.getElementById(`searchbox`).focus();
+                // const results = getIngredientSearchResults(document.getElementById('searchbox').value);
+                // results.forEach(element => {
+                //     document.getElementById(`ingredient-list-${element}`).style.display = "inline-block"; 
+                // });
+                //below has code to only remove ingredient from search results that was selected
+                // const results = getIngredientSearchResults(document.getElementById('searchbox').value);
+                // results.forEach(ingredient => {
+                //     if (!checkedIngredients.includes(ingredient)) {
+                //         document.getElementById(`ingredient-list-${ingredient}`).style.display = "inline-block"; 
+                //     }
+                // });
+                blankIngredientSearchResults();
+                document.getElementById(`search-left-panel`).style.display = "none";
+            })
+        })
+
+        function searchCountries() {
+            const results = getCountrySearchResults(document.getElementById('searchbox').value);
+        }
+
+        function blankIngredientSearchResults() {
+            getIngredientListArray().forEach(element => {
+                document.getElementById(`ingredient-list-${element}`).style.display = "none";
+                document.getElementById(`ingredient-list-container-${element}`).style.display = "none";
+            });
+        }
+
+        //display all ingredients that match current search input 
+        function searchIngredients() {
+            //blank all current search results
+            getIngredientListArray().forEach(element => {
+                document.getElementById(`ingredient-list-${element}`).style.display = "none";
+                document.getElementById(`ingredient-list-container-${element}`).style.display = "none";
+            });
+            //make visible only new search results
+            const results = getIngredientSearchResults(document.getElementById('searchbox').value);
+            results.forEach(ingredient => {
+                if (!checkedIngredients.includes(ingredient)) {
+                    // document.getElementById(`${element}checkbox`).style.display = "inline-block";
+                    document.getElementById(`ingredient-list-${ingredient}`).style.display = "inline-block";
+                    document.getElementById(`ingredient-list-container-${ingredient}`).style.display = "inline-block";
+                }
+            });
+        }
+
+        //return array of all currently checked ingredients
+        function getCheckedIngredients() {
+            return checkedIngredients;
+        }
+    </script>
+
+</body>

@@ -1,0 +1,376 @@
+.title-container {
+    border: solid thin;
+    height: 10em;
+    display: flex;
+}
+
+.title-image {
+    position: relative;
+    width: 100%;
+    max-height:10em;
+    opacity: .25;
+    object-fit: cover;
+}
+
+.title {
+    position: absolute;
+    left: 2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-self: center;
+}
+
+.navigation {
+    border: solid thin;
+    height: 2em;
+    background-color: rgb(248, 248, 209);
+    display: flex;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: .5em;
+    align-self: center;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-item-link:link, .nav-item-link:visited {
+    text-decoration: none rgb(248, 248, 209);
+}
+
+.nav-item-link:hover {
+    /* font-size: larger; */
+    text-decoration: underline rgb(220, 193, 72) 2px;
+    transition: text-decoration .4s;
+}
+
+.index-content-container {
+    display: flex;
+}
+
+.article-container {
+    display: inline-block;
+}
+
+/* .journey-container {
+    border: solid thin;
+    display: flex;
+    height: auto;
+    align-items: center;
+}
+
+.journey-text-container {
+    margin-left: 1em;
+}
+
+.journey-image {
+    height: 10em;
+    margin: 2em;
+} */
+
+.care-container {
+    border: solid thin;
+    display: flex;
+    height: auto;
+    align-items: center;
+    background-color:beige;
+}
+
+.care-text-container {
+    margin-right: 1em;
+    /* background-color: red; */
+}
+
+.care-image {
+    height: 10em;
+    margin: 2em;
+}
+
+.donate-container {
+    border: solid thin;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    background-color:beige;
+}
+
+.donate-text-container {
+    margin-left: 1em;
+}
+
+.donate-container-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.donate-button {
+    align-self: center;
+    width: 10em;
+}
+
+.food-image {
+    height: 10em;
+    margin: 2em;
+}
+
+/******* Donate Page *******/
+
+.donatePage-container {
+    display: flex;
+}
+
+.donatePage-container-left {
+    /* position: relative; */
+    width: 50%;
+    display: flex;
+    border: thin solid;
+}
+
+.donate-page-image {
+    width: 100%;
+    opacity: .25;
+    object-fit: cover;
+    position: relative;
+}
+
+.donate-page-text {
+    position: absolute;
+    width: 40%;
+    word-wrap: break-word;
+    margin: 2em;
+    align-self: center;
+}
+
+.donatePage-container-right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    border: thin solid;
+    background-color: beige;
+}
+
+.donate-page-inputs {
+    margin-top: 3em;
+}
+
+.smart-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.paypal-button-container {
+    margin: 1em;
+    width: 75%;
+}
+
+/****World Recipe Map****/
+
+.info-world-map-container {
+    position: relative;
+}
+
+.dish-info {
+    position: absolute;
+    display: inline-block;
+    width: 25%;
+    height: 32em;
+    font-size: 13px;
+}
+
+.world-map {
+    padding: 2px;
+    position: absolute;
+    left: 25%;
+    display: inline-block;
+    width: 75%;
+}
+
+/****Recipe Search****/
+
+.search-box-selected-ingredient-container {
+    border: thin solid;
+    height: 120px;
+}
+
+.check-box-searchbox-wrapper {
+    display: inline-block;
+}
+
+.dietary-check-box-container {
+    /* display: inline-block; */
+}
+
+.dietary-check-box {
+    margin-top: 30px;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+.search-box-container {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-left: 13px;
+    display: inline-block;
+    width: 300px;
+    /* border: thin solid; */
+}
+
+.search-box {
+    display: inline-block;
+    width: 280px;
+}
+
+.selected-ingredients-container-wrapper {
+    display: inline-block;
+    width: 70%;
+    margin: 10px;
+    /* border: thin solid; */
+    position: absolute;
+}
+
+.selected-ingredients-container {
+    /* border: thin solid; */
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 110px;
+    overflow: scroll;
+}
+
+.search-container {
+    display: flex;
+    border: thin solid;
+}
+
+.search-left-panel {
+    display: none;
+    border: thin solid;
+    width: 585px;
+    position: absolute;
+    /* height: 1000px; */
+    background-color:rgb(248, 248, 209);
+    z-index: 1;
+}
+
+.ingredient-list-entry-container {
+    border: thin solid;
+    margin: 4px;
+    border-radius: 16px;
+    padding:5px;
+}
+
+.ingredient-list-entry {
+    display: none;
+    cursor: pointer;
+}
+
+/* .search-center-panel {
+    padding-top: 15px;
+    display: flex;
+    border: thin solid;
+    width: 20%;
+    position: relative;
+    flex-direction: column;
+} */
+
+.search-center-panel > div {
+    margin-top: 1px;
+    margin: 1px;
+}
+
+.selected-ingredient-container {
+    border: solid thin;
+    /* width: auto; */
+    display: inline-block;
+    margin: 4px;
+    padding: 4px;
+    padding-right: 10px;
+    border-radius: 16px;
+    background-color:rgb(248, 248, 209);
+}
+
+.selected-ingredient-text {
+    display: inline;
+}
+
+.selected-ingredient-close {
+    display: inline;
+    border: solid thin;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* .selected-ingredients {
+    display: flex;
+} */
+
+.search-right-panel {
+    display: inline-block;
+    border: thin solid;
+    width: 100%;
+    height: 500px;
+    overflow: scroll;
+}
+
+.log-in-dialog {
+    border: black thin solid;
+}
+
+search-result-text {
+    text-align: right;
+}
+
+.country-results-container {
+    /* border: thin solid; */
+    /* display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    margin: .5em; */
+}
+
+.ingredient-match-count {
+    margin-left: 10px;
+}
+
+.country-results {
+    /* border: thin solid; */
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    margin: .5em;
+}
+
+.result-card {
+    border: thin solid;
+    padding-left: .5em;
+    padding-right: .5em;
+    margin: 0;
+    border-radius: .5em;
+    width: 14%;
+    background-color: rgb(246, 246, 201);
+    /* filter: blur(4px); */
+}
+
+.result-card:hover {
+    transform: scale(1.04,1.04);
+    transition: transform .1s;
+}
+
+.result-card-image {
+    width: 50px;
+    /* height: 50px; */
+}
+
+:root {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: beige;
+}
